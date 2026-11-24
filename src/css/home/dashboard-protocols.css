@@ -1,0 +1,30 @@
+/* A28 | Homepage: remove redundant hero, preserve the top navigation and all other views. */
+body[data-page="overview"] > .app-shell > .main-area > .hero {display:none!important}
+body[data-page="overview"] > .app-shell > .main-area > .main-scrollbox {padding-top:17px}
+/* SVG sectors keep the original donut dimensions without shifting card layout. */
+.protocol-pane .nc28-legend-column{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:9px}
+.protocol-pane .nc28-donut-segments{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1}
+.protocol-pane #donutChart{background:transparent;padding:14.75%;isolation:isolate;touch-action:manipulation;flex:none}
+.protocol-pane .donut-center{position:relative;z-index:2;pointer-events:none;min-width:0}
+.protocol-pane .donut-center strong{font-variant-numeric:tabular-nums;max-width:100%;font-size:24px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.protocol-pane .donut-center small{max-width:100%;font-size:8px;text-align:center;white-space:nowrap;letter-spacing:1.15px}
+.protocol-pane .nc28-donut-track{fill:none;stroke:#294156;stroke-width:29;pointer-events:none}
+.protocol-pane .nc28-donut-sector{fill:none;stroke-width:29;stroke-linecap:butt;pointer-events:stroke;cursor:pointer;transition:stroke-width .16s ease,opacity .16s ease,filter .16s ease;outline:none}
+.protocol-pane .nc28-donut-sector.is-muted{opacity:.23}
+/* A28.1: fixed stroke prevents OTHER/TLS overlap at the 12 o'clock seam. */
+.protocol-pane .nc28-donut-sector.is-highlight{stroke-width:29;opacity:1;filter:brightness(1.14)}
+.protocol-pane .nc28-donut-sector:focus-visible{stroke-width:29;filter:brightness(1.18)}
+.protocol-pane .donut-legend-row{cursor:pointer;transition:background-color .16s ease,opacity .16s ease,color .16s ease;min-height:29px}
+.protocol-pane .donut-legend-row.is-highlight,.protocol-pane .donut-legend-row:focus-visible{background:#283e51;color:#f1fbff;outline:1px solid #547e9a;outline-offset:0}
+.protocol-pane .donut-legend-row.is-muted{opacity:.45}
+.protocol-pane .donut-legend-row:focus-visible{outline:2px solid #99d5ec}
+.protocol-pane .nc28-explore-selected{display:inline-flex;align-items:center;justify-content:center;gap:6px;align-self:stretch;padding:7px 8px;border-radius:7px;border:1px solid #4a7088;background:#1d3548;color:#cce9f8;font:600 10px var(--sans,system-ui);cursor:pointer;transition:background .15s,border-color .15s}
+.protocol-pane .nc28-explore-selected:hover,.protocol-pane .nc28-explore-selected:focus-visible{background:#2a4a60;border-color:#91c9e4;outline-offset:2px}
+.protocol-pane .nc28-explore-selected svg{width:13px;height:13px}
+.protocol-pane .nc28-explore-selected[hidden],#nc28DonutTooltip[hidden]{display:none!important}
+.nc28-donut-tooltip{position:fixed;z-index:400;max-width:min(230px,calc(100vw - 24px));min-width:150px;pointer-events:none;padding:9px 11px;border-radius:9px;background:#0f2232;border:1px solid #638da7;box-shadow:0 9px 28px rgba(0,0,0,.50);color:#e6f5fd;font-size:11px;line-height:1.4}
+.nc28-donut-tooltip b{font-size:12px;color:#effaff;display:block;margin-bottom:3px}
+.nc28-donut-tooltip span{color:#a4d2e6;font-family:var(--mono,monospace);font-size:10px;white-space:nowrap}
+.nc28-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:680px){body[data-page="overview"] > .app-shell > .main-area > .main-scrollbox{padding-top:11px}.protocol-pane .nc28-legend-column{width:100%}.protocol-pane .donut-legend-row{min-height:35px}.protocol-pane .donut-center strong{font-size:21px}.protocol-pane .nc28-explore-selected{font-size:11px;padding:10px}}
+@media(prefers-reduced-motion:reduce){.protocol-pane .nc28-donut-sector,.protocol-pane .donut-legend-row{transition:none}}

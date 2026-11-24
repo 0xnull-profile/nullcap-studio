@@ -1,0 +1,149 @@
+/* NullCap Studio Explorer UX A05: consistent controls, compact bookmarks. */
+:root {
+  --ncA05-menu-bg:#1a2c3b;
+  --ncA05-menu-border:#4b6b80;
+  --ncA05-interaction-bg:#294657;
+  --ncA05-control-focus:#99cedd;
+}
+/* Accessible native adapters remain in the DOM, never in the rendered toolbar. */
+#timelinePanel #nc32TimelineMetric.ncA05-native-select,
+#timelinePanel #speedSelect.ncA05-native-select,
+#timelinePanel #nc32MarkRemove.ncA05-native-remove {display:none!important}
+#timelinePanel .timeline-header .nc32-metric-label {display:flex!important;gap:6px;align-items:center}
+#timelinePanel .ncA05-field > span,
+#timelinePanel .ncA05-speed-caption {font-size:9px;letter-spacing:.65px;white-space:nowrap;font-weight:800;color:#8aadc1}
+#timelinePanel .ncA05-picker {position:relative;display:inline-flex;align-items:center;flex:none;min-width:0}
+#timelinePanel .ncA05-select-toggle {
+  display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:31px;
+  padding:5px 10px;border:1px solid #466476;border-radius:8px;
+  background:var(--ncA05-menu-bg);color:#d5e8f3;font-size:10.5px;font-weight:700;
+  font-family:var(--font);cursor:pointer;white-space:nowrap;
+  transition:background .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+#timelinePanel #ncA05MetricToggle{min-width:96px}
+#timelinePanel #ncA05SpeedToggle{min-width:87px}
+#timelinePanel .ncA05-select-toggle svg{width:13px;height:13px;color:#9db8c9;transition:transform .18s ease}
+#timelinePanel .ncA05-select-toggle:hover{background:var(--ncA05-interaction-bg);border-color:#7ba6b9;color:#f1f9fd}
+#timelinePanel .ncA05-select-toggle[aria-expanded="true"]{background:#284455;border-color:#8bb9c8;box-shadow:0 0 0 2px rgba(109,183,202,.13)}
+#timelinePanel .ncA05-select-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+#timelinePanel .ncA05-select-toggle:focus-visible{outline:2px solid var(--ncA05-control-focus);outline-offset:2px}
+.ncA05-select-menu {
+  position:fixed;z-index:180;min-width:144px;max-width:calc(100vw - 16px);max-height:min(340px,calc(100dvh - 20px));
+  overflow-y:auto;background:var(--ncA05-menu-bg);border:1px solid var(--ncA05-menu-border);
+  border-radius:11px;padding:7px;box-shadow:0 20px 52px rgba(0,0,0,.52);
+  scrollbar-width:thin;scrollbar-color:#557386 #192c3b;
+  animation:ncA05DropIn .16s cubic-bezier(.2,.7,.2,1);
+}
+.ncA05-menu-caption{font-size:9px;font-weight:800;letter-spacing:1.05px;color:#86a8bb;padding:9px 10px 7px}
+.ncA05-select-option{
+  display:flex;gap:12px;align-items:center;width:100%;padding:10px 10px;min-height:36px;
+  border:1px solid transparent;border-radius:7px;background:transparent;
+  color:#cadde9;text-align:left;font-size:11px;font-weight:680;
+  transition:background .14s ease,border-color .14s ease,color .14s ease;
+}
+.ncA05-select-option span{flex:1;min-width:0}
+.ncA05-select-option svg{width:14px;height:14px;opacity:0;color:#a9e5de}
+.ncA05-select-option[aria-selected="true"]{background:#294a55;border-color:#547b8a;color:#e0f9f7}
+.ncA05-select-option[aria-selected="true"] svg{opacity:1}
+.ncA05-select-option:hover,.ncA05-select-option:focus-visible{background:#2d495b;border-color:#608ba0;outline:none;color:#f0fcff}
+@keyframes ncA05DropIn {from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+#timelinePanel .ncA05-speed-field{display:flex;align-items:center;gap:7px;white-space:nowrap}
+#timelinePanel .transport-right .ncA05-speed-field{margin:0}
+/* Two controls: add bookmark (icon-only) and bookmark manager. */
+#timelinePanel #nc32MarkAdd.ncA05-mark-add{
+  position:relative;display:grid;place-items:center;flex:none;width:34px;min-width:34px;height:31px;
+  padding:0;margin:0;border:1px solid #466476;border-radius:8px;
+  background:#1b3343;color:#b8e0e8;
+  transition:background .16s ease,border-color .16s ease,transform .16s ease;
+}
+#timelinePanel #nc32MarkAdd.ncA05-mark-add>svg:first-child{width:16px;height:16px}
+#timelinePanel #nc32MarkAdd.ncA05-mark-add .ncA05-mark-plus{
+  position:absolute;top:3px;right:3px;width:10px;height:10px;stroke-width:2.9;
+  background:#1b3343;border-radius:3px;color:#a9e5de;
+}
+#timelinePanel #nc32MarkAdd.ncA05-mark-add:hover{background:#2c5060;border-color:#83b8c8;color:#e9fbff;transform:translateY(-1px)}
+#timelinePanel #nc32MarkAdd.ncA05-mark-add:active{transform:scale(.97)}
+#timelinePanel #nc32MarkAdd.ncA05-mark-add:focus-visible{outline:2px solid #a7d5e6;outline-offset:2px}
+#timelinePanel .ncA04-mark-toggle{width:144px;max-width:160px}
+/* Per-row bookmark removal without a detached global delete button. */
+.ncA05-mark-row{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:3px;border-radius:9px}
+.ncA05-mark-row .ncA04-mark-option{flex:1;min-width:0;width:auto;margin:0;padding:8px 7px}
+.ncA05-mark-row .ncA04-mark-option[aria-current="true"]{background:#2b4b58;border-color:#60889a}
+.ncA05-mark-row .ncA04-mark-option[aria-current="true"] .ncA04-mark-check{opacity:1}
+.ncA05-mark-row .ncA05-mark-delete{
+  width:31px;height:32px;flex:0 0 31px;display:grid;place-items:center;
+  border-radius:7px;border:1px solid transparent;background:transparent;color:#92acbe;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.ncA05-mark-row .ncA05-mark-delete svg{width:15px;height:15px}
+.ncA05-mark-row .ncA05-mark-delete:hover,.ncA05-mark-row .ncA05-mark-delete:focus-visible{
+  background:rgba(239,124,140,.12);color:#ffb6c1;border-color:rgba(239,150,161,.38);
+}
+.ncA05-mark-row .ncA05-mark-delete:focus-visible{outline:2px solid #a7d5e6;outline-offset:2px}
+.ncA05-mark-confirm{
+  display:none;flex:1 1 100%;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:6px;
+  margin:0 0 5px;padding:8px 7px;border:1px solid rgba(237,157,164,.22);border-radius:8px;
+  background:rgba(186,79,93,.075);color:#ecc7cd;font-size:10px;
+}
+.ncA05-mark-row.is-confirming .ncA05-mark-confirm{display:flex}
+.ncA05-mark-confirm span{margin-right:auto}
+.ncA05-mark-confirm button{min-height:27px;padding:4px 9px;border-radius:6px;border:1px solid #587284;background:#254253;color:#d4e8ef;font-size:10px;font-weight:730}
+.ncA05-mark-confirm button.ncA05-confirm-delete{color:#ffd3d8;border-color:#ac737d;background:#5b303c}
+.ncA05-mark-confirm button:hover{filter:brightness(1.16)}
+.ncA05-mark-confirm button:focus-visible{outline:2px solid #c9dfe8;outline-offset:2px}
+/* Match the host editor's close/info controls in size, color and feedback. */
+body[data-page="explorer"] #ncuxCloseInspector.ncA05-inspector-close{
+  display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;padding:0;
+  border:1px solid #426172;border-radius:7px;background:#213b4d;color:#bdd1df;
+  transition:background .16s ease,border-color .16s ease,color .16s ease,transform .16s ease;
+}
+body[data-page="explorer"] #ncuxCloseInspector.ncA05-inspector-close svg{width:15px;height:15px}
+body[data-page="explorer"] #ncuxCloseInspector.ncA05-inspector-close:hover{border-color:#85b9ca;background:#35586a;color:#fff;transform:translateY(-1px)}
+body[data-page="explorer"] #ncuxCloseInspector.ncA05-inspector-close:active{transform:scale(.97)}
+body[data-page="explorer"] #ncuxCloseInspector.ncA05-inspector-close:focus-visible{outline:2px solid #afd6e7;outline-offset:2px}
+body[data-page="explorer"] #graphHelpWrap{display:inline-flex;align-items:center}
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info{
+  display:grid;place-items:center;width:33px;height:33px;padding:0;border-radius:9px;
+  border:1px solid transparent;background:transparent;color:#89a8bc;
+  transition:background .16s,border-color .16s,color .16s,transform .16s;
+}
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info svg{width:17px;height:17px}
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info:hover,
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info[aria-expanded="true"]{
+  background:#253f51;color:#d8edf5;border-color:#597c92;transform:translateY(-1px);
+}
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info:active{transform:scale(.97)}
+body[data-page="explorer"] #graphInfoButton.ncA05-inspector-info:focus-visible{outline:2px solid #afd6e7;outline-offset:2px}
+body[data-page="explorer"] #graphHelpWrap .ncA05-inspector-popover{
+  top:calc(100% + 10px);right:0;max-width:calc(100vw - 100px);width:265px;
+  background:#1c3242;border:1px solid #597f90;border-radius:10px;
+  padding:13px 14px;color:#c5dbe5;box-shadow:0 18px 50px rgba(0,0,0,.46);
+  font-size:11px;line-height:1.6;
+}
+body[data-page="explorer"] #graphHelpWrap .ncA05-inspector-popover strong{font-size:11px;color:#e2f7f3;margin-bottom:6px}
+body[data-page="explorer"] #graphHelpWrap .ncA05-inspector-popover span{font-size:10.5px;color:#a6c0d0}
+/* Compact responsive toolbar without hiding any functionality. */
+@media(max-width:900px){
+  #timelinePanel .timeline-controls .ncA05-field>span{display:none}
+  #timelinePanel .ncA05-select-toggle{min-height:32px}
+}
+@media(max-width:700px){
+  #timelinePanel .timeline-controls{row-gap:8px}
+  #timelinePanel #ncA05MetricToggle{min-width:94px}
+  #timelinePanel #ncA05SpeedToggle{min-width:84px}
+  #timelinePanel .ncA05-speed-caption{font-size:8.5px}
+  #timelinePanel .ncA04-mark-toggle{width:132px;max-width:132px}
+}
+@media(max-width:420px){
+  #timelinePanel .ncA05-speed-field{gap:5px}
+  #timelinePanel .ncA04-mark-toggle{width:128px;max-width:128px}
+}
+@media(prefers-reduced-motion:reduce){
+  #timelinePanel .ncA05-select-toggle,#timelinePanel .ncA05-select-toggle svg,
+  #timelinePanel #nc32MarkAdd.ncA05-mark-add,.ncA05-select-menu,
+  .ncA05-select-option,.ncA05-mark-delete,
+  #ncuxCloseInspector.ncA05-inspector-close,#graphInfoButton.ncA05-inspector-info{transition:none!important;animation:none!important}
+}
+/* Old <=1200px rules hide every span in .nc32-metric-label. Always display
+   the custom dropdown's chosen value; only its separate caption may hide. */
+#timelinePanel .nc32-metric-label .ncA05-select-toggle > span {display:block!important}

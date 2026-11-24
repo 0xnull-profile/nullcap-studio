@@ -1,0 +1,14 @@
+/* A27.1 — Clean user-facing onboarding; no visual demo content. */
+#nc271OverviewGrid[hidden],#nc271EmptyLanding[hidden]{display:none!important}
+.nc271-empty-landing{margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:13px;min-height:340px;max-width:700px;width:100%;padding:48px 30px;background:linear-gradient(145deg,rgba(30,47,68,.72),rgba(15,26,41,.85));border:1px solid rgba(125,174,205,.22);border-radius:17px;box-shadow:inset 0 1px rgba(230,247,255,.04)}
+.nc271-empty-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:15px;background:linear-gradient(140deg,rgba(108,222,215,.17),rgba(107,165,225,.08));border:1px solid rgba(124,231,223,.28);color:#92efe5;box-shadow:0 0 28px rgba(91,218,204,.06)}
+.nc271-empty-icon svg{height:28px;width:28px}
+.nc271-empty-eyebrow{font-size:9px;letter-spacing:1.4px;font-weight:760;color:#8bbed0}
+.nc271-empty-landing h2{font-size:21px;line-height:1.28;letter-spacing:-.5px;margin:0;color:#edf8fa}
+.nc271-empty-landing p{font-size:12px;line-height:1.7;max-width:460px;color:#a2b7ca;margin:0}
+.nc271-empty-landing small{font-size:10px;line-height:1.5;color:#7995ab}
+.nc271-empty-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:10px 0 5px}
+.nc271-empty-actions .button{min-height:39px}
+.nc271-empty-actions .button:focus-visible{outline:2px solid #9fece5;outline-offset:3px}
+.nc271-no-capture #view-overview{justify-content:center;align-items:center;overflow-y:auto}
+@media(max-width:600px){.nc271-empty-landing{padding:35px 18px;min-height:300px}.nc271-empty-landing h2{font-size:18px}.nc271-empty-landing p{font-size:11px}.nc271-empty-actions{flex-direction:column;width:100%}.nc271-empty-actions .button{width:100%;max-width:280px}}

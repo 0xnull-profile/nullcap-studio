@@ -1,0 +1,247 @@
+/* Explorer UX A06 — consistent controls, legible type, restrained technical icons.
+   Presentation only: original capture, timeline and packet data paths are intact. */
+body[data-page="explorer"]{
+  --ncA06-font-ui:var(--font);
+  --ncA06-font-mono:var(--mono);
+  --ncA06-label-size:10px;
+  --ncA06-control-size:11px;
+  --ncA06-note-size:10.5px;
+}
+/* Preserve internal host/link counters but remove the redundant visual badge. */
+body[data-page="explorer"] #liveGraphCount{display:none!important}
+
+/* A06 title glyphs share a precise stroke, optical size and tactile glass frame. */
+body[data-page="explorer"] .graph-pane .ncA06-premium-icon,
+body[data-page="explorer"] .focus-pane .ncA06-premium-icon,
+body[data-page="explorer"] #timelinePanel .ncA06-premium-icon{
+  position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;
+  flex:0 0 32px;width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(150deg,var(--ncA06-icon-surface-top),var(--ncA06-icon-surface-bottom));
+  color:var(--ncA06-icon-color);border:1px solid var(--ncA06-icon-border);
+  box-shadow:inset 0 1px rgba(255,255,255,.09),0 5px 18px var(--ncA06-icon-glow);
+}
+body[data-page="explorer"] .graph-pane .ncA06-premium-icon{
+  --ncA06-icon-surface-top:#294a55;--ncA06-icon-surface-bottom:#1b323e;
+  --ncA06-icon-border:#3b7780;--ncA06-icon-color:#9be7df;--ncA06-icon-glow:rgba(79,178,176,.11);
+}
+body[data-page="explorer"] .focus-pane .ncA06-premium-icon{
+  --ncA06-icon-surface-top:#3a3a56;--ncA06-icon-surface-bottom:#252c43;
+  --ncA06-icon-border:#625779;--ncA06-icon-color:#cabff2;--ncA06-icon-glow:rgba(160,141,224,.12);
+}
+body[data-page="explorer"] #timelinePanel .ncA06-premium-icon{
+  --ncA06-icon-surface-top:#4a4032;--ncA06-icon-surface-bottom:#2d302e;
+  --ncA06-icon-border:#786449;--ncA06-icon-color:#f0ce95;--ncA06-icon-glow:rgba(215,164,98,.10);
+}
+body[data-page="explorer"] .ncA06-premium-icon:before{
+  content:"";position:absolute;inset:1px;border-radius:8px;
+  background:linear-gradient(135deg,rgba(255,255,255,.055),transparent 55%);pointer-events:none;
+}
+body[data-page="explorer"] .ncA06-premium-icon:after{
+  content:"";position:absolute;right:4px;top:4px;width:3px;height:3px;
+  background:currentColor;border-radius:50%;opacity:.42;pointer-events:none;
+}
+body[data-page="explorer"] .ncA06-premium-icon svg.ncA06-title-svg{
+  width:20px;height:20px;stroke:currentColor;stroke-width:1.65;
+  stroke-linecap:round;stroke-linejoin:round;fill:none;filter:drop-shadow(0 1px 2px rgba(0,0,0,.22));
+}
+body[data-page="explorer"] .ncA06-title-baseline{opacity:.35;stroke-width:1}
+
+/* Match the Host Identity Manager popover: restrained, layered and readable. */
+body[data-page="explorer"] #graphHelpWrap.ncA06-info-wrap{position:relative;z-index:20}
+body[data-page="explorer"] #graphHelpWrap .ncA06-info-popover{
+  display:block;position:absolute;top:calc(100% + 10px);right:0;
+  width:min(288px,calc(100vw - 90px));max-width:none;
+  margin:0;padding:13px 14px;
+  border:1px solid #597f90;border-radius:10px;background:#1c3242;color:#b5cad7;
+  box-shadow:0 18px 50px rgba(0,0,0,.46);
+  text-align:left;font-family:var(--ncA06-font-ui);font-size:11px;line-height:1.6;
+  animation:ncA06PopoverEnter .14s ease-out;
+}
+body[data-page="explorer"] #graphHelpWrap .ncA06-info-popover[hidden]{display:none!important}
+body[data-page="explorer"] #graphHelpWrap .ncA06-info-popover p{margin:0;font-size:11px;line-height:1.6;color:#c5dbe5}
+body[data-page="explorer"] #graphHelpWrap .ncA06-info-popover b{font-weight:720;color:#deeff6}
+body[data-page="explorer"] #graphHelpWrap .ncA06-info-popover small{
+  display:block;margin-top:9px;padding-top:8px;border-top:1px solid #3b5868;
+  color:#9fb8c7;font-size:10px;line-height:1.55;
+}
+@keyframes ncA06PopoverEnter{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:translateY(0)}}
+
+/* 'Ultimi' reuses the same accessible picker/state adapter as A05 Metrica. */
+body[data-page="explorer"] .ncA06-window-field{display:inline-flex;align-items:center;gap:8px;flex:none;min-width:0;height:35px}
+body[data-page="explorer"] .ncA06-window-field>span{
+  font:750 var(--ncA06-label-size)/1 var(--ncA06-font-ui);
+  color:#93b1c4;letter-spacing:.65px;white-space:nowrap;
+}
+body[data-page="explorer"] .ncA06-window-field #windowSeconds.ncA05-native-select{display:none!important}
+body[data-page="explorer"] .ncA06-window-field .ncA05-picker{display:inline-flex;align-items:center;flex:none}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle{
+  min-width:83px;min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:11px;
+  padding:6px 10px;border:1px solid #466476;border-radius:8px;
+  background:var(--ncA05-menu-bg,#1a2c3b);color:#d9e9f2;
+  font:700 var(--ncA06-control-size)/1.25 var(--ncA06-font-ui);cursor:pointer;
+  transition:background .18s,border-color .18s,box-shadow .18s;
+}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle svg{
+  width:13px;height:13px;flex:none;color:#9db8c9;transition:transform .18s;
+}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle:hover{
+  border-color:#7ba6b9;background:var(--ncA05-interaction-bg,#294657);color:#f2fafd;
+}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle[aria-expanded="true"]{
+  background:#284455;border-color:#8bb9c8;box-shadow:0 0 0 2px rgba(109,183,202,.13);
+}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle:focus-visible{outline:2px solid #afd6e7;outline-offset:2px}
+
+/* Same physical size and treatment as bookmark and metric controls. */
+body[data-page="explorer"] #timelinePanel .timeline-controls #fitTimeline,
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline{
+  min-height:31px;height:31px;display:inline-flex;align-items:center;justify-content:center;
+  gap:7px;padding:0 11px;margin:0;border:1px solid #466476;border-radius:8px;
+  background:#1a2c3b;color:#d5e8f3;
+  font:700 var(--ncA06-control-size)/1.25 var(--ncA06-font-ui);
+  white-space:nowrap;flex:none;transition:background .18s,border-color .18s,box-shadow .18s;
+}
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline{
+  width:34px;min-width:34px;padding:0;
+}
+body[data-page="explorer"] #timelinePanel .timeline-controls #fitTimeline svg,
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline svg{
+  flex:none;width:15px;height:15px;stroke-width:1.8;
+}
+body[data-page="explorer"] #timelinePanel .timeline-controls #fitTimeline:hover,
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline:hover{
+  background:#294657;border-color:#7ba6b9;color:#f2fafd;
+}
+body[data-page="explorer"] #timelinePanel .timeline-controls #fitTimeline:focus-visible,
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline:focus-visible{
+  outline:2px solid #afd6e7;outline-offset:2px;
+}
+body[data-page="explorer"] #timelinePanel .timeline-controls #fitTimeline:active,
+body[data-page="explorer"] #timelinePanel .timeline-controls #collapseTimeline:active{background:#35596a}
+
+/* Vertical rhythm: every element in the transport sits on one optical axis. */
+body[data-page="explorer"] #timelinePanel .transport-bar{
+  height:49px;min-height:49px;display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:0 14px;line-height:1;box-sizing:border-box;
+}
+body[data-page="explorer"] #timelinePanel .transport-left,
+body[data-page="explorer"] #timelinePanel .transport-right{
+  display:flex;align-items:center;justify-content:flex-start;gap:11px;
+  min-width:0;min-height:0;margin:0;padding:0;line-height:1;
+}
+body[data-page="explorer"] #timelinePanel .transport-right{margin-left:auto}
+body[data-page="explorer"] #timelinePanel .transport-icon{
+  display:grid;place-items:center;flex:none;width:29px;height:33px;
+  padding:0;margin:0;line-height:1;border-radius:7px;
+}
+body[data-page="explorer"] #timelinePanel .transport-icon svg{display:block;width:15px;height:15px}
+body[data-page="explorer"] #timelinePanel .play-control{
+  display:grid;place-items:center;flex:none;width:35px;height:35px;min-width:35px;
+  margin:0;padding:0;line-height:1;
+}
+body[data-page="explorer"] #timelinePanel .play-control svg{display:block;width:17px;height:17px}
+body[data-page="explorer"] #timelinePanel .timecode,
+body[data-page="explorer"] #timelinePanel .replay-count,
+body[data-page="explorer"] #timelinePanel .ncA05-speed-field,
+body[data-page="explorer"] #timelinePanel .keyboard-help{
+  align-self:center;display:flex;align-items:center;line-height:1.25;margin-top:0;margin-bottom:0;
+}
+body[data-page="explorer"] #timelinePanel .timecode{font-family:var(--mono);gap:9px;white-space:nowrap}
+body[data-page="explorer"] #timelinePanel .transport-divider{align-self:center;height:19px;margin:0}
+body[data-page="explorer"] #timelinePanel .replay-count{white-space:nowrap}
+body[data-page="explorer"] #timelinePanel .ncA05-speed-field{height:35px;gap:8px}
+body[data-page="explorer"] #timelinePanel #ncA05SpeedToggle{min-height:31px}
+
+/* Typographic scale: consistent font families, readable captions and clear data. */
+body[data-page="explorer"] .graph-pane .pane-title h2,
+body[data-page="explorer"] .focus-pane .pane-title h2,
+body[data-page="explorer"] #timelinePanel .pane-title h2{
+  font:750 13px/1.3 var(--ncA06-font-ui);letter-spacing:-.18px;color:#e4f0f8;
+}
+body[data-page="explorer"] .graph-pane .pane-header p{
+  font:480 10.5px/1.45 var(--ncA06-font-ui);letter-spacing:0;color:#9eb4c6;
+}
+body[data-page="explorer"] .ncux-toolbar-caption,
+body[data-page="explorer"] .ncux-window-selector>span,
+body[data-page="explorer"] #timelinePanel .ncA05-field>span,
+body[data-page="explorer"] #timelinePanel .ncA05-speed-caption,
+body[data-page="explorer"] #timelinePanel .timeline-zoom-text{
+  font:750 var(--ncA06-label-size)/1.25 var(--ncA06-font-ui);letter-spacing:.55px;color:#91aec3;
+}
+body[data-page="explorer"] .ncux-protocol-toggle,
+body[data-page="explorer"] .ncux-toolbar .mode-toggle button,
+body[data-page="explorer"] #timelinePanel .ncA05-select-toggle,
+body[data-page="explorer"] #timelinePanel .ncA04-mark-toggle{
+  font-family:var(--ncA06-font-ui);font-size:var(--ncA06-control-size);line-height:1.3;
+}
+body[data-page="explorer"] .ncux-inspect-intro,
+body[data-page="explorer"] .ncux-inspect-protocols>span,
+body[data-page="explorer"] .ncux-inspect-stat small{
+  font-family:var(--ncA06-font-ui);font-size:var(--ncA06-label-size);font-weight:740;
+  letter-spacing:.45px;
+}
+body[data-page="explorer"] .ncux-inspect-time-context,
+body[data-page="explorer"] .ncux-inspect-entity p{
+  font-family:var(--ncA06-font-ui);font-size:var(--ncA06-note-size);line-height:1.55;
+}
+body[data-page="explorer"] .ncux-inspect-stat strong{font-family:var(--ncA06-font-ui);line-height:1.25}
+body[data-page="explorer"] .ncux-inspect-route span,
+body[data-page="explorer"] #timelinePanel .timecode,
+body[data-page="explorer"] #timelinePanel .replay-count,
+body[data-page="explorer"] .graph-time-pill b{font-family:var(--ncA06-font-mono);font-variant-numeric:tabular-nums}
+
+@media(max-width:900px){
+  body[data-page="explorer"] .ncA06-premium-icon{flex-basis:30px!important;width:30px!important;height:30px!important}
+  body[data-page="explorer"] #timelinePanel .ncA05-field>span{display:none!important}
+}
+@media(max-width:700px){
+  body[data-page="explorer"] .ncA06-window-field{min-height:34px}
+  body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle{min-height:32px}
+  body[data-page="explorer"] #timelinePanel .transport-bar{
+    height:auto!important;min-height:78px!important;flex-wrap:wrap;align-content:center;
+    align-items:center;gap:9px;padding:7px 10px;
+  }
+  body[data-page="explorer"] #timelinePanel .transport-left,
+  body[data-page="explorer"] #timelinePanel .transport-right{
+    width:100%;min-height:35px;justify-content:space-between;gap:7px;
+  }
+  body[data-page="explorer"] #timelinePanel .transport-right{margin-left:0}
+}
+@media(max-width:420px){
+  body[data-page="explorer"] .graph-pane .pane-title h2,
+  body[data-page="explorer"] #timelinePanel .pane-title h2,
+  body[data-page="explorer"] .focus-pane .pane-title h2{font-size:12px}
+  body[data-page="explorer"] #timelinePanel .transport-bar{gap:8px}
+  body[data-page="explorer"] .ncA06-window-field>span{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="explorer"] .ncA06-info-popover,
+  body[data-page="explorer"] .ncA06-window-field .ncA05-select-toggle,
+  body[data-page="explorer"] #timelinePanel #fitTimeline,
+  body[data-page="explorer"] #timelinePanel #collapseTimeline{animation:none!important;transition:none!important}
+}
+/* A06 QA: keep both toolbars readable at tablet widths; no clipped transport text. */
+@media(max-width:850px){
+  body[data-page="explorer"] .graph-toolbar.ncux-toolbar{
+    height:auto;min-height:58px;flex-wrap:wrap;justify-content:space-between;
+    gap:8px;padding:9px 12px;
+  }
+  body[data-page="explorer"] .ncux-protocol-selector{flex:1 1 190px;min-width:0}
+  body[data-page="explorer"] .ncux-protocol-toggle{width:100%;min-width:0}
+  body[data-page="explorer"] .ncux-toolbar-flex{display:none}
+}
+@media(max-width:900px){
+  body[data-page="explorer"] #timelinePanel .transport-bar{
+    height:auto!important;min-height:81px!important;display:flex;align-content:center;
+    align-items:center;flex-wrap:wrap;gap:5px;padding:7px 12px;
+  }
+  body[data-page="explorer"] #timelinePanel .transport-left,
+  body[data-page="explorer"] #timelinePanel .transport-right{
+    width:100%;min-height:35px;justify-content:flex-start;gap:10px;
+  }
+  body[data-page="explorer"] #timelinePanel .transport-right{margin-left:0;justify-content:space-between}
+  body[data-page="explorer"] #timelinePanel .transport-right .transport-divider{display:none}
+  body[data-page="explorer"] #timelinePanel .transport-right .keyboard-help{display:none!important}
+  body[data-page="explorer"] #timelinePanel .transport-right .ncA05-speed-field{margin-left:auto}
+}

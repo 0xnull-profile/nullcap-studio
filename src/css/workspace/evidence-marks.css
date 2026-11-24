@@ -1,0 +1,30 @@
+/* A25: mark artifacts and conversations without leaving the inspector. */
+#view-loot .nc20-content-first .nc20-actions .loot-action-row{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) 35px;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button.nc25-mark-icon{
+  position:relative;min-width:35px;width:35px;padding:0!important;flex:none;
+  background:#203747;color:#c6d9e4;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button.nc25-mark-icon[aria-pressed="true"],
+#view-flows .nc25-mark-icon[aria-pressed="true"]{background:#234d50;border-color:#6dbbae;color:#b4f1dc}
+#view-loot .nc25-mark-icon[data-tip]:hover::after,
+#view-loot .nc25-mark-icon[data-tip]:focus-visible::after{
+  content:attr(data-tip);position:absolute;bottom:calc(100% + 7px);right:0;
+  background:#142838;color:#f1fbff;border:1px solid #648a9a;border-radius:7px;
+  padding:7px 9px;white-space:nowrap;max-width:215px;z-index:30;pointer-events:none;
+  box-shadow:0 6px 22px #0008;font:650 10px var(--font)
+}
+#view-flows .nc15-tools .nc25-mark-icon{position:relative}
+#view-flows .nc15-tools .nc25-mark-icon[aria-pressed="true"]{background:#234d50;border-color:#6dbbae;color:#b4f1dc}
+.nc25-entity-card .nc24-evidence-card-top>div{flex-wrap:wrap;gap:6px;overflow-wrap:anywhere}
+.nc25-entity-card .nc24-evidence-card-top strong{overflow-wrap:anywhere}
+.nc25-mark-modal .nc24-mark-source{grid-template-columns:minmax(0,1fr);gap:5px}
+.nc25-mark-modal .nc24-mark-source span{text-overflow:clip;white-space:normal;overflow-wrap:anywhere}
+.nc25-mark-modal .nc24-mark-source strong{overflow-wrap:anywhere}
+.nc25-mark-modal textarea{min-height:115px}
+@media(max-width:390px){
+  #view-loot .nc20-content-first .nc20-actions .loot-action-row{gap:5px;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 35px}
+  #view-loot .nc20-content-first .nc20-actions .loot-action-row button{padding:0 4px!important;font-size:9px}
+  .nc25-entity-card .nc24-evidence-card-top button{max-width:100%}
+}

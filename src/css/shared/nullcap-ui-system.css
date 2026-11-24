@@ -1,0 +1,6 @@
+/* NullCap unified design tokens, based on Explorer A07. Reusable across future views. */
+:root{--ncui-surface:#1a2936;--ncui-deep:#142432;--ncui-control:#203546;--ncui-hover:#2c495b;--ncui-border:#496677;--ncui-border-active:#83aebf;--ncui-text:#e6f1f8;--ncui-muted:#a6c0d0;--ncui-accent:#a0dae0;--ncui-radius:8px;--ncui-shadow:0 18px 45px #0008;--ncui-font:var(--font);--ncui-mono:var(--mono)}
+.ncui-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:35px;border-radius:var(--ncui-radius);border:1px solid var(--ncui-border);background:var(--ncui-control);color:var(--ncui-text);font:700 11px var(--font);transition:background .16s,border-color .16s,transform .16s}
+.ncui-button:hover{background:var(--ncui-hover);border-color:var(--ncui-border-active)}
+.ncui-button:focus-visible{outline:2px solid #b2d8e7;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ncui-button{transition:none!important}}

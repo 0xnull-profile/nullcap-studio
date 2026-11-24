@@ -1,0 +1,20 @@
+/* Explorer UX A07 — final timeline transport vertical breathing room.
+   A06 desktop used a 155px panel even though the header (49px), single
+   event track (63px) and transport (49px) require more than 155px.
+   Allow the timeline to fit its actual content and keep playback controls
+   equally spaced from the top/bottom edges. No event/replay logic changes. */
+@media (min-width:901px){
+  body[data-page="explorer"] #timelinePanel.timeline-pane{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+  body[data-page="explorer"] #timelinePanel .transport-bar{
+    box-sizing:border-box;
+    flex:0 0 61px!important;
+    height:61px!important;
+    min-height:61px!important;
+    padding:12px 14px!important;
+    align-items:center;
+  }
+}

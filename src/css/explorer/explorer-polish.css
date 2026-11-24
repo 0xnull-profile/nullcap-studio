@@ -1,0 +1,123 @@
+/* NullCap Studio 4.0.1 / Explorer UX A04. Focus states, compact actions,
+   and native-free timeline bookmark affordances. */
+:root{--ncA04-surface:#1a2c3b;--ncA04-border:#466476;--ncA04-hover:#294657;--ncA04-focus:#7ab9c9}
+/* Put ONE accessible focus treatment on the search container, not on its child. */
+body[data-page="explorer"] .ncux-search input:focus,
+body[data-page="explorer"] .ncux-search input:focus-visible,
+#aliasModal .alias-search-field input:focus,
+#aliasModal .alias-search-field input:focus-visible{
+  outline:none!important;box-shadow:none!important;border:0!important;background:transparent!important;
+  -webkit-appearance:none;appearance:none;
+}
+body[data-page="explorer"] .ncux-search:focus-within{border-color:var(--ncA04-focus);box-shadow:0 0 0 2px rgba(98,173,197,.16)}
+#aliasModal .alias-search-field:focus-within{border-color:var(--ncA04-focus);box-shadow:0 0 0 2px rgba(98,173,197,.12)}
+/* When collapsed, the ENTIRE search button responds to hover/focus. */
+body[data-page="explorer"] .ncux-search:not(.is-open):hover,
+body[data-page="explorer"] .ncux-search:not(.is-open):focus-within{background:#2b495a;border-color:#729bb0}
+body[data-page="explorer"] .ncux-search:not(.is-open) .ncux-search-toggle{width:100%;height:100%;border-radius:8px}
+body[data-page="explorer"] .ncux-search:not(.is-open) .ncux-search-toggle:hover{background:transparent;transform:none}
+body[data-page="explorer"] .ncux-search:not(.is-open) .ncux-search-toggle:focus-visible{outline:2px solid #9accdb;outline-offset:2px}
+body[data-page="explorer"] .ncux-search.is-open .ncux-search-toggle:hover{background:rgba(111,177,198,.13);transform:none}
+/* Selection type 'Fino a ora' has no duration window. Keep its last value. */
+body[data-page="explorer"] .ncux-window-selector.ncA04-window-concealed{display:none!important}
+/* Host editor: compact icon-only actions and contextual info. */
+#aliasModal .alias-form .ncA04-alias-action-row{display:flex;align-items:center;flex-wrap:nowrap;gap:10px;margin:4px 0 2px}
+#aliasModal .ncA04-icon-action{display:grid;place-items:center;flex:0 0 39px;min-width:39px;width:39px;height:39px;padding:0;border-radius:9px;border:1px solid #486173;background:#203646;color:#bdd1df;white-space:nowrap;transition:background .16s,border-color .16s,color .16s,transform .16s,box-shadow .16s}
+#aliasModal .ncA04-icon-action svg{width:17px;height:17px;stroke-width:1.9}
+#aliasModal .ncA04-icon-action:hover:not(:disabled){border-color:#85b9ca;background:#304f61;color:#f0f9fc;transform:translateY(-1px)}
+#aliasModal .ncA04-icon-action:active:not(:disabled){transform:translateY(0) scale(.97)}
+#aliasModal .ncA04-icon-action:focus-visible{outline:2px solid #afd6e7;outline-offset:2px}
+#aliasModal .ncA04-icon-action:disabled{opacity:.36}
+#aliasModal .ncA04-save-action{background:#9ccada;border-color:#9ccada;color:#102b39}
+#aliasModal .ncA04-save-action:hover:not(:disabled){background:#bbe3ef;border-color:#bbe3ef;color:#0d2834}
+#aliasModal .ncA04-pin-action.is-pinned{color:#a5e7cf;background:#264b49;border-color:#74b6a3}
+#aliasModal .ncA04-alias-info-wrap{position:relative;margin-left:auto;display:flex;align-items:center}
+#aliasModal .ncA04-info-action{height:33px;width:33px;min-width:33px;flex-basis:33px;border-color:transparent;background:transparent;color:#89a8bc}
+#aliasModal .ncA04-info-action:hover,#aliasModal .ncA04-info-action[aria-expanded="true"]{background:#253f51;color:#d8edf5;border-color:#597c92}
+#aliasModal .alias-info.ncA04-info-popover{
+  visibility:hidden;opacity:0;pointer-events:none;position:absolute;z-index:35;right:0;bottom:calc(100% + 10px);
+  display:grid;gap:8px;width:min(288px,calc(100vw - 46px));max-width:none;margin:0;padding:13px 14px;
+  border:1px solid #597f90;border-radius:10px;background:#1c3242;color:#b5cad7;
+  box-shadow:0 18px 50px rgba(0,0,0,.46);transform:translateY(4px);transition:opacity .15s,transform .15s,visibility .15s;
+}
+#aliasModal .ncA04-alias-info-wrap:hover .ncA04-info-popover,
+#aliasModal .ncA04-alias-info-wrap:focus-within .ncA04-info-popover,
+#aliasModal .ncA04-alias-info-wrap.is-open .ncA04-info-popover{
+  visibility:visible;opacity:1;transform:translateY(0);
+}
+#aliasModal .ncA04-info-popover p{margin:0;font-size:11px;line-height:1.6;color:#c5dbe5}
+#aliasModal .ncA04-info-popover small{font-size:10px;line-height:1.55;color:#9fb8c7;display:block;padding-top:8px;border-top:1px solid #3b5868}
+#aliasModal .alias-feedback{min-height:17px;margin:4px 0 0}
+/* Native select remains in the DOM solely as a v3.2 bookmark state adapter. */
+body[data-page="explorer"] .timeline-pane #nc32MarkSelect.ncA04-native-select{display:none!important}
+.ncA04-mark-picker{position:relative;display:flex;align-items:center;min-width:0}
+.ncA04-mark-toggle{display:flex;align-items:center;gap:8px;width:137px;max-width:162px;min-height:31px;padding:5px 9px;border:1px solid #466476;border-radius:8px;background:var(--ncA04-surface);color:#d5e8f3;text-align:left;font-size:10px;font-weight:670;cursor:pointer;transition:background .18s,border-color .18s,box-shadow .18s}
+.ncA04-mark-toggle:hover{background:var(--ncA04-hover);border-color:#7aa3b4}
+.ncA04-mark-toggle[aria-expanded="true"]{background:#284455;border-color:#8bb9c8;box-shadow:0 0 0 2px rgba(109,183,202,.13)}
+.ncA04-mark-toggle:focus-visible{outline:2px solid #a7d5e6;outline-offset:2px}
+.ncA04-mark-toggle>svg:first-child{width:13px;height:13px;color:#a5d6d6}
+.ncA04-mark-toggle>span{min-width:0;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ncA04-mark-toggle .ncA04-mark-chevron{width:13px;height:13px;flex:none;color:#a0bbcc;transition:transform .2s}
+.ncA04-mark-toggle[aria-expanded="true"] .ncA04-mark-chevron{transform:rotate(180deg)}
+.ncA04-mark-toggle.has-selection{border-color:#58898c;color:#dff5f4}
+.ncA04-mark-menu{z-index:170!important;max-height:330px!important;padding:8px!important;box-shadow:0 22px 52px rgba(0,0,0,.50)!important}
+.ncA04-mark-total{float:right;color:#b3d7df;font-family:var(--mono)}
+.ncA04-mark-option{display:flex;align-items:center;gap:10px;width:100%;border:1px solid transparent;border-radius:8px;background:transparent;text-align:left;color:#c9dfea;padding:10px 9px;cursor:pointer;transition:background .15s,border-color .15s}
+.ncA04-mark-option:hover,.ncA04-mark-option:focus-visible{background:#2b4658;border-color:#456b7f;outline:none}
+.ncA04-mark-option[aria-selected="true"]{background:#2b4b58;border-color:#60889a}
+.ncA04-mark-option-icon{display:grid;place-items:center;width:28px;height:28px;border:1px solid #3e6176;border-radius:7px;background:#213c4c;color:#afd7df;flex:none}
+.ncA04-mark-option-icon svg{width:14px;height:14px}
+.ncA04-mark-option-content{display:flex;flex-direction:column;min-width:0;gap:4px;flex:1}
+.ncA04-mark-option-content strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:#e5f2f8;font-weight:700}
+.ncA04-mark-option-content small{color:#8fabbd;font:600 10px var(--mono)}
+.ncA04-mark-check{color:#a9e5de;opacity:0;display:grid;place-items:center}
+.ncA04-mark-check svg{width:15px;height:15px}
+.ncA04-mark-option[aria-selected="true"] .ncA04-mark-check{opacity:1}
+.ncA04-mark-empty{padding:18px 12px;color:#d0e1e9;text-align:center;font-size:11px}
+.ncA04-mark-empty small{display:block;margin-top:6px;color:#96b0c3;line-height:1.6}
+/* Branded bookmark dialog, replacing the browser's blocking prompt(). */
+.ncA04-bookmark-modal{position:fixed;z-index:190;inset:0;display:flex;align-items:center;justify-content:center;padding:18px}
+.ncA04-bookmark-modal[hidden]{display:none!important}
+.ncA04-bookmark-shade{position:absolute;inset:0;background:rgba(3,10,20,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ncA04-bookmark-card{position:relative;width:min(465px,100%);max-height:calc(100dvh - 30px);overflow:auto;border:1px solid #5d8291;border-radius:16px;background:linear-gradient(140deg,#203748,#101f2d);box-shadow:0 26px 85px rgba(0,0,0,.65),inset 0 1px rgba(236,253,255,.08);color:#e8f3f9}
+.ncA04-bookmark-heading{display:flex;align-items:center;gap:14px;padding:22px 22px 20px;border-bottom:1px solid #355061}
+.ncA04-bookmark-symbol{display:grid;place-items:center;width:43px;height:43px;border:1px solid #4a7a8b;background:#284c5b;color:#b4e4ed;border-radius:12px;flex:none}
+.ncA04-bookmark-symbol svg{width:21px;height:21px}
+.ncA04-bookmark-eyebrow{font-size:9px;letter-spacing:1.2px;font-weight:800;color:#95cad5}
+.ncA04-bookmark-heading h2{margin:5px 0 6px;font-size:19px;letter-spacing:-.45px}
+.ncA04-bookmark-heading p{margin:0;font-size:11px;line-height:1.5;color:#a6bdcd}
+.ncA04-bookmark-close{display:grid;place-items:center;align-self:flex-start;flex:none;width:29px;height:29px;margin-left:auto;border:1px solid #426172;border-radius:7px;background:#213b4d;color:#bdd1df}
+.ncA04-bookmark-close svg{width:15px;height:15px}
+.ncA04-bookmark-close:hover{background:#35586a;color:white}
+.ncA04-bookmark-body{display:flex;flex-direction:column;gap:9px;padding:20px 22px 24px}
+.ncA04-bookmark-time{display:flex;gap:8px;align-items:center;border:1px solid #3f6070;border-radius:9px;background:#152b3a;padding:11px 12px;margin-bottom:10px;color:#a9c3d1}
+.ncA04-bookmark-time svg{width:15px;height:15px;color:#97d4dc}
+.ncA04-bookmark-time span{font-size:9px;letter-spacing:.8px;font-weight:800}
+.ncA04-bookmark-time strong{font:700 12px var(--mono);color:#d9f6f4;margin-left:auto}
+.ncA04-bookmark-body label{color:#d4e7f1;font-size:11px;font-weight:700}
+.ncA04-bookmark-body input{height:42px;padding:0 12px;border:1px solid #52778a;border-radius:8px;background:#101f2c;color:#effbff;font-size:12px}
+.ncA04-bookmark-body input:focus-visible{outline:2px solid #95c5d6;outline-offset:2px;border-color:#769eaf}
+.ncA04-bookmark-body small{color:#8daabe;font-size:10px;line-height:1.5}
+.ncA04-bookmark-footer{display:flex;justify-content:flex-end;align-items:center;gap:9px;border-top:1px solid #385466;padding:15px 22px;background:#172b3b}
+.ncA04-bookmark-footer button{min-height:35px;padding:0 15px;border-radius:8px;font-size:11px;font-weight:750;display:flex;align-items:center;justify-content:center;gap:7px}
+.ncA04-bookmark-secondary{border:1px solid #476477;background:#243e50;color:#d0e4ed}
+.ncA04-bookmark-secondary:hover{background:#35566a}
+.ncA04-bookmark-primary{border:1px solid #95c9d9;background:#a6d5e2;color:#102936}
+.ncA04-bookmark-primary:hover{background:#c1e8f1}
+.ncA04-bookmark-primary svg{width:14px;height:14px}
+@media(max-width:700px){
+ #aliasModal .alias-form .ncA04-alias-action-row{gap:8px}
+ #aliasModal .ncA04-icon-action{width:36px;height:36px;min-width:36px;flex-basis:36px}
+ .ncA04-mark-toggle{width:145px;max-width:calc(100vw - 80px)}
+ .ncA04-bookmark-heading{padding:18px 16px;gap:11px}
+ .ncA04-bookmark-heading h2{font-size:17px}
+ .ncA04-bookmark-body{padding:17px 16px}
+ .ncA04-bookmark-footer{padding:12px 16px}
+}
+@media(prefers-reduced-motion:reduce){.ncA04-icon-action,.ncA04-info-popover,.ncA04-mark-toggle,.ncA04-mark-option,.ncA04-mark-chevron{transition:none!important}}
+/* Keep timeline action groups on a single row on roomy desktop screens. The
+   event count remains in the track itself, so the header doesn't repeat it. */
+@media(min-width:1320px){
+ body[data-page="explorer"] .timeline-pane .timeline-header .pane-title .pane-count{display:none}
+ body[data-page="explorer"] .timeline-pane .timeline-header .timeline-controls{flex-wrap:nowrap;gap:8px!important}
+}

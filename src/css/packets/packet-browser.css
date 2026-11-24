@@ -1,0 +1,134 @@
+/* Packets A08 — Explorer A07 styling reused in the Packet Browser and deep Inspector. */
+body[data-page="packets"] .hero{display:none!important}
+body[data-page="packets"] .main-scrollbox{padding-top:12px;gap:11px}
+body[data-page="packets"] .views{flex:1 1 auto!important;min-height:410px;height:auto!important;max-height:none!important}
+body[data-page="packets"] .packets-layout{height:100%;min-height:410px;max-height:none!important;grid-template-columns:minmax(0,1fr) clamp(340px,27vw,430px);gap:11px}
+body[data-page="packets"] .packet-pane,body[data-page="packets"] .packet-inspector{min-height:410px;max-height:none!important;height:100%}
+body[data-page="packets"] .packets-layout.ncps-inspector-collapsed{grid-template-columns:minmax(0,1fr)}
+body[data-page="packets"] .packets-layout.ncps-inspector-collapsed .packet-inspector{display:none!important}
+body[data-page="packets"] .ncps-heading,body[data-page="packets"] .ncps-inspector-heading{min-height:62px;padding:10px 13px;align-items:center;background:#1a2a38;border-bottom:1px solid #344d5d}
+body[data-page="packets"] .pane-title h2{font-size:12.5px;font-weight:780;letter-spacing:-.1px}
+body[data-page="packets"] .ncps-heading p{font-size:10.5px;color:#a3b9c9;margin-top:4px}
+body[data-page="packets"] #packetBrowserCount{display:none!important}
+body[data-page="packets"] .ncps-premium-icon{position:relative;isolation:isolate;overflow:hidden;display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border-radius:10px;background:linear-gradient(150deg,var(--ncp-hi),var(--ncp-lo));color:var(--ncp-ink);border:1px solid var(--ncp-stroke);box-shadow:inset 0 1px #fff2,0 5px 18px var(--ncp-glow)}
+body[data-page="packets"] .ncps-premium-icon:before{content:"";position:absolute;inset:1px;border-radius:8px;background:linear-gradient(135deg,#ffffff0d,transparent 55%);pointer-events:none}
+body[data-page="packets"] .ncps-premium-icon:after{content:"";position:absolute;right:5px;top:5px;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.42}
+body[data-page="packets"] .ncps-premium-icon svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;fill:none}
+body[data-page="packets"] .ncps-icon-packets{--ncp-hi:#294a55;--ncp-lo:#1b323e;--ncp-ink:#9be7df;--ncp-stroke:#3b7780;--ncp-glow:#4fb2b01c}
+body[data-page="packets"] .ncps-icon-inspector{--ncp-hi:#3a3a56;--ncp-lo:#252c43;--ncp-ink:#cabff2;--ncp-stroke:#625779;--ncp-glow:#a08de01c}
+body[data-page="packets"] .ncps-filters{position:relative;z-index:12;display:flex;flex-wrap:wrap;align-items:center;gap:8px;min-height:59px;padding:10px 12px;background:#172734;border-bottom:1px solid #344e5f}
+body[data-page="packets"] .ncps-search{display:flex;align-items:center;flex:none;width:38px;height:36px;max-width:100%;overflow:hidden;background:#152837;border:1px solid #456477;border-radius:9px;transition:width .24s,border-color .16s}
+body[data-page="packets"] .ncps-search.is-open{width:min(330px,28vw)}
+body[data-page="packets"] .ncps-search:hover{border-color:#63899b}
+body[data-page="packets"] .ncps-search:focus-within{border-color:#9ac3d5;box-shadow:0 0 0 2px #6fb1c622}
+body[data-page="packets"] .ncps-icon-button{display:grid;place-items:center;flex:none;width:32px;height:32px;padding:0;border:1px solid #456477;border-radius:8px;background:#203546;color:#b4ccdc;transition:background .16s,border-color .16s,transform .16s}
+body[data-page="packets"] .ncps-icon-button:hover{background:#2c4b5c;border-color:#86b6ca;color:#fff;transform:translateY(-1px)}
+body[data-page="packets"] .ncps-icon-button svg{width:16px;height:16px}
+body[data-page="packets"] #ncpsSearchToggle{width:36px;height:34px;border:0;background:transparent}
+body[data-page="packets"] .ncps-search input{flex:1;min-width:0;width:0;height:100%;padding:0;border:0!important;box-shadow:none!important;outline:0!important;background:transparent;color:#e6f1f8;font:550 11px var(--font);opacity:0;pointer-events:none}
+body[data-page="packets"] .ncps-search.is-open input{opacity:1;padding:0 4px;pointer-events:auto}
+body[data-page="packets"] .ncps-search input:focus-visible{border:0!important;outline:0!important;box-shadow:none!important}
+body[data-page="packets"] .ncps-search-clear{display:none;place-items:center;flex:none;width:27px;height:28px;padding:0;border:0;background:transparent;color:#a1b9c8}
+body[data-page="packets"] .ncps-search.is-open .ncps-search-clear{display:grid}
+body[data-page="packets"] .ncps-search-clear svg{width:13px;height:13px}
+body[data-page="packets"] .ncps-native-select{display:none!important}
+body[data-page="packets"] .ncps-select-wrap,body[data-page="packets"] .ncps-filter-wrap{position:relative;flex:none}
+body[data-page="packets"] .ncps-picker-button,body[data-page="packets"] .ncps-action{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:0 11px;border:1px solid #456477;border-radius:8px;background:#203747;color:#c6d9e4;font:700 11px var(--font);white-space:nowrap;transition:border-color .16s,background .16s,transform .16s}
+body[data-page="packets"] .ncps-picker-button:hover,body[data-page="packets"] .ncps-action:hover{background:#2d4c5d;border-color:#85b2c5;color:#fff}
+body[data-page="packets"] .ncps-picker-button:active,body[data-page="packets"] .ncps-action:active{transform:scale(.985)}
+body[data-page="packets"] .ncps-picker-button[aria-expanded="true"],body[data-page="packets"] .ncps-action[aria-expanded="true"]{background:#2c4b5a;border-color:#87b9cb}
+body[data-page="packets"] .ncps-picker-button svg,body[data-page="packets"] .ncps-action svg{height:15px;width:15px;flex:none}
+body[data-page="packets"] .ncps-picker-button>span{color:#a8c5d3}
+body[data-page="packets"] .ncps-picker-button strong{font:800 11px var(--font);margin-left:4px;max-width:100px;overflow:hidden;text-overflow:ellipsis;color:#ecf8fc}
+body[data-page="packets"] .ncps-picker-button .ncps-chevron{width:13px;height:13px;margin-left:3px;transition:transform .2s}
+body[data-page="packets"] .ncps-picker-button[aria-expanded="true"] .ncps-chevron{transform:rotate(180deg)}
+body[data-page="packets"] .ncps-count{border-radius:99px;padding:2px 5px;background:#86d2d7;color:#122937;font:780 9px var(--mono)}
+body[data-page="packets"] .ncps-advanced.is-active,body[data-page="packets"] .ncps-filter-wrap .has-filter{border-color:#89c4c7;color:#dcf5f4}
+body[data-page="packets"] #clearPacketScope{max-width:220px;border:1px solid #608b99;background:#254655;border-radius:8px;color:#d0f4ef}
+body[data-page="packets"] .ncps-inspector-reopen{margin-left:auto}
+.ncps-menu,.ncps-filter-menu{position:fixed;left:0;top:0;width:260px;max-width:calc(100vw - 18px);max-height:min(380px,70vh);overflow-y:auto;z-index:1100;padding:7px;border:1px solid #537587;border-radius:12px;background:#1a2e3e;box-shadow:0 18px 46px #0009;scrollbar-width:thin;animation:ncpsOpen .16s ease-out}
+.ncps-menu.hidden,.ncps-filter-menu.hidden{display:none!important}
+@keyframes ncpsOpen{from{opacity:0;transform:translateY(-5px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ncps-menu-kicker{font:800 9px var(--font);letter-spacing:1.2px;color:#94b8c9;padding:8px 10px}
+.ncps-option{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:9px 10px;text-align:left;border:1px solid transparent;border-radius:8px;background:transparent;color:#c7dce7;font:680 11px var(--font)}
+.ncps-option:hover,.ncps-option:focus-visible{background:#2c4858;color:#fff}
+.ncps-option[aria-selected="true"]{background:#294757;border-color:#5c8498;color:#eefafd}
+.ncps-option .ncps-dot{display:inline-block;flex:none;width:8px;height:8px;border-radius:3px;background:var(--pc,#aacddd)}
+.ncps-option .ncps-opt-count{margin-left:auto;color:#9cbbcc;font:650 10px var(--mono)}
+.ncps-option svg{width:15px;height:15px;visibility:hidden;color:#a9e7e5}
+.ncps-option[aria-selected="true"] svg{visibility:visible}
+.ncps-filter-menu{width:min(314px,calc(100vw - 18px))}
+.ncps-switch-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 10px;border-radius:8px;cursor:pointer}
+.ncps-switch-row:hover{background:#2b4657}
+.ncps-switch-row>span{display:flex;flex:1;flex-direction:column;gap:4px}
+.ncps-switch-row strong{color:#e3f0f7;font:720 11px var(--font)}
+.ncps-switch-row small{color:#9dbac9;font:500 10px/1.4 var(--font)}
+.ncps-switch-row input{position:absolute;opacity:0;width:1px;height:1px}
+.ncps-switch-row i{display:inline-block;position:relative;flex:none;width:32px;height:19px;border:1px solid #597485;border-radius:20px;background:#455a6a;transition:background .15s}
+.ncps-switch-row i:after{content:"";position:absolute;left:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#d1e0e8;transition:transform .15s}
+.ncps-switch-row input:checked+i{background:#41858f;border-color:#8bcbd1}
+.ncps-switch-row input:checked+i:after{transform:translateX(13px)}
+.ncps-switch-row:has(input:focus-visible){outline:2px solid #b4d6ee;outline-offset:2px}
+body[data-page="packets"] .nc31-advanced{background:#162a39;border-bottom:1px solid #3c586a;padding:14px}
+body[data-page="packets"] #advancedExpression{font:500 11px/1.55 var(--mono);background:#102634;border-color:#446678;border-radius:8px;color:#e6f2fa}
+body[data-page="packets"] .nc31-filter-foot .soft-button{min-height:34px;border-radius:8px;font-size:11px}
+body[data-page="packets"] .packet-table-scroll{background:#162532;scrollbar-color:#4c687c transparent}
+body[data-page="packets"] .data-table{font-size:11px}
+body[data-page="packets"] .data-table th{background:#1d3040;padding:11px 10px;color:#a2bfd0;font-size:9px;letter-spacing:.7px;border-bottom:1px solid #365063}
+body[data-page="packets"] .data-table td{padding:10px;height:38px;box-sizing:border-box;color:#c0d2dd;border-bottom:1px solid #8aa8be1d;font-size:11px}
+body[data-page="packets"] .data-table td:nth-child(1),body[data-page="packets"] .data-table td:nth-child(2){font:650 10px var(--mono);color:#a6c0cf}
+body[data-page="packets"] .data-table td:nth-child(3),body[data-page="packets"] .data-table td:nth-child(4){font:600 10.5px var(--mono);color:#bdd6e3}
+body[data-page="packets"] .data-table tbody tr{cursor:pointer;transition:background .12s}
+body[data-page="packets"] .data-table tbody tr:hover{background:#273e4e}
+body[data-page="packets"] .data-table tbody tr.is-selected{background:#2a4555;box-shadow:inset 3px 0 #a6dbe7}
+body[data-page="packets"] .data-table tbody tr:focus-visible{outline:2px solid #b0d9eb;outline-offset:-3px;background:#294b59}
+body[data-page="packets"] .table-proto{border-radius:6px;padding:4px 7px;font-size:9.5px}
+body[data-page="packets"] .packet-table-foot{height:42px;min-height:42px;background:#1b2d3b;border-color:#3b5666;padding:0 13px;color:#abc3d1;font-size:10.5px}
+body[data-page="packets"] .packet-table-foot button{height:31px;width:31px;border-radius:8px;border:1px solid #43677a;background:#223c4c;color:#cde3ef}
+body[data-page="packets"] .packet-table-foot button:hover{border-color:#8ab6c8;background:#2e4c5e}
+body[data-page="packets"] .ncps-inspector-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
+body[data-page="packets"] .ncps-inspector-actions button{display:grid;place-items:center;height:32px;width:32px;border-radius:8px;border:1px solid #496b7e;background:#223c4e;color:#c7dce7;transition:border-color .16s,background .16s}
+body[data-page="packets"] .ncps-inspector-actions button:hover{background:#305468;border-color:#8fbdcd;color:white}
+body[data-page="packets"] .ncps-inspector-actions svg{width:16px;height:16px}
+body[data-page="packets"] .packet-inspector-scroll{padding:14px;scrollbar-color:#4b697a transparent}
+body[data-page="packets"] .packet-header-card{background:#1d3544;border:1px solid #456c7d;border-radius:11px;padding:13px}
+body[data-page="packets"] .packet-header-card h3{font-size:14px;color:#edf8fb;line-height:1.45}
+body[data-page="packets"] .packet-header-top{font-size:10px;letter-spacing:.7px;color:#a1e2e0}
+body[data-page="packets"] .packet-route{font-size:10px;color:#c2d7e3;flex-wrap:wrap}
+body[data-page="packets"] .packet-meta span{background:#152c3a;border:1px solid #3b5769;color:#bad0dd;font-size:10px;border-radius:5px}
+body[data-page="packets"] .inspector-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:10px 0}
+body[data-page="packets"] .inspector-buttons button{min-height:35px;min-width:0;border-radius:8px;border:1px solid #486c7f;background:#223a4b;color:#c6dbe6;font-size:10px}
+body[data-page="packets"] .inspector-buttons button:hover{background:#305163;color:#fff;border-color:#8ebcce}
+body[data-page="packets"] .inspector-tabs{padding:4px;margin:10px 0;border:1px solid #3a5769;border-radius:9px;background:#132735}
+body[data-page="packets"] .inspector-tabs button{font-size:10.5px;padding:9px 6px;color:#a6bfcd}
+body[data-page="packets"] .inspector-tabs button.is-active{background:#2d505a;color:#e0f7f5;box-shadow:inset 0 0 0 1px #628a98}
+body[data-page="packets"] .inspector-subtitle{font-size:10px;letter-spacing:.7px;color:#b2ceda}
+body[data-page="packets"] .layer-block{border:1px solid #3d596a;border-radius:9px;background:#182e3d}
+body[data-page="packets"] .layer-block summary{padding:11px 10px;color:#deebf3;font-size:11px}
+body[data-page="packets"] .layer-block summary small{font-size:10px;color:#a2bac9}
+body[data-page="packets"] .layer-block[open] summary{background:#213c4d}
+body[data-page="packets"] .layer-fields{border-color:#385569}
+body[data-page="packets"] .layer-field{font-size:10.5px;grid-template-columns:45% 1fr;padding:8px 7px;line-height:1.4;color:#aec4d2}
+body[data-page="packets"] .layer-field b{font-size:10.5px;color:#d6e7ed;overflow-wrap:anywhere}
+body[data-page="packets"] .layer-field:hover,body[data-page="packets"] .layer-field.is-active{background:#2e505c}
+body[data-page="packets"] .hex-view{background:#142836;border:1px solid #3b586a;border-radius:9px;font-size:10px;color:#c5d7e0}
+body[data-page="packets"] .packet-inspector.is-expanded{background:#182b39;max-height:calc(100dvh - 90px)!important}
+@media(max-width:1230px) and (min-width:901px){body[data-page="packets"] .packets-layout{grid-template-columns:minmax(0,1fr) 330px}body[data-page="packets"] .ncps-search.is-open{width:min(250px,26vw)}body[data-page="packets"] .data-table{min-width:760px}}
+@media(max-width:900px){body[data-page="packets"] .main-scrollbox{overflow:visible!important}body[data-page="packets"] .packets-layout{display:flex;flex-direction:column;gap:11px;height:auto;min-height:0}body[data-page="packets"] .packet-pane{height:470px;min-height:470px}body[data-page="packets"] .packet-inspector{height:470px;min-height:470px}body[data-page="packets"] .data-table{min-width:790px}body[data-page="packets"] .ncps-search.is-open{width:min(320px,43vw)}}
+@media(max-width:600px){body[data-page="packets"] .ncps-filters{padding:8px;gap:6px}body[data-page="packets"] .ncps-picker-button>span{display:none}body[data-page="packets"] .ncps-picker-button strong{margin:0}body[data-page="packets"] .ncps-search.is-open{order:-1;width:100%;flex-basis:100%}body[data-page="packets"] .packet-pane{height:470px;min-height:470px}body[data-page="packets"] .packet-inspector-scroll{padding:10px}}
+@media(prefers-reduced-motion:reduce){.ncps-search,.ncps-icon-button,.ncps-picker-button,.ncps-action,.ncps-menu,.ncps-filter-menu{transition:none!important;animation:none!important}}
+/* Flex min-content must never let a wide packet table enlarge the whole viewport. */
+@media(max-width:900px){
+ body[data-page="packets"] #view-packets{min-width:0!important;width:100%!important;max-width:100%!important}
+ body[data-page="packets"] .packets-layout{width:100%!important;max-width:100%!important;min-width:0!important;align-items:stretch}
+ body[data-page="packets"] .packet-pane,body[data-page="packets"] .packet-inspector{width:100%!important;min-width:0!important;max-width:100%!important;flex:0 0 auto}
+ body[data-page="packets"] .packet-table-scroll{min-width:0;max-width:100%;overflow-x:auto;overflow-y:auto}
+}
+/* Secondary packet actions form a balanced second row, never a lonely one-third button. */
+body[data-page="packets"] .inspector-buttons{grid-template-columns:repeat(6,minmax(0,1fr))}
+body[data-page="packets"] .inspector-buttons #prevSelected,
+body[data-page="packets"] .inspector-buttons #revealSelected,
+body[data-page="packets"] .inspector-buttons #nextSelected{grid-column:span 2}
+body[data-page="packets"] .inspector-buttons #nc31MarkPacket,
+body[data-page="packets"] .inspector-buttons #nc31FollowTCP{grid-column:span 3}
+body[data-page="packets"] .inspector-buttons #nc31MarkPacket:last-child{grid-column:1 / -1}

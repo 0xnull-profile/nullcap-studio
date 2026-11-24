@@ -1,0 +1,45 @@
+/* A27 · Report flow, dossier evidence breathing room and identity. */
+/* The source SVG is unchanged. The existing premium sidebar container is retained. */
+.brand-mark svg{stroke-width:1.9;filter:drop-shadow(0 0 3px rgba(137,234,218,.21))}
+/* Explicit separation between the second accordion's header and its contents. */
+#view-forensic .nc26-doc-accordion[data-nc26-accordion="2"][open] > .nc26-doc-body{padding-top:14px}
+
+/* Report: single modal title, three successive steps, actions in the footer. */
+#nc26ReportMount #nc40TabReport .nc40-report-form.nc27-report-steps{display:grid;gap:0;padding:0;background:transparent}
+#nc26ReportMount .nc27-report-step{min-width:0;display:grid;gap:13px;padding:19px 22px 20px;border-bottom:1px solid rgba(142,178,198,.13)}
+#nc26ReportMount .nc27-report-step:last-child{border-bottom:0}
+.nc27-step-header{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.nc27-step-number{display:grid;place-items:center;flex:none;width:29px;height:29px;border-radius:8px;border:1px solid rgba(117,203,204,.28);background:rgba(71,151,161,.13);color:#9ee2da;font:800 10px var(--mono)}
+.nc27-step-header>div{min-width:0;flex:1}
+.nc27-step-header h3{margin:0;color:#e7f4f8;font:770 13px/1.35 var(--font);letter-spacing:-.15px}
+.nc27-step-header p{margin:4px 0 0;font:530 10.5px/1.55 var(--font);color:#8fb1c1}
+#nc26ReportMount .nc27-report-field{display:grid;gap:8px;margin:0;font:710 10.5px/1.45 var(--font);letter-spacing:0;color:#b9d5e0}
+#nc26ReportMount .nc27-report-field textarea{font:520 11.5px/1.55 var(--font);background:rgba(8,23,36,.68);border:1px solid rgba(133,186,209,.28);border-radius:9px;padding:12px 13px;min-height:95px}
+#nc26ReportMount .nc27-report-field textarea:focus-visible{border-color:#7ae2d5;outline:2px solid rgba(107,209,201,.17);outline-offset:1px}
+.nc27-report-options{display:grid;gap:10px;padding:1px 0 2px 3px}
+#nc26ReportMount .nc27-report-options .nc40-checkbox{display:flex;align-items:flex-start;gap:10px;color:#bed5df;font:550 11px/1.5 var(--font);cursor:pointer}
+#nc26ReportMount .nc27-report-options input{accent-color:#83d9cb;width:14px;height:14px;margin:1px 0 0;flex:none}
+.nc27-report-caution{display:flex;align-items:flex-start;gap:8px;margin:0;background:rgba(89,146,147,.075);border-radius:8px;padding:10px 11px;color:#9abac5;font:540 10px/1.5 var(--font)}
+.nc27-report-caution svg{width:15px;height:15px;flex:none;color:#91d2cc}
+#nc26ReportMount .nc40-report-preview{margin:0;padding:13px 15px;border-radius:9px;background:rgba(10,28,43,.76);border:1px solid rgba(131,185,201,.22);font:550 11px/1.65 var(--font);overflow-wrap:anywhere}
+#nc26ReportMount .nc40-report-preview strong{display:block;color:#e5f6f7;font:760 11.5px var(--font)}
+#nc26ReportMount .nc40-report-preview p{font:530 10.5px/1.6 var(--font);color:#98b5c4;margin:7px 0 0}
+.nc27-report-footer{justify-content:space-between;gap:10px;padding:13px 20px}
+.nc27-report-actions{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;min-width:0}
+.nc27-report-footer button{min-height:36px;white-space:nowrap}
+.nc27-report-footer .nc27-report-actions svg{width:15px;height:15px}
+.nc27-report-footer #nc40ReportHtml{background:linear-gradient(125deg,#9ccee0,#85bfd3);color:#102536;border-color:rgba(162,224,237,.38);font-weight:790}
+.nc27-report-footer #nc40ReportHtml:hover{background:linear-gradient(125deg,#bbe5f2,#9ad3df)}
+@media(max-width:650px){
+ #view-forensic .nc26-doc-accordion[data-nc26-accordion="2"][open] > .nc26-doc-body{padding-top:12px}
+ #nc26ReportMount .nc27-report-step{padding:15px 13px 16px;gap:11px}
+ .nc27-step-header{gap:9px}
+ .nc27-step-number{width:26px;height:26px;font-size:9px}
+ .nc27-step-header h3{font-size:12px}
+ .nc27-step-header p{font-size:10px}
+ .nc27-report-footer{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;padding:10px 12px}
+ .nc27-report-footer>#nc26ReportDismiss{justify-self:start;width:auto;min-width:85px;flex:none}
+ .nc27-report-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:7px}
+ .nc27-report-footer .nc27-report-actions button{min-width:0;width:100%;font-size:10px;padding:8px 6px;white-space:normal}
+ .nc27-report-footer #nc40ReportHtml{grid-column:1 / -1}
+}

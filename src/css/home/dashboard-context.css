@@ -1,0 +1,91 @@
+/* A29 — Homepage compact host ranking and context indicators.
+   These styles only affect the two lower dashboard panes. */
+body[data-page="overview"] .talkers-pane .pane-header,
+body[data-page="overview"] .insights-pane .pane-header{gap:10px}
+body[data-page="overview"] .nc29-talkers-list{padding:12px 18px 19px;gap:5px}
+body[data-page="overview"] .nc29-talker-row{
+  display:grid;grid-template-columns:23px minmax(0,1fr) auto;align-items:center;
+  width:100%;min-height:57px;padding:9px 11px;
+  background:transparent;
+  text-align:left;cursor:pointer;color:#dbeaf4;transition:background .16s,border-color .16s;
+}
+body[data-page="overview"] .nc29-talker-row:hover,
+body[data-page="overview"] .nc29-talker-row:focus-visible{
+  background:rgba(88,156,188,.10);border-color:rgba(119,191,206,.30);
+}
+body[data-page="overview"] .nc29-talker-row:focus-visible{outline:2px solid #79d9d3;outline-offset:1px}
+body[data-page="overview"] .nc29-talker-row:hover .talker-name,
+body[data-page="overview"] .nc29-talker-row:focus-visible .talker-name{color:#b7f5ee}
+body[data-page="overview"] .nc29-talker-row .talker-rank{font:650 10px var(--mono);color:#8aa3b9;}
+body[data-page="overview"] .nc29-talker-row .talker-name{line-height:1.25;color:#e1eef4;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+body[data-page="overview"] .nc29-talker-row .talker-sub{line-height:1.35;color:#90aabc;margin:3px 0 8px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+body[data-page="overview"] .nc29-talker-row .talker-track{height:5px;background:#314558;border-radius:20px;overflow:hidden}
+body[data-page="overview"] .nc29-talker-row .talker-fill,
+body[data-page="overview"] .nc29-talker-row:nth-child(2n) .talker-fill{
+  background:linear-gradient(90deg,#4dbbb7,#78dbcf);display:block;border-radius:20px;
+}
+body[data-page="overview"] .nc29-talker-row .talker-volume{
+  text-align:right;align-self:center;white-space:nowrap;font:700 11px var(--mono);color:#cbe6ef;
+}
+body[data-page="overview"] .nc29-insights-list{padding:8px 20px 11px;}
+body[data-page="overview"] .nc29-insight-item{
+  grid-template-columns:30px minmax(0,1fr) auto 29px;align-items:center;
+  column-gap:10px;min-height:61px;padding:13px 0;border-bottom:1px solid rgba(143,182,210,.12);
+}
+body[data-page="overview"] .nc29-insight-item:last-child{border-bottom:none}
+body[data-page="overview"] .nc29-insight-item .insight-icon{
+  width:30px;height:30px;border-radius:9px;color:#98c9d5;
+  border:1px solid rgba(138,193,215,.20);background:rgba(90,151,181,.10);
+}
+body[data-page="overview"] .nc29-insight-item:nth-child(2) .insight-icon{
+  color:#98c9d5;background:rgba(90,151,181,.10);
+}
+body[data-page="overview"] .nc29-insight-item .insight-body b{
+  font-size:11.5px;font-weight:680;line-height:1.35;margin:0;color:#dceaf4;
+}
+body[data-page="overview"] .nc29-insight-item .insight-value{
+  font:750 13px var(--mono);color:#d8f5ef;white-space:nowrap;
+}
+body[data-page="overview"] .nc29-info-button{
+  display:grid;place-items:center;width:29px;height:29px;flex-shrink:0;
+  border-radius:8px;border:1px solid rgba(136,187,211,.22);background:rgba(77,125,154,.09);
+  color:#abc8d7;cursor:pointer;transition:background .14s,border-color .14s,color .14s;
+}
+body[data-page="overview"] .nc29-info-button svg{width:15px;height:15px;stroke-width:1.85}
+body[data-page="overview"] .nc29-info-button:hover,
+body[data-page="overview"] .nc29-info-button[aria-expanded="true"]{
+  color:#bdf4ef;border-color:rgba(119,226,212,.45);background:rgba(90,201,197,.13);
+}
+body[data-page="overview"] .nc29-info-button:focus-visible,
+body[data-page="overview"] .nc29-loot-link:focus-visible{outline:2px solid #8ff0e1;outline-offset:2px}
+body[data-page="overview"] .nc29-loot-link{
+  display:inline-flex;align-items:center;gap:5px;
+  background:none;border:none;padding:2px 0;min-height:18px;
+  color:#89ded2;font-weight:700;text-align:left;cursor:pointer;
+}
+body[data-page="overview"] .nc29-loot-link:hover{color:#bcfff0;text-decoration:underline}
+body[data-page="overview"] .nc29-loot-link svg{height:11px;width:11px}
+.nc29-context-popover{
+  position:fixed;z-index:4100;box-sizing:border-box;max-width:calc(100vw - 20px);
+  max-height:calc(100dvh - 24px);overflow:auto;border-radius:10px;
+  background:#172b3b;border:1px solid #466776;box-shadow:0 12px 38px rgba(0,0,0,.50),0 0 0 1px rgba(134,201,218,.06);
+  padding:13px 15px;color:#cde4ed;pointer-events:auto;
+}
+.nc29-context-popover[hidden]{display:none!important}
+.nc29-context-popover strong{font-size:11px;font-weight:750;display:block;color:#e7f7f9;margin-bottom:8px;line-height:1.45}
+.nc29-context-popover p{font-size:11px;line-height:1.55;white-space:normal;margin:0;color:#b8d0de;overflow-wrap:anywhere}
+body[data-page="overview"] .insights-pane .insights-footer{display:none}
+@media(max-width:680px){
+  body[data-page="overview"] .nc29-talkers-list{padding:10px 10px 14px;}
+  body[data-page="overview"] .nc29-talker-row{grid-template-columns:21px minmax(0,1fr) auto;}
+  
+  body[data-page="overview"] .nc29-talker-row .talker-sub{font-size:9px}
+  
+  body[data-page="overview"] .nc29-insights-list{padding:5px 11px 9px}
+  body[data-page="overview"] .nc29-insight-item{grid-template-columns:25px minmax(0,1fr) auto 28px;gap:7px;padding:11px 0;min-height:58px}
+  body[data-page="overview"] .nc29-insight-item .insight-icon{width:25px;height:25px}
+  body[data-page="overview"] .nc29-insight-item .insight-icon svg{width:15px;height:15px}
+  body[data-page="overview"] .nc29-insight-item .insight-body b{font-size:10.5px}
+  body[data-page="overview"] .nc29-insight-item .insight-value{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){body[data-page="overview"] .nc29-talker-row,body[data-page="overview"] .nc29-info-button{transition:none}}

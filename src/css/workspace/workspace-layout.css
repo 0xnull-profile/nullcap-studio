@@ -1,0 +1,86 @@
+/* NullCap A22 — Forensic Workspace structure only.
+   Restyling scope: case overview, capture selector, navigation density and context.
+   Packet parsing, events, indicators and reports retain their 4.0.1 semantics. */
+body[data-page="forensic"] .hero{display:none!important}
+body[data-page="forensic"] .main-scrollbox{padding-top:12px;gap:10px}
+#view-forensic .nc22-case-head{display:flex;flex-direction:column;gap:0;padding:0;margin-bottom:11px;overflow:visible;position:relative;z-index:4;background:linear-gradient(132deg,rgba(25,42,62,.86),rgba(10,21,37,.93));border-color:rgba(145,194,220,.18)}
+.nc22-case-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 19px 13px;min-width:0}
+.nc22-case-identity{display:flex;align-items:center;gap:12px;min-width:0;flex:1 1 260px}
+.nc22-case-icon{width:39px;height:39px;flex:none;border-radius:11px;background:linear-gradient(145deg,rgba(177,149,250,.19),rgba(90,111,197,.07));border:1px solid rgba(178,150,251,.35);color:#d2bfff;box-shadow:0 0 24px rgba(146,114,250,.11),inset 0 1px rgba(240,234,255,.11)}
+.nc22-case-icon svg{width:21px;height:21px;filter:drop-shadow(0 0 6px rgba(200,179,255,.22))}
+.nc22-case-heading-text{min-width:0}
+.nc22-eyebrow{display:flex;align-items:center;gap:9px;color:#9cb3d0;font:800 8px var(--font);letter-spacing:1.35px}
+.nc22-version{font:750 8px var(--mono);color:#93c1d5;background:rgba(97,153,185,.10);border:1px solid rgba(126,166,210,.21);border-radius:4px;padding:2px 5px;letter-spacing:0}
+.nc22-case-heading-text h2{font:780 clamp(16px,1.35vw,19px)/1.3 var(--font);letter-spacing:-.45px;color:#e8f6ff;margin:4px 0 3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:560px}
+.nc22-case-heading-text p{font:500 10px/1.45 var(--font);color:#84a0b8;margin:0}
+#view-forensic .nc22-case-actions{flex:0 1 auto;flex-wrap:wrap;gap:7px;justify-content:flex-end;align-items:center}
+#view-forensic .nc22-case-actions .button{min-height:34px;height:34px;padding:7px 10px;font:740 10px var(--font);border-radius:8px;white-space:nowrap}
+#view-forensic .nc22-case-actions .button svg{width:14px;height:14px}
+.nc22-more-actions{position:relative;min-width:0;flex:none}
+.nc22-more-actions>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 11px;height:34px;border:1px solid rgba(147,184,212,.23);background:rgba(25,44,66,.85);color:#b1cad9;border-radius:8px;font:750 10px var(--font)}
+.nc22-more-actions>summary::-webkit-details-marker,.nc22-case-settings>summary::-webkit-details-marker,.nc22-captures-panel>summary::-webkit-details-marker,.nc22-caveat>summary::-webkit-details-marker{display:none}
+.nc22-more-actions>summary>svg{width:15px;height:15px}
+.nc22-more-actions>summary:hover,.nc22-more-actions[open]>summary{color:#aaf6e7;border-color:rgba(113,222,209,.48);background:rgba(78,162,157,.13)}
+.nc22-caret{width:13px!important;height:13px!important;color:#829db4;flex:none;transition:transform .18s}
+[open]>summary .nc22-caret{transform:rotate(180deg)}
+.nc22-more-menu{position:absolute;right:0;top:calc(100% + 7px);width:min(285px,calc(100vw - 48px));padding:6px;background:#122237;border:1px solid rgba(137,187,212,.32);border-radius:10px;box-shadow:0 17px 40px #0008;z-index:45}
+.nc22-more-menu button{width:100%;display:flex;align-items:center;gap:11px;text-align:left;padding:9px 10px;border:0;border-radius:7px;background:transparent;color:#b8ccdc}
+.nc22-more-menu button:hover,.nc22-more-menu button:focus-visible{background:rgba(101,198,188,.13);color:#d7fff6}
+.nc22-more-menu button svg{height:17px;width:17px;color:#89d5cd}
+.nc22-more-menu button span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.nc22-more-menu button strong{font:740 11px var(--font)}
+.nc22-more-menu button small{font:500 9px var(--font);color:#8aa5b7;line-height:1.45}
+.nc22-menu-divider{height:1px;background:rgba(139,172,205,.14);margin:5px 7px}
+.nc22-case-meta{display:flex;align-items:center;gap:7px 11px;padding:0 19px 13px;flex-wrap:wrap;min-width:0}
+.nc22-meta-item{display:inline-flex;align-items:center;gap:6px;min-width:0;padding:6px 9px;background:rgba(8,24,40,.58);border:1px solid rgba(134,181,209,.13);border-radius:7px;color:#92b1c3;font:550 10px var(--font)}
+.nc22-meta-item strong{color:#d2e8f1;font-weight:740}
+.nc22-meta-item svg{width:13px;height:13px;color:#80c9cc}
+.nc22-active-meta{max-width:min(350px,100%)}
+.nc22-active-meta span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nc22-active-meta strong{font-family:var(--mono);font-size:9px;font-weight:680}
+.nc22-meta-private{margin-left:auto;display:flex;align-items:center;gap:7px;color:#84bdbe;font:690 9px var(--font);white-space:nowrap}
+.nc22-case-messages{display:none;padding:8px 19px 11px;border-top:1px solid rgba(130,176,204,.12);background:rgba(10,24,38,.45)}
+.nc22-case-messages.is-visible{display:flex;flex-wrap:wrap;gap:7px 15px}
+.nc22-case-messages .nc40-subtle{max-width:none;font:550 10px/1.5 var(--font);color:#b4cad7;flex:1 1 100%}
+.nc22-case-messages[data-nc22-alert="true"] .nc40-subtle{color:#f0cb8e}
+#view-forensic .nc22-case-settings,#view-forensic .nc22-captures-panel{border-top:1px solid rgba(136,180,204,.13);padding:0;margin:0;background:rgba(7,19,32,.23)}
+.nc22-case-settings>summary,.nc22-captures-panel>summary{display:flex;align-items:center;gap:9px;min-height:38px;padding:8px 19px;cursor:pointer;color:#afc6d4;font:720 10px var(--font);list-style:none}
+.nc22-case-settings>summary:hover,.nc22-captures-panel>summary:hover{background:rgba(95,178,182,.075);color:#bcf2e9}
+.nc22-case-settings>summary svg,.nc22-captures-summary-title svg{width:14px;height:14px;color:#82c9cb}
+.nc22-case-settings>summary .nc22-caret,.nc22-captures-panel>summary .nc22-caret{margin-left:auto}
+.nc22-case-edit-body{padding:2px 19px 13px}
+#view-forensic .nc22-case-edit-body .nc40-case-fields{max-width:740px}
+#view-forensic .nc22-case-edit-body .nc40-case-fields label{font:700 10px var(--font);letter-spacing:.1px}
+#view-forensic .nc22-case-edit-body .nc40-case-fields input{font:500 11px var(--font);background:#10253b}
+.nc22-case-edit-body p{margin:10px 0 0;font:500 10px/1.5 var(--font);color:#819bae}
+.nc22-captures-summary-title{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.nc22-captures-summary-title strong{font:750 10px var(--font);color:#bed5e0}
+.nc22-captures-summary-title>span{color:#849eaf;font:520 9px var(--font)}
+#view-forensic .nc22-capture-list,#view-forensic .nc40-capture-list{display:flex;gap:8px;padding:3px 17px 10px;overflow-x:auto;overflow-y:hidden;scrollbar-color:#385169 transparent;scrollbar-width:thin;min-width:0}
+#view-forensic .nc40-capture-list .nc40-capture-item{flex:0 0 min(235px,82vw);padding:9px 10px;border-radius:9px;gap:6px}
+#view-forensic .nc40-capture-item small{font:500 9px/1.4 var(--font)}
+#view-forensic .nc40-capture-list .nc40-empty{padding:10px 3px 12px;text-align:left;font:520 10px var(--font)}
+.nc22-captures-help{font:500 9px/1.55 var(--font);color:#7896a7;margin:0;padding:0 19px 12px}
+#view-forensic .nc40-tabs{display:flex;gap:6px;padding:4px;margin:0 0 10px;background:rgba(11,24,39,.8);border:1px solid rgba(131,171,205,.16);border-radius:10px;width:max-content;max-width:100%;flex-wrap:wrap}
+#view-forensic .nc40-tabs button{font:730 10.5px var(--font);border:1px solid transparent;border-radius:7px;background:transparent;padding:9px 13px;min-height:36px;display:flex;align-items:center;gap:7px;color:#97afc4}
+#view-forensic .nc40-tabs button svg{width:14px;height:14px}
+#view-forensic .nc40-tabs button.is-active{color:#b6fff1;background:linear-gradient(110deg,rgba(87,210,196,.17),rgba(77,162,187,.07));border-color:rgba(117,226,216,.25)}
+#view-forensic .nc40-tabs button:hover:not(.is-active){background:rgba(145,180,208,.075);color:#e1f1f5}
+#view-forensic .nc40-workspace{grid-template-columns:minmax(0,1.65fr) minmax(280px,.85fr);gap:11px}
+#view-forensic[data-nc22-tab="compare"] .nc40-workspace,#view-forensic[data-nc22-tab="report"] .nc40-workspace{grid-template-columns:minmax(0,1fr)}
+#view-forensic[data-nc22-tab="compare"] .nc40-detail-pane,#view-forensic[data-nc22-tab="report"] .nc40-detail-pane{display:none!important}
+#view-forensic .nc40-tab-panel>.pane-header{padding-top:15px;padding-bottom:11px}
+#view-forensic .nc22-caveat{margin:11px 0 0;background:rgba(162,119,62,.048);border:1px solid rgba(226,185,113,.16);border-radius:9px;overflow:hidden;color:#aeaa9d}
+#view-forensic .nc22-caveat>summary{list-style:none;cursor:pointer;display:flex;gap:9px;align-items:center;padding:10px 13px;color:#c8b58f;font:530 10px/1.5 var(--font)}
+#view-forensic .nc22-caveat>summary svg{width:15px;height:15px;flex:none;color:#e0c088}
+#view-forensic .nc22-caveat>summary span{flex:1;min-width:0}
+#view-forensic .nc22-caveat>summary strong{font-weight:760}
+#view-forensic .nc22-caveat p{border-top:1px solid rgba(226,185,113,.12);padding:10px 15px;margin:0;color:#9eabaf;font:500 10px/1.65 var(--font)}
+#view-forensic .nc22-case-head summary:focus-visible,#view-forensic .nc22-caveat summary:focus-visible{outline:2px solid #a5f9e9;outline-offset:2px}
+@media(max-width:1390px){.nc22-case-top{align-items:flex-start;flex-wrap:wrap}.nc22-case-identity{flex:1 1 330px}.nc22-case-actions{flex:1 1 auto}.nc22-case-meta{padding-bottom:11px}}
+@media(max-width:900px){#view-forensic .nc40-workspace{grid-template-columns:minmax(0,1fr)}.nc22-case-top{padding:13px 13px 9px;gap:11px}.nc22-case-meta{padding:0 13px 11px}.nc22-case-meta .nc22-meta-private{margin-left:0}.nc22-case-edit-body{padding:3px 13px 12px}.nc22-case-settings>summary,.nc22-captures-panel>summary{padding:8px 13px}.nc22-captures-help{padding:0 13px 11px}.nc22-case-messages{padding:9px 13px}.nc22-case-heading-text h2{max-width:75vw}}
+@media(max-width:620px){#view-forensic .nc22-case-top{flex-direction:column;align-items:stretch}#view-forensic .nc22-case-identity{flex:0 1 auto}#view-forensic .nc22-case-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;justify-content:initial}#view-forensic .nc22-case-actions .button{height:36px;min-width:0;padding:7px;font-size:10px}#view-forensic .nc22-case-actions .button span{overflow:hidden;text-overflow:ellipsis}#view-forensic .nc22-case-actions .button:nth-of-type(1){grid-column:span 1}.nc22-more-actions{min-width:0}.nc22-more-actions>summary{width:100%}.nc22-more-menu{right:0;width:min(285px,calc(100vw - 100px))}.nc22-meta-item{font-size:9px}.nc22-captures-summary-title>span{font-size:9px}.nc22-case-edit-body .nc40-case-fields{grid-template-columns:minmax(0,1fr)}#view-forensic .nc40-tabs{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#view-forensic .nc40-tabs button{justify-content:center;padding:9px 7px;font-size:10px}body[data-page="forensic"] .main-scrollbox{padding-top:9px}}
+@media(max-width:420px){.nc22-case-heading-text h2{max-width:calc(100vw - 115px)}#view-forensic .nc22-meta-private{display:none}.nc22-case-identity{gap:9px}.nc22-case-icon{width:36px;height:36px}.nc22-captures-summary-title>span{display:none}}
+/* Older mobile styles intentionally hide labels in generic secondary buttons.
+   Case-management actions need visible text at every viewport. */
+#view-forensic .nc22-case-actions .button span{display:inline!important;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}

@@ -1,0 +1,69 @@
+/* A31 - Shared navigation and toolbar refinement; no changes to data or parsers. */
+.sidebar .workspace-id{margin-bottom:17px;padding-bottom:6px}
+.sidebar .workspace-title{display:flex;align-items:center;min-width:0;margin-top:12px;gap:8px}
+.sidebar .nc31-case-name{display:block;flex:1;min-width:0;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11.5px;font-weight:675;color:#cce1e9}
+.sidebar .circle-running{flex:0 0 7px;width:7px;height:7px}
+.sidebar .nav{display:flex;flex-direction:column;gap:14px;margin-top:0;min-height:0}
+.sidebar .nc31-nav-group{display:grid;gap:3px;min-width:0}
+.sidebar .nc31-nav-group .nav-label{margin:0 10px 7px;font-size:9px;line-height:1.2;letter-spacing:1.65px;color:#7896b1}
+.sidebar .nc31-nav-group .nav-item{min-width:0;width:100%;white-space:nowrap}
+.sidebar .nc31-nav-group .nav-item span{overflow:hidden;text-overflow:ellipsis}
+.sidebar .nc31-nav-group .nav-item:focus-visible{outline:2px solid #8adfd4;outline-offset:1px}
+.sidebar .acquisition-label{margin-top:24px}
+/* Native details supplies keyboard activation while the menu remains custom-styled. */
+.topbar{position:relative;z-index:20}
+.topbar .top-actions{gap:8px;min-width:0}
+.topbar .top-actions #openCase{display:inline-flex!important;flex:none}
+.topbar .top-actions #uploadTop{flex:none}
+.topbar .nc31-more-actions{position:relative;flex:none;min-width:0}
+.topbar .nc31-more-actions>summary{list-style:none;cursor:pointer;min-height:35px;gap:7px;white-space:nowrap;user-select:none}
+.topbar .nc31-more-actions>summary::-webkit-details-marker{display:none}
+.topbar .nc31-more-actions>summary::marker{content:''}
+.topbar .nc31-more-actions>summary .nc31-caret{width:12px;height:12px;color:#a1b5c5;transition:transform .16s ease}
+.topbar .nc31-more-actions[open]>summary{background:rgba(54,92,113,.46);border-color:rgba(124,189,197,.44);color:#e0f4f5}
+.topbar .nc31-more-actions[open]>summary .nc31-caret{transform:rotate(180deg)}
+.topbar .nc31-more-actions>summary:focus-visible{outline:2px solid #8de7da;outline-offset:2px}
+.topbar .nc31-more-menu{position:absolute;right:0;top:calc(100% + 9px);z-index:100;display:grid;gap:4px;min-width:188px;padding:7px;background:#172738;border:1px solid rgba(145,188,212,.32);border-radius:10px;box-shadow:0 14px 40px rgba(0,0,0,.42)}
+.topbar .nc31-more-menu button{display:flex;align-items:center;gap:10px;width:100%;min-height:37px;border:1px solid transparent;border-radius:7px;padding:8px 10px;text-align:left;background:transparent;color:#d6e8ef;font-size:11px;font-weight:630;white-space:nowrap}
+.topbar .nc31-more-menu button svg{flex:none;width:15px;height:15px;color:#9dc6d2}
+.topbar .nc31-more-menu button:hover:not(:disabled),.topbar .nc31-more-menu button:focus-visible{background:rgba(105,173,183,.13);border-color:rgba(113,200,200,.23);color:#e3fafa}
+.topbar .nc31-more-menu button:focus-visible{outline:2px solid #7cdccd;outline-offset:1px}
+.topbar .nc31-more-menu button:disabled{opacity:.45;cursor:not-allowed}
+/* Collapsed sidebar keeps six navigable icons in their original order. */
+@media(max-width:1130px){
+  .sidebar .nav{margin-top:14px;gap:13px}
+  .sidebar .nc31-nav-group{gap:5px}
+  .sidebar .nc31-nav-group .nav-label{display:none!important}
+  .sidebar .nc31-nav-group .nav-item{justify-content:center;padding:0}
+  .sidebar .acquisition-label{margin-top:20px}
+}
+@media(max-width:900px){
+  .sidebar .nav{margin-top:17px;gap:15px}
+  .topbar .top-actions #openCase{min-width:35px;padding:8px}
+  .topbar .top-actions #openCase span{display:none!important}
+  .topbar .nc31-more-actions>summary{padding:8px;min-width:35px}
+  .topbar .nc31-more-actions>summary span{display:none}
+  .topbar .nc31-more-actions>summary .nc31-caret{display:none}
+}
+@media(max-width:680px){
+  .sidebar .nav{margin-top:13px;gap:12px}
+  .topbar{padding:0 9px}
+  .topbar .top-actions{gap:5px}
+  .topbar .top-actions #openCase{display:inline-flex!important;width:34px;height:34px;padding:7px}
+  .topbar .nc31-more-actions>summary{display:inline-flex!important;justify-content:center;align-items:center;width:34px;height:34px;padding:7px}
+  .topbar .top-actions #uploadTop{height:34px;padding:7px 9px;gap:5px}
+  .topbar .top-actions #uploadTop span{font-size:9px;white-space:nowrap}
+  .topbar .nc31-more-menu{min-width:178px}
+}
+@media(max-width:410px){
+  .topbar .breadcrumbs{gap:5px;font-size:9px}
+  .topbar .breadcrumbs b{font-size:10px}
+  .topbar .top-actions #uploadTop{padding:7px;width:35px;justify-content:center}
+  .topbar .top-actions #uploadTop span{display:none}
+}
+
+/* Small phones with a still-visible breadcrumb need three truly compact actions. */
+@media(max-width:560px){
+  .topbar .top-actions #uploadTop{width:35px;height:34px;padding:7px;justify-content:center}
+  .topbar .top-actions #uploadTop span{display:none!important}
+}

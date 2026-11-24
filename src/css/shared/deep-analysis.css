@@ -1,0 +1,39 @@
+/* NullCap 3.2: additions to the existing design, no restyling. */
+.nc32-subnet-label,.nc32-metric-label{display:flex;gap:6px;align-items:center;color:#8aaac0;font:750 9px var(--mono);white-space:nowrap}
+.nc32-subnet-label select,.nc32-metric-label select,#nc32MarkSelect{background:#14263a;border:1px solid rgba(140,178,205,.2);color:#bce2e4;border-radius:6px;min-height:25px;padding:4px 7px;font-size:10px;min-width:0;max-width:170px}
+.nc32-subnet-label select{max-width:160px}
+.nc32-pin-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0}
+.nc32-pin-row small{color:#84a1b7;font-size:10px;line-height:1.4}
+#nc32PinHost[aria-pressed="true"]{color:#8bf2e2;border-color:#7ae5d4}
+#nc32MarkSelect{max-width:128px}
+#nc32MarkRemove{min-width:24px;padding:0 7px}
+.nc32-import-bar{position:absolute;z-index:100;bottom:42px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:15px;min-width:min(400px,92vw);max-width:90%;padding:12px 16px;background:#10263a;border:1px solid #4e999c;border-radius:10px;box-shadow:0 15px 45px #0009;font-size:11px;color:#c4e8e8}
+.nc32-import-bar.hidden{display:none!important}
+.nc32-import-bar span{flex:1;overflow:hidden;text-overflow:ellipsis}
+.nc32-tcp-diagnostics{border-top:1px solid rgba(128,180,203,.22);padding:14px 16px 8px;display:flex;flex-direction:column;gap:8px;color:#b4d0de}
+.nc32-tcp-diagnostics h4{font-size:10px;color:#9ee8dc;letter-spacing:1px;margin:0}
+.nc32-diagnostic-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nc32-diagnostic-grid>div{background:#14273a;border:1px solid #ffffff15;border-radius:7px;padding:8px;min-width:0}
+.nc32-diagnostic-grid b{font-size:12px;color:#d5eef1;display:block}.nc32-diagnostic-grid small{font-size:9px;line-height:1.5;color:#8da9be}
+.nc32-tcp-diagnostics p{font-size:10px;line-height:1.6;color:#8ca8bb}
+/* Adaptive evidence cards: no fixed 600px cut-off; height is content-driven. */
+body[data-page="loot"] .main-scrollbox{min-height:0}
+#view-loot .loot-workspace{align-items:start;min-width:0}
+#view-loot .loot-gallery-pane{height:auto;min-height:0;overflow:visible}
+#view-loot .loot-grid{max-height:none!important;overflow:visible!important;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));grid-auto-rows:auto;align-items:stretch;align-content:start;min-width:0;gap:12px;padding-bottom:25px}
+#view-loot .loot-card{width:100%;height:auto;min-height:209px;min-width:0;align-self:stretch;overflow:hidden;white-space:normal}
+#view-loot .loot-thumb{flex:0 0 102px;min-height:102px;height:102px}
+#view-loot .loot-card-body{flex:1;min-height:104px;height:auto;min-width:0;padding-bottom:12px;gap:4px}
+#view-loot .loot-card-body strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;white-space:normal;overflow:hidden;overflow-wrap:anywhere;line-height:1.4;min-height:16px}
+#view-loot .loot-card-body small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;white-space:normal;overflow:hidden;overflow-wrap:anywhere;line-height:1.4;margin-top:0}
+#view-loot .loot-card-bottom{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px;white-space:normal;line-height:1.5;padding-top:8px}
+#view-loot .loot-card-bottom>span:first-child{min-width:0;overflow-wrap:anywhere;flex:1 1 60px}
+#view-loot .loot-status{max-width:100%;min-width:0;white-space:normal;text-align:center;overflow-wrap:anywhere}
+#view-loot .loot-detail-pane{position:relative;min-width:0}
+@media(max-width:1200px){.nc32-subnet-label span,.nc32-metric-label span{display:none}.timeline-controls{gap:5px!important}#nc32MarkSelect{max-width:95px}.nc32-subnet-label select{max-width:115px}}
+@media(max-width:800px){.nc32-metric-label{display:none}.timeline-controls #nc32MarkSelect{display:none}.nc32-subnet-label{max-width:115px}#view-loot .loot-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,175px),1fr))}}
+/* Prevent viewport overflow in the existing compact topbar after adding PCAP export. */
+@media(max-width:950px){.topbar .top-actions .button.secondary{min-width:33px;padding:8px}.topbar .top-actions .button.secondary span{display:none}.topbar .top-actions{gap:5px}}
+@media(max-width:760px){.topbar .breadcrumbs .beta-tag{display:none}.topbar{padding:0 10px}.topbar .top-actions .button.primary{padding:8px 9px;font-size:9px}}
+/* Card text should grow in height instead of silently being cut to 1–3 lines. */
+#view-loot .loot-card-body strong,#view-loot .loot-card-body small{display:block!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-height:none!important;-webkit-line-clamp:unset!important;line-clamp:unset!important;overflow-wrap:anywhere!important}

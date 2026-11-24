@@ -1,0 +1,209 @@
+/* A20 - Content-first Artifact Inspector. Approved Solution A.
+   Identity > visible actions > preview > provenance > quality > technical.
+   Significant warnings are shown before the preview. */
+#view-loot .nc16-detail.nc20-content-first{
+  gap:0;padding:16px 15px 18px;scrollbar-width:thin;
+}
+/* Avoid stacking nested colored cards: hierarchy now comes from type and space. */
+#view-loot .nc20-content-first .nc20-identity{
+  border:0;background:transparent;box-shadow:none;border-radius:0;
+  padding:0;margin:0 0 10px;
+}
+#view-loot .nc20-identity .loot-detail-header{
+  display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 6px;
+}
+#view-loot .nc20-identity .loot-detail-header .kind{
+  font:790 9px/1.4 var(--font);color:#9dc8d8;letter-spacing:.65px;
+}
+#view-loot .nc20-identity h3{
+  font:770 16px/1.33 var(--font);letter-spacing:-.25px;
+  color:#eff8ff;margin:0 0 3px;overflow-wrap:anywhere;
+}
+#view-loot .nc20-identity p{
+  font:500 10px/1.5 var(--font);color:#8daabd;margin:0 0 7px;
+}
+#view-loot .nc20-identity .nc20-meta{
+  display:flex;align-items:center;flex-wrap:wrap;gap:5px 13px;
+  padding:0;margin:0;background:transparent;border:0;
+}
+#view-loot .nc20-meta .nc19-fact{
+  display:inline-flex;flex-direction:row;align-items:baseline;gap:5px;
+  background:transparent;border:0;border-radius:0;box-shadow:none;
+  padding:0;margin:0;min-width:0;
+}
+#view-loot .nc20-meta .nc19-fact+.nc19-fact:before{
+  display:none;
+}
+#view-loot .nc20-meta .nc19-fact small{
+  color:#7d9bab;letter-spacing:0;text-transform:none;
+  font:600 9px/1.4 var(--font);
+}
+#view-loot .nc20-meta .nc19-fact strong{
+  font:660 10px/1.4 var(--mono);color:#cde3eb;overflow-wrap:anywhere;
+}
+/* The two existing handlers are preserved; only show concise visible labels. */
+#view-loot .nc20-content-first .nc20-actions{
+  display:block;margin:0 0 14px;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  height:35px;min-height:35px;min-width:0;width:auto;
+  padding:0 8px!important;white-space:nowrap;
+  font:720 10px/1.4 var(--font);color:#d8f1f4;
+  border:1px solid #41677a;border-radius:8px;background:#213b4b;
+  transition:background .15s,border-color .15s;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button:first-child{
+  background:#244d56;border-color:#467f85;color:#c1f1ec;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button:hover:not(:disabled){
+  background:#33596a;border-color:#8ebdca;color:#fff;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button:focus-visible{
+  outline:2px solid #b1e9de;outline-offset:2px;
+}
+#view-loot .nc20-content-first .nc20-actions .loot-action-row button svg{
+  width:15px;height:15px;flex:none;
+}
+#view-loot .nc20-action-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+/* Content is the central object, not the last block in a stack of cards. */
+#view-loot .nc20-content-first .nc20-preview{
+  display:flex;flex-direction:column;gap:9px;margin:0;
+}
+#view-loot .nc20-content-first .nc20-preview .nc19-section-heading,
+#view-loot .nc20-content-first .nc20-provenance .nc19-section-heading{
+  font:770 11px/1.5 var(--font);color:#d7e8f1;
+}
+#view-loot .nc20-content-first .nc20-preview .nc19-section-heading svg,
+#view-loot .nc20-content-first .nc20-provenance .nc19-section-heading svg{
+  width:14px;height:14px;color:#80c8cd;
+}
+#view-loot .nc20-content-first .nc20-preview #lootPreview{
+  border:1px solid #405c6d;border-radius:10px;
+  margin:0;min-height:110px;max-height:320px;
+  overflow:auto;background:linear-gradient(145deg,#122d3a,#101f31);
+}
+#view-loot .nc20-preview #lootPreview img{
+  width:100%;max-width:100%;max-height:270px;object-fit:contain;
+}
+#view-loot .nc20-preview #lootPreview pre{
+  margin:0;padding:13px;color:#c7e3e7;font:530 10px/1.65 var(--mono);
+  white-space:pre-wrap;overflow-wrap:anywhere;
+}
+#view-loot .nc20-preview #lootPreview audio{width:100%;}
+/* Source references remain clear but do not compete with the preview. */
+#view-loot .nc20-content-first .nc20-provenance{
+  display:flex;gap:8px;margin:15px 0 0;padding-top:13px;
+  border-top:1px solid #3a5060;
+}
+#view-loot .nc20-content-first .nc20-provenance .nc19-source-card{
+  margin:0;padding:0;display:flex;flex-direction:column;gap:8px;
+  border:0;background:transparent;border-radius:0;box-shadow:none;
+}
+#view-loot .nc20-provenance .nc19-endpoint small{
+  color:#7e9caf;font:760 8px/1.4 var(--font);letter-spacing:.55px;
+}
+#view-loot .nc20-provenance .nc19-endpoint strong{
+  color:#d3e9f0;font:630 10px/1.5 var(--mono);
+}
+#view-loot .nc20-provenance .nc19-source-meta{
+  border-top:0;padding:0;gap:4px 6px;
+}
+#view-loot .nc20-provenance .nc19-source-meta span{
+  font:520 9px/1.5 var(--mono);color:#91afbf;
+}
+#view-loot .nc20-provenance .nc19-source-meta span+span:before{
+  margin-right:6px;color:#7093a4;
+}
+/* Quiet quality readout for a complete observation; real issues stay strong. */
+#view-loot .nc20-content-first .nc20-quality{
+  display:flex;flex-direction:column;gap:8px;
+  margin:13px 0 0;padding:10px 0 0;
+  border:0;border-top:1px solid #385262;border-radius:0;
+  background:transparent;box-shadow:none;
+}
+#view-loot .nc20-content-first .nc20-quality.nc20-quality-important{
+  margin:0 0 14px;padding:0 0 10px;border:0;border-bottom:1px solid #48606a;
+}
+#view-loot .nc20-quality-disclosure{display:block;min-width:0;}
+#view-loot .nc20-quality-trigger{
+  display:grid;grid-template-columns:minmax(0,1fr) 18px;
+  grid-template-areas:'heading caret' 'caption caret';
+  align-items:center;gap:2px 6px;list-style:none;cursor:pointer;
+  border-radius:6px;padding:3px 1px;
+}
+#view-loot .nc20-quality-trigger::-webkit-details-marker{display:none;}
+#view-loot .nc20-quality-trigger:hover .nc20-quality-heading{color:#e6f3f9;}
+#view-loot .nc20-quality-trigger:focus-visible{
+  outline:2px solid #a5e4dd;outline-offset:2px;
+}
+#view-loot .nc20-quality-trigger .nc20-quality-heading{
+  grid-area:heading;gap:5px;color:#9eb9c9;
+  font:710 10px/1.35 var(--font);
+}
+#view-loot .nc20-quality-trigger .nc20-quality-heading svg{
+  width:13px;height:13px;color:#8aaebd;
+}
+#view-loot .nc20-quality-trigger .nc20-quality-caption{
+  grid-area:caption;display:flex;align-items:center;gap:6px;
+  font:660 9px/1.4 var(--font);color:#8cc9bb;letter-spacing:0;
+}
+#view-loot .nc20-quality-trigger .nc20-quality-caption strong{
+  font:660 9px/1.45 var(--font);letter-spacing:0;
+}
+#view-loot .nc20-quality-trigger .nc19-quality-dot{
+  width:6px;height:6px;flex:none;box-shadow:none;
+}
+#view-loot .nc20-quality-caret{
+  grid-area:caret;display:grid;place-items:center;color:#93b1bf;
+}
+#view-loot .nc20-quality-caret svg{width:14px;height:14px;transition:transform .15s;}
+#view-loot .nc20-quality-disclosure[open] .nc20-quality-caret svg{transform:rotate(180deg);}
+#view-loot .nc20-content-first .nc20-quality .nc16-proof{
+  margin:6px 0 0;padding:7px 0 0;border:0;border-top:1px solid #344e5c;
+  border-radius:0;background:none;color:#a9c4d0;
+  font:500 10px/1.55 var(--font);
+}
+#view-loot .nc20-content-first .nc20-quality .nc16-proof svg{width:14px;height:14px;flex:none;}
+#view-loot .nc20-content-first .nc20-quality .nc313-secondary-note{
+  margin-top:6px;padding:7px 8px;color:#a4c0ca;
+}
+#view-loot .nc20-content-first .nc20-quality-important .nc20-quality-trigger .nc20-quality-caption{
+  color:#e7c48e;
+}
+#view-loot .nc20-content-first .nc20-quality-important.nc20-quality-complete .nc20-quality-trigger .nc20-quality-caption{
+  color:#8cc9bb;
+}
+#view-loot .nc20-content-first .nc20-quality-ambiguous .nc20-quality-trigger .nc20-quality-caption{
+  color:#ef9eac;
+}
+#view-loot .nc20-content-first .nc20-quality .nc20-priority-warning{
+  display:flex;gap:8px;align-items:flex-start;margin:0;padding:10px 11px;
+  border:1px solid #997041;border-radius:8px;background:#423428;
+  color:#f6cf99;font:580 10px/1.55 var(--font);
+}
+#view-loot .nc20-priority-warning svg{width:16px;height:16px;flex:0 0 16px;margin-top:1px;}
+#view-loot .nc20-content-first .nc20-quality-important .nc16-proof{
+  border-top-color:#655544;color:#e7c4a1;
+}
+#view-loot .nc20-content-first .nc20-quality-ambiguous .nc16-proof{
+  border-top-color:#76505a;color:#eab5bd;
+}
+/* Keep the existing collapsed technical section and async hash calculation. */
+#view-loot .nc20-content-first .nc20-technical{
+  margin:14px 0 0;background:#172d3b;border-color:#3b5968;
+}
+#view-loot .nc20-content-first .nc20-technical .nc19-technical-trigger{
+  min-height:40px;font:720 10px/1.5 var(--font);
+}
+@media(max-width:710px){
+  #view-loot .nc16-detail.nc20-content-first{padding:12px 11px 16px;}
+  #view-loot .nc20-identity h3{font-size:15px;}
+  #view-loot .nc20-content-first .nc20-preview #lootPreview{max-height:280px;}
+}
+@media(prefers-reduced-motion:reduce){
+  #view-loot .nc20-quality-caret svg,#view-loot .nc20-actions button{transition:none!important;}
+}

@@ -1,0 +1,84 @@
+/* NULLCAP · A.02 · LUCIDE OUTLINE ICON SYSTEM — offline, 24px master grid */
+:root{--nc-icon-stroke:1.85;--nc-icon-size:16px;--nc-icon-muted:#9fb2c8;--nc-icon-accent:#96d7dc}
+.app-shell svg:not(.defs),.alias-modal svg:not(.defs),.drop-overlay svg:not(.defs){
+  fill:none;stroke:currentColor;stroke-width:var(--nc-icon-stroke);
+  stroke-linecap:round;stroke-linejoin:round;
+}
+.nc-ui-icon{width:1em;height:1em;flex:none;vertical-align:-.13em;display:inline-block}
+/* Subtle hierarchy makes the glyphs feel like one family rather than decoration. */
+.nav-item svg{height:19px;width:19px;opacity:.88;stroke-width:1.85}
+.nav-item.is-active svg{opacity:1;stroke-width:2}
+.brand-mark svg{width:25px;height:25px;stroke-width:1.65}
+.pane-icon svg{width:16px;height:16px;stroke-width:1.85}
+.metric-top svg{width:19px;height:19px;opacity:.92}
+.top-actions .button svg,.nc40-case-tools .button svg,.nc40-case-tools .soft-button svg{width:15px;height:15px}
+.icon-button svg,.soft-button svg,.mini-button svg{width:15px;height:15px}
+.button,.nc40-case-tools button,.soft-button,.focus-cta button{align-items:center}
+.button svg,.soft-button svg,.nc40-case-tools svg,.inspector-buttons svg{flex:none;vertical-align:middle}
+.alias-bigicon svg{width:23px;height:23px}
+.source-check{display:inline-grid;place-items:center;color:#82d9c4}
+.source-check svg{height:15px;width:15px}
+.work-caret{height:18px;width:18px;display:inline-grid;place-items:center}
+.work-caret svg{height:14px;width:14px}
+.empty-symbol{display:grid;place-items:center}
+.empty-symbol svg{height:44px;width:44px;stroke-width:1.35;opacity:.8}
+.graph-footer .footer-hint{display:inline-flex;align-items:center;justify-content:center}
+.graph-footer .footer-hint svg{width:14px;height:14px}
+.graph-legend .legend-arrow{font-size:12px;line-height:1} /* line indicates a graph edge, not an action icon */
+.inspector-buttons button,.inspector-tabs button,.hex-banner button,.flow-hint,.focus-insight,.nc312-secret-warning,.nc312-packet-label{
+  align-items:center
+}
+.inspector-buttons button svg,.inspector-tabs button svg,.hex-banner button svg,
+.hex-pager button svg,.flow-hint svg,.focus-insight svg,.nc312-packet-warning svg,
+.nc312-secret-warning svg,.nc312-packet-label svg,.nc312-row-symbol svg{
+  width:14px;height:14px;flex:none;vertical-align:-.22em
+}
+.inspector-buttons button svg,.inspector-tabs button svg,.hex-pager button svg,.hex-banner button svg{margin-right:4px}
+.inspector-buttons button:has(svg),.inspector-tabs button:has(svg){display:inline-flex;justify-content:center;gap:4px}
+.inspector-buttons button:has(svg) svg,.inspector-tabs button:has(svg) svg{margin-right:0}
+.nc312-row-symbol svg{width:13px;height:13px;color:#f2b572}
+.nc312-packet-warning{display:flex;align-items:flex-start;gap:9px}
+.nc312-packet-warning svg{margin-top:1px;min-width:14px}
+.nc312-secret-warning svg{margin-right:5px;color:#f3bb72}
+.nc312-packet-label svg{width:11px;height:11px;margin-right:2px}
+.focus-insight svg{margin-right:6px;vertical-align:-.18em;color:#e3b86f}
+.focus-pair .arrow svg{width:17px;height:17px;color:#84a8b9}
+.focus-hero h3 svg{height:14px;width:14px;vertical-align:middle;color:#94b6c4}
+.flow-detail-top p svg{width:14px;height:14px;vertical-align:middle;color:#8eb9c9;margin-right:5px}
+.packet-route .route-arrow svg{width:15px;height:15px;vertical-align:middle}
+.insight-icon{font-size:17px}
+.insight-icon svg{height:18px;width:18px;stroke-width:1.9}
+/* Consistent artifact previews; no platform-dependent emoji glyphs. */
+.file-emoji{font-size:1rem;display:grid;place-items:center}
+.file-emoji svg{width:40px;height:40px;stroke-width:1.35;color:#a3cfdc;filter:drop-shadow(0 5px 12px rgba(34,149,163,.18))}
+.loot-card:hover .file-emoji svg{color:#b3eae2}
+.loot-thumb .file-emoji svg{width:40px;height:40px;opacity:1}
+/* Main forensic toolbar / timeline: put icon and label on a shared baseline. */
+.nc40-case-tools button,.nc40-tabs button,.timeline-controls .soft-button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.nc40-case-tools button svg,.timeline-controls button svg{width:14px;height:14px;flex:none}
+#nc32MarkRemove{width:28px;padding:0}
+#nc32MarkRemove svg{width:13px;height:13px}
+#nc32PinHost svg{width:14px;height:14px}
+#toggleInspectorSize svg{width:16px;height:16px}
+/* Small icon-only controls are made visually consistent and keyboard reachable. */
+.icon-button,.mini-button,.inspector-title-actions button{display:inline-grid;place-items:center}
+button:focus-visible{outline:2px solid #b2e3e8;outline-offset:2px}
+@media(max-width:700px){
+ .nav-item svg{width:19px;height:19px}
+ .nc40-case-tools button svg{width:13px;height:13px}
+ .inspector-buttons button svg{width:12px;height:12px}
+ .file-emoji svg{width:34px;height:34px}
+}
+
+/* Tab navigation: present the same icon treatment in all six workspaces. */
+.loot-tabs button,.nc40-tabs button{display:inline-flex;align-items:center;gap:7px}
+.loot-tabs svg,.nc40-tabs svg{width:14px;height:14px;flex:none;opacity:.85}
+.loot-tabs button.is-active svg,.nc40-tabs button.is-active svg{opacity:1}
+.nc40-case-tools #nc40ExportCase svg,.nc40-case-tools #nc40ImportCase svg{opacity:.85}
+@media(max-width:680px){.loot-tabs button,.nc40-tabs button{gap:4px}.loot-tabs button svg,.nc40-tabs button svg{width:13px;height:13px}}
+
+.packet-inspector .inspector-buttons{flex-wrap:wrap}
+.packet-inspector .inspector-buttons button{flex:1 1 auto}
+.inspector-buttons .is-bookmarked svg{fill:currentColor;fill-opacity:.17}
+.nc31-bookmark-controls button svg{width:12px;height:12px;vertical-align:-.2em;margin-right:3px}
+.nc31-case-list-head button svg{width:14px;height:14px}

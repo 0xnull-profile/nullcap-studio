@@ -1,0 +1,8 @@
+/* A12: same Dark Professional controls; confidence is evidence, not a guarantee. */
+.nca12-status-line{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:24px;margin-top:2px}
+.nca12-quality{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:750;letter-spacing:.035em;padding:5px 9px;border-radius:7px;border:1px solid rgba(107,212,190,.38);color:#89e2d0;background:rgba(35,121,114,.16)}
+.nca12-quality:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.nca12-quality.is-partial{color:#efc483;border-color:rgba(239,196,131,.37);background:rgba(239,196,131,.09)}
+.nca12-quality.is-ambiguous{color:#f6a3a1;border-color:rgba(246,163,161,.4);background:rgba(246,163,161,.08)}
+.nca12-coverage{font-size:10px;color:#9db3c6;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.nca12-status-line{gap:6px}.nca12-quality,.nca12-coverage{font-size:10px}}

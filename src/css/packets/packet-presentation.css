@@ -1,0 +1,101 @@
+/* NullCap Pacchetti A09: one visual language shared with Esplora rete. */
+/* Search has exactly one explicit clear action and collapses without erasing filters. */
+body[data-page="packets"] .ncps-search{position:relative}
+body[data-page="packets"] .ncps-search input::-webkit-search-cancel-button{display:none!important;-webkit-appearance:none!important}
+body[data-page="packets"] .ncps-search.is-open:not(.has-query) .ncps-search-clear{display:none!important}
+body[data-page="packets"] .ncps-search.has-query:not(.is-open){border-color:#69a6b4;background:#23414e}
+body[data-page="packets"] .ncps-search.has-query:not(.is-open):after{content:"";position:absolute;right:3px;top:3px;width:5px;height:5px;border-radius:50%;background:#8fe9d8;box-shadow:0 0 0 2px #1a3340}
+body[data-page="packets"] .ncps-search #ncpsSearchToggle:hover{background:#2c4b5c!important;color:#f0f8fd}
+body[data-page="packets"] .ncps-search #ncpsSearchToggle{border-radius:8px}
+body[data-page="packets"] .ncps-search.is-open #ncpsSearchToggle{background:transparent!important}
+body[data-page="packets"] .ncps-search-clear{border-radius:6px}
+body[data-page="packets"] .ncps-search-clear:hover,body[data-page="packets"] .ncps-search-clear:focus-visible{background:#315467;color:#f4ffff}
+body[data-page="packets"] .ncps-search.is-open:focus-within{border-color:#8dbfcf;box-shadow:0 0 0 2px rgba(116,183,207,.15)}
+
+/* Cohesive protocol and reopen icons/buttons in both sections. */
+body[data-page="explorer"] #ncuxProtoToggle{min-height:36px;border:1px solid #456477;border-radius:8px;background:#203747;color:#c6d9e4;font:700 11px var(--font);transition:background .16s,border-color .16s,transform .16s}
+body[data-page="explorer"] #ncuxProtoToggle:hover{background:#2d4c5d;border-color:#85b2c5;color:#fff}
+body[data-page="explorer"] #ncuxProtoToggle[aria-expanded="true"]{background:#2c4b5a;border-color:#87b9cb;box-shadow:none}
+body[data-page="explorer"] #ncuxProtoToggle:active{transform:scale(.985)}
+body[data-page="explorer"] #ncuxProtoToggle .ncux-filter-icon{width:15px;height:15px;color:inherit}
+body[data-page="explorer"] #ncuxReopenInspector{min-height:36px;height:36px;padding:0 11px;gap:7px;border:1px solid #456477;border-radius:8px;background:#203747;color:#c6d9e4;font:700 11px var(--font);transition:background .16s,border-color .16s,transform .16s}
+body[data-page="explorer"] #ncuxReopenInspector:hover{background:#2d4c5d;border-color:#85b2c5;color:#fff}
+body[data-page="explorer"] #ncuxReopenInspector svg{width:15px;height:15px}
+body[data-page="explorer"] #ncuxReopenInspector:active{transform:scale(.985)}
+
+/* Table sorting and page-size menus use the same dark button/popup primitives. */
+body[data-page="packets"] .ncps-a09-control{position:relative;flex:none}
+body[data-page="packets"] .ncps-a09-toggle{gap:7px;min-width:105px}
+body[data-page="packets"] .ncps-a09-toggle strong{margin-left:0;max-width:86px}
+body[data-page="packets"] #ncpsSortToggle.ncps-a09-desc>svg:first-child{transform:rotate(180deg)}
+body[data-page="packets"] .ncps-a09-toggle>svg:first-child{width:15px;height:15px;transition:transform .16s}
+.ncps-a09-menu{position:fixed;left:0;top:0;z-index:1150;width:256px;max-height:340px;max-width:calc(100vw - 16px);overflow:auto;padding:7px;border:1px solid #537587;border-radius:12px;background:#1a2e3e;box-shadow:0 18px 46px #0009;scrollbar-width:thin;animation:ncpsOpen .16s ease-out}
+.ncps-a09-menu.hidden{display:none!important}
+.ncps-a09-option{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:35px;padding:8px 10px;border:1px solid transparent;border-radius:8px;text-align:left;background:transparent;color:#c7dce7;font:680 11px var(--font)}
+.ncps-a09-option:hover,.ncps-a09-option:focus-visible{background:#2c4858;color:#fff}
+.ncps-a09-option[aria-checked="true"],.ncps-a09-option[aria-selected="true"]{background:#294757;border-color:#5c8498;color:#f0faff}
+.ncps-a09-option svg{width:14px;height:14px;visibility:hidden;color:#9be7dd}
+.ncps-a09-option[aria-checked="true"] svg,.ncps-a09-option[aria-selected="true"] svg{visibility:visible}
+.ncps-a09-separator{height:1px;margin:8px 5px 3px;background:#426071}
+.ncps-a09-directions{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 4px 5px}
+.ncps-a09-direction{min-height:34px;border:1px solid #415e71;border-radius:7px;background:#203747;color:#aec4d3;font:670 10.5px var(--font)}
+.ncps-a09-direction:hover,.ncps-a09-direction:focus-visible{background:#315266;border-color:#8fbdcc;color:#fff}
+.ncps-a09-direction[aria-checked="true"]{background:#335769;border-color:#83bbc3;color:#e8fafb}
+body[data-page="packets"] #ncpsPagination.hidden{display:none!important}
+body[data-page="packets"] .packet-table-foot{flex-wrap:nowrap}
+
+/* Deep packet inspector: summary first, tools second, protocol analysis third. */
+body[data-page="packets"] .packet-inspector-scroll{overflow-x:hidden}
+body[data-page="packets"] .packet-header-card.ncps-a09-summary{padding:13px;background:linear-gradient(145deg,#1e3847,#1a303e 85%);border-color:#426c80}
+.ncps-a09-summary-top{display:flex;align-items:center;justify-content:space-between;gap:7px;color:#9fcfd8;font:800 9px var(--font);letter-spacing:1px}
+.ncps-a09-summary-top strong{font:740 11px var(--mono);color:#e1f5fa;letter-spacing:0}
+.ncps-a09-summary-title{display:flex;align-items:flex-start;gap:10px;justify-content:space-between;margin-top:11px}
+body[data-page="packets"] .ncps-a09-summary-title h3{margin:0;min-width:0;flex:1;font:750 13px/1.4 var(--font);letter-spacing:-.15px;color:#e8f5fa;overflow-wrap:anywhere}
+.ncps-a09-proto{flex:none;padding:5px 7px;border:1px solid color-mix(in srgb,var(--pc) 50%,transparent);border-radius:6px;background:color-mix(in srgb,var(--pc) 13%,transparent);color:var(--pc);font:780 9.5px var(--font)}
+.ncps-a09-route{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0 0;color:#c0d9e8;font:590 10px/1.4 var(--mono)}
+.ncps-a09-route span{min-width:0;overflow-wrap:anywhere}
+.ncps-a09-route svg{flex:none;width:14px;height:14px;color:#93cfcf}
+.ncps-a09-main-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}
+.ncps-a09-main-metrics>div{display:flex;flex-direction:column;gap:6px;padding:10px 11px;border:1px solid #3d596a;border-radius:8px;background:#162c39}
+.ncps-a09-main-metrics small{font:760 9px var(--font);letter-spacing:.8px;color:#9ab9ca}
+.ncps-a09-main-metrics strong{font:760 12px var(--mono);color:#e6f3fa}
+.ncps-a09-meta{margin-top:9px;border-top:1px solid #3e6171;padding-top:8px;color:#9bb9c9}
+.ncps-a09-meta summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font:680 10px var(--font);list-style:none;gap:8px}
+.ncps-a09-meta summary::-webkit-details-marker{display:none}
+.ncps-a09-meta summary:focus-visible{outline:2px solid #9bd4e0;outline-offset:3px}
+.ncps-a09-meta summary svg{height:13px;width:13px;transition:transform .18s}
+.ncps-a09-meta[open] summary svg{transform:rotate(180deg)}
+.ncps-a09-meta>div{display:flex;flex-direction:column;gap:5px;padding:9px 2px 2px;font:500 10px var(--mono);color:#a9c5d2}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;margin:10px 0 12px}
+.ncps-a09-action-group{display:flex;align-items:center;gap:6px}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action{flex:none!important;display:grid;place-items:center;min-height:35px;height:35px;width:35px;padding:0;margin:0;grid-column:auto!important;border:1px solid #486c7f;border-radius:8px;background:#203747;color:#c9e0ed;transition:background .16s,border-color .16s,transform .16s}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action svg{width:16px;height:16px}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action:hover{background:#315567;color:#fff;border-color:#8fbdcd;transform:translateY(-1px)}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action:focus-visible{outline:2px solid #b4deec;outline-offset:2px}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action:active{transform:scale(.96)}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action:disabled{opacity:.42;cursor:not-allowed;transform:none}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.is-bookmarked{background:#234e53!important;border-color:#5ebcb5!important;color:#a1f1df!important}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions button.ncps-a09-icon-action:last-child{grid-column:auto!important}
+.ncps-a09-more-wrap{position:relative}
+.ncps-a09-more-menu{position:absolute;right:0;top:calc(100% + 7px);z-index:55;min-width:165px;padding:5px;background:#1a2e3e;border:1px solid #537587;border-radius:10px;box-shadow:0 12px 28px #0008}
+.ncps-a09-more-menu.hidden{display:none!important}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions .ncps-a09-more-option{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:100%;height:35px;min-height:35px;border:1px solid transparent;border-radius:7px;padding:0 10px;margin:0;color:#d2e8f2;background:transparent;font:670 11px var(--font)}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions .ncps-a09-more-option:hover,body[data-page="packets"] .inspector-buttons.ncps-a09-actions .ncps-a09-more-option:focus-visible{background:#315367;border-color:#5d8497}
+body[data-page="packets"] .inspector-buttons.ncps-a09-actions .ncps-a09-more-option svg{width:16px;height:16px}
+/* Tooltip text is accessible via aria-label; no browser-native duplicate. */
+body[data-page="packets"] .ncps-a09-icon-action[data-tip]:not(:disabled):hover:after,body[data-page="packets"] .ncps-a09-icon-action[data-tip]:focus-visible:after{content:attr(data-tip);position:absolute;z-index:100;top:calc(100% + 6px);left:50%;transform:translateX(-50%);width:max-content;max-width:170px;padding:6px 8px;border:1px solid #557587;border-radius:6px;background:#172b3a;box-shadow:0 7px 19px #0007;color:#dcecf6;font:600 10px var(--font);white-space:nowrap;pointer-events:none}
+body[data-page="packets"] .ncps-a09-icon-action{position:relative}
+body[data-page="packets"] .ncps-a09-nav .ncps-a09-icon-action:first-child:after{left:0!important;transform:none!important}
+body[data-page="packets"] .ncps-a09-more-wrap .ncps-a09-icon-action:after{left:auto!important;right:0;transform:none!important}
+/* Shared, modern chevron for protocol sections in compact AND expanded inspector. */
+body[data-page="packets"] .layer-block summary:before,body[data-page="packets"] .layer-block:not([open]) summary:before{content:""!important;display:inline-block!important;flex:none;width:15px;height:15px;border:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%2395d7da' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/15px 15px no-repeat;transform:rotate(-90deg);transition:transform .16s}
+body[data-page="packets"] .layer-block[open] summary:before{transform:rotate(0)}
+body[data-page="packets"] .layer-block summary:hover{background:#294657;color:#edfaff}
+body[data-page="packets"] .layer-block summary:focus-visible{outline:2px solid #a1d9e5;outline-offset:-3px}
+@media(max-width:1250px){body[data-page="packets"] .ncps-a09-toggle>span{display:none}}
+@media(max-width:900px){body[data-page="packets"] .ncps-a09-toggle{min-height:36px}}
+@media(max-width:600px){body[data-page="packets"] .ncps-a09-control{flex:1 1 42%;min-width:115px}body[data-page="packets"] .ncps-a09-toggle{width:100%;justify-content:space-between}body[data-page="packets"] .ncps-a09-toggle>span{display:inline}body[data-page="packets"] .ncps-a09-summary-title h3{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.ncps-a09-menu,.ncps-a09-icon-action,.ncps-a09-meta summary svg,body[data-page="packets"] .layer-block summary:before{animation:none!important;transition:none!important}}
+
+/* A11: afford a little more room to protocol badges without changing row density. */
+body[data-page="packets"] .data-table th:nth-child(5){width:86px}

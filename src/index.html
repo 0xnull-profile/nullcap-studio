@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>NullCap Studio 4.0.1 — Portable Forensic Workspace</title>
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACa0lEQVQ4jYWQS0wTYRSFz/Q105l2eIwhYMFQbJippRasSEoDNYAhjYnKyoSgC1gQggsIG+Jjh3GFrEnsSrcmLFhpgoaFiWIMKYa2gbQFKqWSFkJfGaEzLgiTthg8qz/3/Pe79x4CADzDE65c+uhV4c9xrUyAxEWS5ROdXr+tZwyjn31zm4RneMKVjO++3wuH6y5sLBJBEKgXhAhXfalPXWOxvY0Fg/byT1qShNPbDVOzGftbcUiFQomfSaaqmGquWXMsiv+c/PD5uPLmO9rw7sXrEl+SJYj5rFkjy9K5m80OK5o7WvHywSgA4NnCPBqvC4j6g2UQmVLX8vaJdDJZeVZs7evE/ckRpH7tweJsga2rHceiiBteD9LJAyQiMQXActyhpphIVxhxd/wx3kzOIBXfR+udTgDA6scvqL5cg5HZp9hc8SOXzio9JQCr24mN734koqdTVhY/KV4isoPwagCCy4kfH5aVuqoYcMVqAVNRgXqhqTwW1AtNoFkGDTZLSV0BmHgzrnXdRD6TwdDMFEy8GcXe0MwUckcZtHhulXhKiI4eN1LxBBZmfTBylaCNLLbXNwAAjh43DhK/sTDrg6GKVTyW4w6VDSL+dTh63fCODcI10A8tpQVJUyAZPXS0Dq6BfnjHBuHodSPiX1c2INruPQrshALC2Z2NdivEfB627nY02nnIMrC1FsLP5a+gaAbRtQBiwfBpLrwQ0pCMPqoiVIIkS4gFw4q5srh0Lshy6ShyV0UbyScmgY8QBPHfhmLVWa7uGozsNAEAt0cmLflsZl7M5hpkqXAhSaVWn2gpKm4wstNLvrlvfwEhf9fUHlg2TQAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAFNElEQVRYhb2XW0xUVxSGv70PA4wMMwqDDDqDMKAyAcRqCKmW1GpjrCZ9qcRUoz5YrbcmtdGmJqaitrEmJmiqtNo2NT7YNmqbNhoNpqkt9X6rokErVa5eBxGFzjDDnN0HHAJkGI/18j+dZO1/rf+ss/e/1xH0QElJidZid8/oDAYXSCkLpKZZAcnTQCldV3oLSlXGmGLKKrZu+KNnWIQfJi5YkQXqgL+9Pe1OQ72l/f59OgMdKPVU5RFCYIqLw2pPVo5h7n+Fph30W0Kzj5WV+boFPCp++kZNjdXb1Ph0bxxNjCYZluPxWe0p1XrAMv7wjlK/LCkp0UAdaKq5+lyLA6iQTu2lS+YHzc050vRwO4Bssbtn+Nvb05qbmp5r8Z6or64eoNDfmrhkxZiYzmBwwZ2GesuTJLC70pj8zgwy8kcCUFt1hYqvf8DbcNMQXw91cquuLt6RmfmBlFIWtN+/b7h40pBUFpevI7e4kISBVhIGWsktLmTJl59gdzoM53lwxyvRxWQpNc3aGegwTJzy7kziEsxUHT7B+umLWT99MVWHTxBrjmfy/LcN5wn4fWiaTJaANHrUhBC4R3sA2L9lJ233Wmm718r+LTsBcI/2IISIlqIbSikQQhreeKmZThaVr8OcmACApmndsfCzOTGBhVvXkJrhNJrWmMsNLxzFwq1rGToyk2BHAIApi2ZhSbJhSbIxZdEsAIIdQZw5WSzcuobssXnPRkBqppOZa94nNj6OcxWVfLH4YzrafeRPKGLlnnJW7iknf0IRAZ+fbe+t5q9DR4g1xzNr7TJDndDcha+U3rp+PWJQSMnsT5czyJHCuYpK9m7YRltLK5f+PIXVPogEWyJBfwdXT13g+7Wfc6e2keojp0ka6mDoyEyGjMjkzIHf+y3uyHQTE03dyKLROHPctN69xy+bvu3aOIC34Sa7Vm+KyFFK8XPZN7hf8uDyZJNdmM/Vkxf6rRH1ExRMGgfAsb0HCfiNH9WAz8/xnyq6ckwcH3VtVAGu3OEAXD5+znDxMC4fPQtARt6I/y/AZk8CoLnp1hML8DbdBiBxcFLUdf3uAbsrDSm7TOWj3eXUVl025Pfd98SoHAA0KbG70vrlRexA2O955GoJAxMN+X2ve8KWCHSdpGi8iALCfn+x8hRlc5cb9vu+90TZ3OVcrDwVlRdRQHpuNgD7Nu/A23Czl9+HY9F44XvC23CTfZt3ROW9sCGkP0QUUH+pBoBpS+d0+/28slUANF251m+ycGzeplXdvGlL5/TK2RcRT8HBbbvIHpNL/oQi8icU9Yo5PVm8OvNNLh89S3Nj1/FMdjnIGTcWl6erzSnONFbuKe/mBHx+Kr76LqIA8frCD0PnD/8mVZ+hoO/YdeufOswDExmSldFvBwBu1NTia32II2sY0P+4JgQUvDZJj9F1vcUUH58c8Pl6LYjk90IIsgvzKZg4noy8EdhS7SgUrbe91F38m/O/HqXmdBV9XyYSYuLi0EOdD2JAHbKlpMy4W1//2FFGKcXVkxeiXi5GYbENQumclTGaaaNjWIZP9phwXgRS09PbZKxpu6z44rMzQsof0z0e3+NpzwYpTlfINMDcWDw4frcE0AOW+dZke3VGXp5PyufbiRSnK5SWlfXQFCumlpaW6t3f/eVly8zmh3Knrqs3btddG9Dq9YpgR4ehDRUNQnRtOIttEKnp6W2mAeZGU6yYWrFl43Xo8XccxqRFK4pDnaFlQohiTWpJCPFUbqmUUkrXW5WuzspY0/biwfG7S0tL9XD8P0HM/cfKVpZ2AAAAAElFTkSuQmCC">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIiBmaWxsPSJub25lIj4KICA8cmVjdCB4PSIwLjUiIHk9IjAuNSIgd2lkdGg9IjMxIiBoZWlnaHQ9IjMxIiByeD0iNyIgZmlsbD0iIzE0MjczNCIgc3Ryb2tlPSIjNDQ2OTc3Ii8+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNCA0KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTlFNUQ5IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3LjAwNiAxOS4yNDFhOCA4IDAgMCAxLTEwLjAxMSAwIi8+PHBhdGggZD0iTTE5LjkxOSAxNC4xNDNhOCA4IDAgMCAwLTQuOTcxLTguNTgzIi8+PHBhdGggZD0iTTQuMDgxIDE0LjE0M0E4IDggMCAwIDEgOS4wNTIgNS41NiIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iNS4wMDEiIHI9IjMiLz48Y2lyY2xlIGN4PSIxOSIgY3k9IjE3IiByPSIzIi8+PGNpcmNsZSBjeD0iNSIgY3k9IjE3IiByPSIzIi8+PC9nPgo8L3N2Zz4K">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="stylesheet" href="css/shared/base.css">
+<link rel="stylesheet" href="css/shared/premium.css">
+<link rel="stylesheet" href="css/shared/investigation-layout.css">
+<link rel="stylesheet" href="css/shared/case-controls.css">
+<link rel="stylesheet" href="css/shared/authentication-ui.css">
+<link rel="stylesheet" href="css/shared/correlation-ui.css">
+<link rel="stylesheet" href="css/shared/deep-analysis.css">
+<link rel="stylesheet" href="css/workspace/workspace.css">
+<link rel="stylesheet" href="css/shared/theme-dark-professional.css">
+<link rel="stylesheet" href="css/shared/icons-lucide.css">
+<link rel="stylesheet" href="css/explorer/explorer-ux.css">
+<link rel="stylesheet" href="css/explorer/explorer-polish.css">
+<link rel="stylesheet" href="css/explorer/explorer-controls.css">
+<link rel="stylesheet" href="css/explorer/explorer-controls-refinement.css">
+<link rel="stylesheet" href="css/explorer/explorer-timeline-layout.css">
+<link rel="stylesheet" href="css/shared/nullcap-ui-system.css">
+<link rel="stylesheet" href="css/packets/packet-browser.css">
+<link rel="stylesheet" href="css/packets/packet-presentation.css">
+<link rel="stylesheet" href="css/packets/stream-presentation.css">
+<link rel="stylesheet" href="css/packets/tcp-reassembly.css">
+<link rel="stylesheet" href="css/conversations/conversations.css">
+<link rel="stylesheet" href="css/conversations/conversation-actions.css">
+<link rel="stylesheet" href="css/artifacts/artifact-browser.css">
+<link rel="stylesheet" href="css/artifacts/artifact-toolbar.css">
+<link rel="stylesheet" href="css/artifacts/artifact-popover.css">
+<link rel="stylesheet" href="css/artifacts/artifact-inspector.css">
+<link rel="stylesheet" href="css/artifacts/artifact-content.css">
+<link rel="stylesheet" href="css/artifacts/artifact-quality.css">
+<link rel="stylesheet" href="css/workspace/workspace-layout.css">
+<link rel="stylesheet" href="css/workspace/case-details.css">
+<link rel="stylesheet" href="css/workspace/dossier.css">
+<link rel="stylesheet" href="css/workspace/evidence-marks.css">
+<link rel="stylesheet" href="css/workspace/report-dialog.css">
+<link rel="stylesheet" href="css/shared/clean-start.css">
+<link rel="stylesheet" href="css/workspace/report-layout.css">
+<link rel="stylesheet" href="css/home/dashboard-protocols.css">
+<link rel="stylesheet" href="css/home/dashboard-context.css">
+<link rel="stylesheet" href="css/home/dashboard-hosts.css">
+<link rel="stylesheet" href="css/shared/navigation.css">
+</head>
+<body>
+<svg class="defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-a09-sort" viewBox="0 0 24 24"><path d="M7 4v16m0 0-3-3m3 3 3-3M17 20V4m0 0-3 3m3-3 3 3"/></symbol>
+  <symbol id="i-a09-rows" viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="2.5" cy="6" r=".5"/><circle cx="2.5" cy="12" r=".5"/><circle cx="2.5" cy="18" r=".5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1.5"/><rect width="7" height="5" x="14" y="3" rx="1.5"/><rect width="7" height="9" x="14" y="12" rx="1.5"/><rect width="7" height="5" x="3" y="16" rx="1.5"/></symbol>
+  <symbol id="i-graph-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path  d="m12.342 9.316 1.764-3.527" /><path  d="m12.59 14.545 2.35 3.759" /><path  d="m13.982 12.332 4.03.447" /><path  d="M5.414 17.586 8.88 14.12" /><path  d="M9.025 9.742 5.317 5.505" /><circle  cx="11" cy="12" r="3" /><circle  cx="15" cy="4" r="2" /><circle  cx="16" cy="20" r="2" /><circle  cx="20" cy="13" r="2" /><circle  cx="4" cy="19" r="2" /><circle  cx="4" cy="4" r="2" /></symbol>
+  <symbol id="i-nullcap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.006 19.241a8 8 0 0 1-10.011 0"/><path d="M19.919 14.143a8 8 0 0 0-4.971-8.583"/><path d="M4.081 14.143A8 8 0 0 1 9.052 5.56"/><circle cx="12" cy="5.001" r="3"/><circle cx="19" cy="17" r="3"/><circle cx="5" cy="17" r="3"/></symbol>
+  <symbol id="i-home-arrow-down-up" viewBox="0 0 24 24"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="m21 8-4-4-4 4"/><path d="M17 4v16"/></symbol>
+  <symbol id="i-home-monitor-smartphone" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="6" height="10" x="16" y="12" rx="2"/></symbol>
+  <symbol id="i-home-clock-check" viewBox="0 0 24 24"><path d="M21.95 13a10 10 0 1 0-8.685 8.92"/><path d="M12 6v6l4 2"/><path d="m16 19 2 2 4-4"/></symbol>
+  <symbol id="i-home-chart-spline" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7"/></symbol>
+  <symbol id="i-home-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+  <symbol id="i-home-monitor-activity" viewBox="0 0 24 24"><path d="M12 17v4"/><path d="M18 10h-2.315a1 1 0 00-.932.64l-.787 2.034a.5.5 0 01-.932 0l-2.068-5.348a.5.5 0 00-.932 0l-.787 2.035a1 1 0 01-.932.639H6"/><path d="M8 21h8"/><rect x="2" y="3" width="20" height="14" rx="2"/></symbol>
+  <symbol id="i-home-lightbulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="6" rx="1.5"/><rect x="2" y="16" width="6" height="6" rx="1.5"/><rect x="16" y="16" width="6" height="6" rx="1.5"/><path d="M12 8v4m0 0H5v4m7-4h7v4"/></symbol>
+  <symbol id="i-packets" viewBox="0 0 24 24"><rect x="7" y="2" width="13" height="16" rx="2"/><path d="M4 6H3a1 1 0 0 0-1 1v13a2 2 0 0 0 2 2h12a1 1 0 0 0 1-1v-1"/><path d="M11 7h5m-5 4h5m-5 4h3"/></symbol>
+  <symbol id="i-packets-section" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+  <symbol id="i-open-packets" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><circle cx="18" cy="18" r="3"/><path d="m22 22-1.5-1.5"/></symbol>
+  <symbol id="i-flows" viewBox="0 0 24 24"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/></symbol>
+  <symbol id="i-folder-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v4.1"/><path d="m21 21-1.9-1.9"/><circle cx="17" cy="17" r="3"/></symbol>
+  <symbol id="i-vault" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="5" rx="1.5"/><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></symbol>
+  <symbol id="i-forensic-hat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18a2 2 0 0 0-4 0"/><path d="m19 11-2.11-6.657a2 2 0 0 0-2.752-1.148l-1.276.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.925 1.456L5 11"/><path d="M2 11h20"/><circle cx="17" cy="18" r="3"/><circle cx="7" cy="18" r="3"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V4m0 0-6 6m6-6 6 6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 4v16m0 0-6-6m6 6 6-6"/></symbol>
+  <symbol id="i-investigative-notebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/></symbol>
+  <symbol id="i-investigation-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V3m0 0-4 4m4-4 4 4"/><path d="M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m0 0 4-4m-4 4-4-4"/><path d="M4 17v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></symbol>
+  <symbol id="i-fileup" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 18v-7m0 0-3 3m3-3 3 3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevrondown" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-chevronup" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5m6 6-6-6 6-6"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-arrow-left-right" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4M4 7h16m-4 14 4-4-4-4m4 4H4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="i-first" viewBox="0 0 24 24"><path d="M4 5v14m16-14L8 12l12 7V5Z"/></symbol>
+  <symbol id="i-step" viewBox="0 0 24 24"><path d="m5 5 11 7-11 7V5ZM20 5v14"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.7-3 4M12 18h.01"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 .8 1.6L14 13v6l-4 2v-8L3.2 5.6A1 1 0 0 1 4 4Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  <symbol id="i-panel-right" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M15 3v18"/></symbol>
+  <symbol id="i-sliders-horizontal" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 16 4-4 4 2 5-7"/><path d="M16 7h4v4"/></symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8.11 2.79"/><path d="M22 12A10 10 0 0 0 12 2v10Z"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.2 12S5.6 5.5 12 5.5s9.8 6.5 9.8 6.5-3.4 6.5-9.8 6.5S2.2 12 2.2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L9 17l-4 1 1-4 10.5-10.5Z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3"/></symbol>
+  <symbol id="i-shrink" viewBox="0 0 24 24"><path d="M8 3v5H3M16 3v5h5M3 16h5v5m13-5h-5v5"/></symbol>
+  <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m5 3 14 8-7 2-2 7L5 3Z"/><path d="m12 13 5 7"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M2 12V4a2 2 0 0 1 2-2h8l10 10-10 10-10-10Z"/><circle cx="7.5" cy="7.5" r="1"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8M7 3v5h8"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m10.3 3.6-8.3 14a2 2 0 0 0 1.7 3h16.6a2 2 0 0 0 1.7-3l-8.3-14a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4m0 4h.01"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M16 9V4l1-1V2H7v1l1 1v5l-3 4v2h14v-2l-3-4ZM12 15v7"/></symbol>
+  <symbol id="i-pin-off" viewBox="0 0 24 24"><path d="M9 3h8v1l-1 1v4l3 4v2H9M12 15v7M5 13l3-4V5M2 2l20 20"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 17l9 5 9-5"/></symbol>
+  <symbol id="i-binary" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><path d="M6.5 5v3"/><rect x="14" y="3" width="7" height="7" rx="1"/><path d="M4 16h5m-5 4h5M17.5 15v6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-audio" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="18" cy="16" rx="3" ry="2"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H6a2 2 0 0 0-2 2v4a2 2 0 0 1-2 3 2 2 0 0 1 2 3v4a2 2 0 0 0 2 2h2M16 3h2a2 2 0 0 1 2 2v4a2 2 0 0 0 2 3 2 2 0 0 0-2 3v4a2 2 0 0 1-2 2h-2"/></symbol>
+  <symbol id="i-lock-keyhole" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v4"/></symbol>
+  <symbol id="i-notebook" viewBox="0 0 24 24"><path d="M6 3h13a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Zm0 0v18m0-12h6m-6 5h8"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="8" rx="2"/><rect x="3" y="13" width="18" height="8" rx="2"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></symbol>
+  <symbol id="i-calendar-clock" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M7 2v4m10-4v4M3 9h18"/><circle cx="13" cy="15" r="3"/><path d="M13 13.5V15l1 1"/></symbol>
+  <symbol id="i-zoom-in" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4m-5-9v8M7 11h8"/></symbol>
+  <symbol id="i-zoom-out" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4m-13-9h8"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18l-6-4-6 4Z"/></symbol>
+  <symbol id="i-package" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Z"/><path d="m3 7 9 5 9-5M12 12v10M7.5 4.5l9 5"/></symbol>
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V3h12v6m0 9h3v-7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v7h3"/><rect x="6" y="15" width="12" height="7" rx="1"/><path d="M18 12h.01"/></symbol>
+  <symbol id="i-file-json" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M10 13c-2 0-2 1-2 2s0 2-1 2c1 0 1 1 1 2m6-6c2 0 2 1 2 2s0 2 1 2c-1 0-1 1-1 2"/></symbol>
+  <symbol id="i-file-plus" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 12v7m-3-3.5h6"/></symbol>
+  <symbol id="i-compare" viewBox="0 0 24 24"><path d="M7 3H3v4m18 10v4h-4M3 7l6 6m12 4-6-6m-12 9h6m6-16h6"/></symbol>
+  <symbol id="i-file-down" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M12 11v7m-3-3 3 3 3-3"/></symbol>
+</svg>
+<input id="fileInput" type="file" accept=".pcap,.pcapng,.cap,.dump" multiple hidden>
+<div id="dropOverlay" class="drop-overlay"><div class="drop-card"><div class="drop-orbit"><svg aria-hidden="true" focusable="false"><use href="#i-upload"/></svg></div><h2>Rilascia i file di cattura</h2><p>PCAP / PCAPNG · elaborazione 100% locale</p></div></div>
+<div id="toastHost" class="toasts" aria-live="polite"></div><div id="inspectorBackdrop" class="inspector-backdrop hidden"></div>
+
+<div id="streamModal" class="alias-modal nc31-modal nca10-stream-modal hidden" role="dialog" aria-modal="true" aria-labelledby="streamModalTitle">
+  <div id="streamBackdrop" class="alias-backdrop"></div>
+  <div class="alias-dialog glass-pane nc31-stream-dialog nca10-stream-dialog" tabindex="-1">
+    <div class="alias-topline nca10-stream-head">
+      <div class="alias-heading nca10-heading">
+        <span class="alias-bigicon nca10-heading-icon"><svg aria-hidden="true"><use href="#i-flows"/></svg></span>
+        <div class="nca10-heading-content">
+          <span class="alias-eyebrow">TCP STREAM / RICOSTRUZIONE FORENSE</span>
+          <h2 id="streamModalTitle">Ricostruzione stream TCP</h2>
+          <p id="streamRoute" class="nca10-legacy-route">Seleziona una conversazione TCP dalla tabella pacchetti o flussi.</p>
+        </div>
+      </div>
+      <button id="streamClose" type="button" class="nca10-close" aria-label="Chiudi ricostruzione stream"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="nca10-summary" aria-label="Riepilogo della conversazione TCP">
+      <div class="nca10-endpoints">
+        <div class="nca10-endpoint nca10-endpoint-a"><small>ENDPOINT A</small><strong id="nca10EndpointA">—</strong></div>
+        <span class="nca10-route-icon" aria-hidden="true"><svg><use href="#i-arrow-left-right"/></svg></span>
+        <div class="nca10-endpoint nca10-endpoint-b"><small>ENDPOINT B</small><strong id="nca10EndpointB">—</strong></div>
+      </div>
+      <div class="nca10-metrics">
+        <div><span>FRAME TCP</span><strong id="nca10FrameCount">—</strong></div>
+        <div><span>BYTE A → B</span><strong id="nca10BytesA">—</strong></div>
+        <div><span>BYTE B → A</span><strong id="nca10BytesB">—</strong></div>
+      </div>
+      <div class="nca12-status-line"><span id="nca12Quality" class="nca12-quality" role="status">Analisi della continuità…</span><span id="nca12Coverage" class="nca12-coverage"></span></div>
+    </div>
+    <div class="nc31-stream-controls nca10-stream-controls">
+      <span id="streamStats" class="hidden" aria-hidden="true">—</span>
+      <div id="nca10Notices" class="nca10-notices" aria-label="Informazioni e avvisi dello stream"></div>
+      <div class="nc31-inline-controls nca10-select-controls">
+        <div class="nca10-select" data-a10-select="mode">
+          <span class="nca10-control-label">VISTA</span>
+          <select id="streamMode" class="nca10-native-select" aria-label="Formato di visualizzazione"><option value="ascii">Testo</option><option value="hex">HEX</option></select>
+          <button type="button" id="nca10ModeToggle" class="nca10-select-toggle" aria-haspopup="listbox" aria-expanded="false" aria-controls="nca10ModeMenu"><strong id="nca10ModeValue">Testo</strong><svg aria-hidden="true"><use href="#i-chevrondown"/></svg></button>
+          <div id="nca10ModeMenu" class="nca10-menu hidden" role="listbox" aria-label="Vista dello stream"></div>
+        </div>
+        <div class="nca10-select" data-a10-select="direction">
+          <span class="nca10-control-label">DIREZIONE</span>
+          <select id="streamDirection" class="nca10-native-select" aria-label="Direzione dei segmenti"><option value="both">Entrambe</option><option value="a">A → B</option><option value="b">B → A</option></select>
+          <button type="button" id="nca10DirectionToggle" class="nca10-select-toggle" aria-haspopup="listbox" aria-expanded="false" aria-controls="nca10DirectionMenu"><strong id="nca10DirectionValue">Entrambe</strong><svg aria-hidden="true"><use href="#i-chevrondown"/></svg></button>
+          <div id="nca10DirectionMenu" class="nca10-menu hidden" role="listbox" aria-label="Direzione dello stream"></div>
+        </div>
+      </div>
+    </div>
+    <div id="streamWarnings" class="hidden" aria-hidden="true"></div>
+    <div id="streamContent" class="nc31-stream-content nca10-stream-content" tabindex="0" role="region" aria-label="Segmenti TCP organizzati per direzione"></div>
+    <footer class="alias-footer nc31-stream-footer nca10-stream-footer">
+      <div class="nca10-footer-info nca10-note">
+        <button id="nca10HelpTrigger" type="button" class="nca10-note-trigger" aria-label="Informazioni sui dati ricostruiti" aria-expanded="false" aria-controls="nca10HelpPopover"><svg aria-hidden="true"><use href="#i-info"/></svg></button>
+        <div id="nca10HelpPopover" class="nca10-popover" role="tooltip"><strong>Come leggere i dati</strong><p>La ricostruzione ordina i byte secondo TCP, senza decrittazione. I segmenti conservano il frame originale. Lacune, ritrasmissioni e conflitti sono documentati. L'esportazione non colma i byte mancanti.</p></div>
+        <span>Byte originali · Nessuna decrittazione</span>
+      </div>
+      <div class="alias-footer-actions nca10-footer-actions">
+        <button id="streamShowMore" type="button" class="nca10-secondary hidden">Mostra altri</button>
+        <div class="nca10-export-wrap">
+          <button id="nca10ExportToggle" type="button" class="nca10-export-toggle" aria-haspopup="menu" aria-expanded="false" aria-controls="nca10ExportMenu"><svg aria-hidden="true"><use href="#i-download"/></svg><span>Esporta</span><svg aria-hidden="true" class="nca10-chevron"><use href="#i-chevrondown"/></svg></button>
+          <div id="nca10ExportMenu" class="nca10-menu nca10-export-menu hidden" role="menu" aria-label="Esporta lo stream TCP">
+            <div class="nca10-menu-title">ESPORTA PAYLOAD TCP</div>
+            <button type="button" role="menuitem" data-a10-export="both"><svg aria-hidden="true"><use href="#i-arrow-left-right"/></svg><span>Tutta la comunicazione<small>ZIP · byte osservati, mappe delle lacune e metadati</small></span></button>
+            <button type="button" role="menuitem" data-a10-export="a"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg><span>Solo A → B<small>Payload binario originale</small></span></button>
+            <button type="button" role="menuitem" data-a10-export="b"><svg aria-hidden="true"><use href="#i-arrow-left"/></svg><span>Solo B → A<small>Payload binario originale</small></span></button>
+          </div>
+        </div>
+        <button id="streamExportA" class="hidden" type="button" tabindex="-1" aria-hidden="true">Export A</button>
+        <button id="streamExportB" class="hidden" type="button" tabindex="-1" aria-hidden="true">Export B</button>
+      </div>
+    </footer>
+  </div>
+</div>
+<div id="caseModal" class="alias-modal nc31-modal hidden" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle">
+  <div id="caseBackdrop" class="alias-backdrop"></div>
+  <div class="alias-dialog glass-pane nc31-case-dialog" tabindex="-1">
+    <div class="alias-topline"><div class="alias-heading"><span class="alias-bigicon"><svg aria-hidden="true" focusable="false"><use href="#i-investigative-notebook"/></svg></span><div><span class="alias-eyebrow">DOSSIER / ANNOTAZIONI LOCALI</span><h2 id="caseModalTitle">Taccuino Investigativo</h2><p>Rivedi le segnalazioni, aggiungi appunti e ordina la sequenza del caso.</p></div></div><button id="caseClose" type="button" class="icon-button" title="Chiudi" aria-label="Chiudi indagine"><svg aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button></div>
+    <div class="nc31-case-content nc24-legacy-case-content"><div class="nc31-case-meta"><strong id="caseCaptureName">-</strong><small id="caseSignature">-</small><span id="caseSaveStatus" role="status">Pronto</span></div>
+    <label for="caseNotes" class="alias-label">Note generali dell'indagine</label><textarea id="caseNotes" maxlength="8000" rows="4" placeholder="Contesto, ipotesi e risultati osservati (max 8000 caratteri)"></textarea>
+    <div class="nc31-case-list-head"><strong>Pacchetti segnati <span id="caseBookmarkCount">0</span></strong><button id="caseMarkSelected" class="soft-button" type="button"><svg aria-hidden="true" focusable="false"><use href="#i-bookmark"/></svg> Segna pacchetto selezionato</button></div>
+    <div id="caseBookmarks" class="nc31-case-bookmarks"></div><p class="nc31-case-note">Riapri la stessa cattura per ritrovare l'indagine (quando il browser consente il salvataggio). Per trasferirla a un altro computer, esporta il JSON.</p></div>
+<div class="nc24-notebook" id="nc24Notebook" aria-label="Annotazioni investigative del caso">
+      <div class="nc24-notebook-toolbar"><div><strong id="nc24NotebookCount">0 annotazioni</strong><span>Pacchetti, artefatti, conversazioni e appunti da tutte le acquisizioni</span></div><div class="nc24-notebook-toolbar-actions"><button type="button" class="soft-button" id="nc24AddFreeNote"><svg aria-hidden="true"><use href="#i-plus"/></svg> Nuova nota</button><button type="button" class="soft-button" id="nc24NotebookDossier"><svg aria-hidden="true"><use href="#i-file-text"/></svg> Vai al dossier</button></div></div>
+      <div class="nc24-notebook-columns"><aside class="nc24-notebook-listcol" aria-label="Elenco annotazioni"><label class="nc24-small-label" for="nc24NotebookFilter">Cerca nelle annotazioni</label><input id="nc24NotebookFilter" type="search" placeholder="Frame, nota, cattura…" autocomplete="off"><div id="nc24NotebookList" class="nc24-notebook-list" role="listbox" aria-label="Annotazioni"></div></aside>
+      <section class="nc24-notebook-editor" aria-label="Modifica annotazione"><div class="nc24-editor-empty" id="nc24NotebookEmpty">Seleziona una segnalazione oppure crea una nuova nota.</div><div id="nc24NotebookEditor" hidden><span class="nc24-kicker" id="nc24EntryKind">ANNOTAZIONE</span><h3 id="nc24EntryTitle">Annotazione</h3><p class="nc24-entry-context" id="nc24EntryContext"></p><label for="nc24EntryText" class="nc24-small-label">Nota dell'analista</label><textarea id="nc24EntryText" maxlength="8000" rows="7" placeholder="Osservazione, interpretazione, dubbi e attività da verificare..."></textarea><p class="nc24-entry-savehint" id="nc24EntrySaveHint" role="status">Le modifiche sono conservate nel caso e vanno salvate nell’archivio ZIP per trasferirle.</p><div class="nc24-editor-actions"><button type="button" id="nc24OrderUp" class="soft-button" title="Sposta prima"><svg aria-hidden="true"><use href="#i-arrow-up"/></svg> Prima</button><button type="button" id="nc24OrderDown" class="soft-button" title="Sposta dopo"><svg aria-hidden="true"><use href="#i-arrow-down"/></svg> Dopo</button><button type="button" id="nc24OpenFrame" class="soft-button"><svg aria-hidden="true"><use href="#i-open-packets"/></svg> Apri frame</button><button type="button" id="nc24DeleteEntry" class="soft-button nc24-destructive"><svg aria-hidden="true"><use href="#i-close"/></svg> Rimuovi</button></div></div></section></div>
+      <div class="nc24-notebook-footer"><span>Ordine narrativo manuale: non altera timestamp e ordine dei pacchetti originali.</span></div>
+    </div>
+    <footer class="alias-footer nc24-legacy-case-footer"><span class="alias-footer-left"><svg aria-hidden="true" focusable="false"><use href="#i-shield"/></svg> Cattura invariata · JSON senza payload</span><div class="alias-footer-actions"><button id="caseImportButton" type="button" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-fileup"/></svg> Importa indagine</button><button id="caseExportButton" type="button" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-download"/></svg> Esporta indagine</button><input id="caseImportInput" type="file" accept=".json,application/json" hidden></div></footer>
+  </div>
+</div>
+<div id="aliasModal" class="alias-modal hidden" role="dialog" aria-modal="true" aria-labelledby="aliasModalTitle">
+  <div class="alias-backdrop" id="aliasBackdrop"></div>
+  <div class="alias-dialog glass-pane" tabindex="-1">
+    <div class="alias-topline"><div class="alias-heading"><span class="alias-bigicon"><svg aria-hidden="true" focusable="false"><use href="#i-tag"/></svg></span><div><span class="alias-eyebrow">HOST IDENTITY MANAGER</span><h2 id="aliasModalTitle">Etichette degli host</h2><p>Assegna nomi leggibili agli IP e ritrovali in tutta l'analisi.</p></div></div><button id="aliasClose" type="button" class="icon-button" title="Chiudi" aria-label="Chiudi"><svg aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button></div>
+    <div class="alias-main"><div class="alias-directory-col"><label class="alias-search-field"><svg aria-hidden="true" focusable="false"><use href="#i-search"/></svg><input type="search" id="aliasSearch" autocomplete="off" placeholder="Cerca IP o nome host…" aria-label="Cerca host"></label><div class="alias-list-heading"><span>HOST NELLA CATTURA</span><span id="aliasListCount">—</span></div><div class="alias-list" id="aliasList"></div><div id="aliasListFoot" class="alias-list-foot"></div></div>
+      <div class="alias-editor-col"><div class="alias-editor-label"><svg aria-hidden="true" focusable="false"><use href="#i-pencil"/></svg> MODIFICA IDENTITÀ</div><div id="aliasSelectHint" class="alias-select-hint">Seleziona un host dalla directory.</div><div class="alias-form hidden" id="aliasForm"><div class="alias-ip-box"><small>INDIRIZZO ORIGINALE</small><strong id="aliasIP"></strong><span id="aliasKind"></span></div><label for="aliasInput" class="alias-label">Nome visualizzato sulla mappa</label><input id="aliasInput" type="text" maxlength="64" placeholder="es. Firewall interno" autocomplete="off" spellcheck="false"><small class="alias-help">Fino a 64 caratteri. L'indirizzo IP resta sempre disponibile nell'Inspector.</small><div class="alias-actions ncA04-alias-action-row" role="group" aria-label="Azioni sull'host selezionato"><button id="nc32PinHost" type="button" class="ncA04-icon-action ncA04-pin-action" aria-label="Fissa sulla mappa" title="Fissa sulla mappa" aria-pressed="false"><svg aria-hidden="true"><use href="#i-pin"/></svg></button><button type="button" id="aliasSave" class="ncA04-icon-action ncA04-save-action" aria-label="Salva etichetta" title="Salva etichetta"><svg aria-hidden="true"><use href="#i-save"/></svg></button><button type="button" id="aliasRemove" class="ncA04-icon-action" aria-label="Ripristina etichetta originale" title="Ripristina etichetta originale"><svg aria-hidden="true"><use href="#i-rotate"/></svg></button><div class="ncA04-alias-info-wrap" id="ncA04AliasInfoWrap"><button id="ncA04AliasInfoButton" type="button" class="ncA04-icon-action ncA04-info-action" aria-label="Informazioni su etichette e host fissati" aria-expanded="false" aria-controls="ncA04AliasInfoPopover" title="Informazioni su etichette e host fissati"><svg aria-hidden="true"><use href="#i-info"/></svg></button><div class="alias-info ncA04-info-popover" id="ncA04AliasInfoPopover" role="tooltip"><p>Le etichette vengono salvate <b>solo in questo browser</b>, associate all'indirizzo IP. Non modificano i pacchetti né i file originali.</p><small id="nc32PinHint">Massimo 75 nodi visibili, con precedenza a quelli fissati.</small></div></div></div><p class="alias-feedback" id="aliasFeedback" aria-live="polite"></p></div></div></div>
+    <footer class="alias-footer"><div class="alias-footer-left"><svg aria-hidden="true" focusable="false"><use href="#i-shield"/></svg> Metadati locali · PCAP invariato</div><div class="alias-footer-actions"><button type="button" id="aliasImportButton" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-fileup"/></svg> Importa JSON</button><button type="button" id="aliasExportButton" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-download"/></svg> Esporta JSON</button></div><input id="aliasImportInput" type="file" accept=".json,application/json" hidden></footer>
+  </div>
+</div>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark"><svg aria-hidden="true" focusable="false"><use href="#i-nullcap-brand"/></svg></div><div><div class="brand-title">Null<span>Cap</span><small>STUDIO</small></div><div class="brand-sub">NETWORK FORENSICS</div></div></div>
+    <div class="workspace-id"><div class="tiny-upper">WORKSPACE <span class="version">STUDIO / 01</span></div><div class="workspace-title" title="Indagine corrente"><span class="circle-running" aria-hidden="true"></span><span id="nc31SidebarCaseName" class="nc31-case-name" title="Senza titolo...">Senza titolo...</span></div></div>
+    <nav class="nav" aria-label="Viste principali">
+      <div class="nc31-nav-group" aria-labelledby="nc31NavOverview"><h2 class="nav-label" id="nc31NavOverview">PANORAMICA</h2>
+        <button type="button" class="nav-item is-active" data-page="overview" title="Homepage"><svg aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span>Homepage</span></button>
+      </div>
+      <div class="nc31-nav-group" aria-labelledby="nc31NavAnalysis"><h2 class="nav-label" id="nc31NavAnalysis">ANALISI</h2>
+        <button type="button" class="nav-item" data-page="explorer" title="Esplora rete"><svg aria-hidden="true" focusable="false"><use href="#i-graph-star"/></svg><span>Esplora rete</span></button>
+        <button type="button" class="nav-item" data-page="packets" title="Pacchetti"><svg aria-hidden="true" focusable="false"><use href="#i-packets-section"/></svg><span>Pacchetti</span></button>
+        <button type="button" class="nav-item" data-page="flows" title="Conversazioni"><svg aria-hidden="true" focusable="false"><use href="#i-flows"/></svg><span>Conversazioni</span></button>
+      </div>
+      <div class="nc31-nav-group" aria-labelledby="nc31NavCollection"><h2 class="nav-label" id="nc31NavCollection">RACCOLTA</h2>
+        <button type="button" class="nav-item" data-page="loot" title="Bottino"><svg aria-hidden="true" focusable="false"><use href="#i-folder-search"/></svg><span>Bottino</span></button>
+        <button type="button" class="nav-item" data-page="forensic" title="Forensic Workspace"><svg aria-hidden="true" focusable="false"><use href="#i-forensic-hat"/></svg><span>Forensic Workspace</span></button>
+      </div>
+    </nav>
+    <div class="nav-label acquisition-label">SORGENTE DATI <span class="local-tag">LOCALE</span></div>
+    <div class="upload-shell"><button id="uploadSide" class="upload-card"><span class="upload-icon"><svg aria-hidden="true" focusable="false"><use href="#i-upload"/></svg></span><strong>Importa una cattura</strong><span>Trascina o seleziona un file</span><small>.pcap / .pcapng</small></button></div>
+    <div id="sourceCard" class="source-card hidden"><div class="source-icon"><svg aria-hidden="true" focusable="false"><use href="#i-packets"/></svg></div><div class="source-content"><strong id="sourceName"></strong><small id="sourceMeta"></small></div><span class="source-check" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg></span></div>
+    <div class="sidebar-fill"></div>
+    <div class="sidebar-foot"><svg aria-hidden="true" focusable="false"><use href="#i-shield"/></svg> <div><b>Private by design</b><small>Nessun dato inviato in rete.</small></div></div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar"><div class="breadcrumbs"><span>WORKSPACE</span><svg aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg><b id="breadcrumbView">Homepage</b><span class="beta-tag">FORENSIC WORKSPACE 4.0.1</span></div><div class="top-actions"><button id="openCase" class="button secondary" title="Apri il Taccuino Investigativo" aria-label="Apri il Taccuino Investigativo"><svg aria-hidden="true" focusable="false"><use href="#i-investigative-notebook"/></svg><span>Taccuino</span></button>
+      <details id="nc31MoreActions" class="nc31-more-actions"><summary class="button secondary" aria-label="Altre azioni globali"><svg aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span>Altro</span><svg class="nc31-caret" aria-hidden="true" focusable="false"><use href="#i-chevrondown"/></svg></summary><div class="nc31-more-menu" role="group" aria-label="Esportazioni"><button id="exportCapture" type="button" title="Esporta i frame filtrati nei byte originali"><svg aria-hidden="true" focusable="false"><use href="#i-download"/></svg><span>Esporta PCAP</span></button><button id="exportBtn" type="button" title="Esporta i dati in formato CSV"><svg aria-hidden="true" focusable="false"><use href="#i-download"/></svg><span>Esporta CSV</span></button></div></details>
+      <button id="uploadTop" class="button primary" type="button" title="Apri cattura" aria-label="Apri cattura"><svg aria-hidden="true" focusable="false"><use href="#i-upload"/></svg><span>Apri cattura</span></button></div></header>
+    <section class="hero"><div class="hero-intro"><div class="eyebrow"><span class="eyebrow-line"></span> NETWORK TRAFFIC / INVESTIGATION WORKSPACE</div><h1 id="pageTitle">La tua rete, <em>senza zone d’ombra.</em></h1><p id="pageDescription">Una vista temporale della rete. Dal flusso al pacchetto, fino al singolo byte.</p></div><div class="hero-metrics"><div><small>PACCHETTI</small><strong id="statPackets">—</strong></div><div><small>HOST</small><strong id="statHosts">—</strong></div><div><small>CONVERSAZIONI</small><strong id="statFlows">—</strong></div><div><small>DURATA</small><strong id="statDuration">—</strong></div></div></section>
+    <div class="main-scrollbox" id="mainScroll">
+    <section class="views">
+      <div id="view-overview" class="view is-active">
+        <section id="nc271EmptyLanding" class="nc271-empty-landing" aria-labelledby="nc271EmptyTitle">
+          <span class="nc271-empty-icon" aria-hidden="true"><svg><use href="#i-fileup"/></svg></span>
+          <span class="nc271-empty-eyebrow">WORKSPACE LOCALE · PRONTO PER L'ANALISI</span>
+          <h2 id="nc271EmptyTitle">Nessuna acquisizione caricata</h2>
+          <p>Importa una cattura PCAP/PCAPNG oppure apri un'indagine esistente per iniziare. Nessun dato dimostrativo viene caricato automaticamente.</p>
+          <div class="nc271-empty-actions">
+            <button id="nc271ImportCapture" type="button" class="button primary"><svg aria-hidden="true"><use href="#i-upload"/></svg> Importa cattura</button>
+            <button id="nc271OpenInvestigation" type="button" class="button secondary"><svg aria-hidden="true"><use href="#i-investigation-open"/></svg> Apri indagine</button>
+          </div>
+          <small>Elaborazione locale nel browser · le acquisizioni originali rimangono sul tuo dispositivo</small>
+        </section>
+        <div class="overview-grid" id="nc271OverviewGrid">
+          <div class="dashboard-kpis">
+            <article class="metric-tile"><div class="metric-top"><span>TRAFFICO ACQUISITO</span><svg aria-hidden="true" focusable="false"><use href="#i-home-arrow-down-up"/></svg></div><strong id="dashPackets">—</strong><small><b id="dashBytes">—</b> · dimensione complessiva</small><div class="metric-accent teal"></div></article>
+            <article class="metric-tile"><div class="metric-top"><span>HOST INDIVIDUATI</span><svg aria-hidden="true" focusable="false"><use href="#i-home-monitor-smartphone"/></svg></div><strong id="dashHosts">—</strong><small><b id="dashRemote">—</b> endpoint esterni</small><div class="metric-accent violet"></div></article>
+            <article class="metric-tile"><div class="metric-top"><span>CONVERSAZIONI</span><svg aria-hidden="true" focusable="false"><use href="#i-flows"/></svg></div><strong id="dashFlows">—</strong><small><b id="dashTopProtocol">—</b> · protocollo principale</small><div class="metric-accent blue"></div></article>
+            <article class="metric-tile"><div class="metric-top"><span>INTERVALLO ANALIZZATO</span><svg aria-hidden="true" focusable="false"><use href="#i-home-clock-check"/></svg></div><strong id="dashDuration">—</strong><small><b id="dashPPS">—</b> pacchetti / secondo</small><div class="metric-accent amber"></div></article>
+          </div>
+          <div class="dashboard-charts">
+            <section class="glass-pane traffic-pane"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon aqua"><svg aria-hidden="true" focusable="false"><use href="#i-home-chart-spline"/></svg></div><h2>Traffico nel tempo</h2></div><p>Distribuzione per intervallo · clicca una colonna per esplorare quell'istante</p></div><span id="dashTrafficLabel" class="pane-count">DURATA COMPLETA</span></div><div class="chart-inner"><div id="trafficBars" class="traffic-bars"></div><div id="trafficAxis" class="traffic-axis"></div></div></section>
+            <section class="glass-pane protocol-pane"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon purple"><svg aria-hidden="true" focusable="false"><use href="#i-home-layers"/></svg></div><h2>Protocolli</h2></div><p>Ripartizione per numero di pacchetti</p></div></div><div class="protocol-content"><div class="donut-wrap"><div id="donutChart" class="donut-chart" role="group" aria-label="Distribuzione dei pacchetti per protocollo"><svg id="nc28DonutSegments" class="nc28-donut-segments" viewBox="0 0 200 200" role="group" aria-label="Seleziona un settore per vedere numero di pacchetti e percentuale" aria-describedby="nc28ChartHelp"></svg><div class="donut-center"><strong id="donutTotal" aria-live="polite">—</strong><small id="nc28DonutCaption">PACCHETTI</small></div></div><span class="nc28-visually-hidden" id="nc28ChartHelp">Passa il puntatore sui settori o sulle voci della legenda, oppure usa Tab e Invio per selezionarli. Un secondo clic, oppure un clic fuori dal grafico, ripristina il totale.</span></div><div class="nc28-legend-column"><div id="donutLegend" class="donut-legend"></div><button type="button" id="nc28ExploreSelected" class="nc28-explore-selected" hidden><svg aria-hidden="true"><use href="#i-arrow"/></svg> Apri in Esplora rete</button></div></div><div id="nc28DonutTooltip" class="nc28-donut-tooltip" role="tooltip" hidden></div></section>
+          </div>
+          <div class="dashboard-bottom">
+            <section class="glass-pane talkers-pane"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon aqua"><svg aria-hidden="true" focusable="false"><use href="#i-home-monitor-activity"/></svg></div><h2>Host con più traffico</h2></div><p>Classifica per volume di traffico osservato</p></div><button type="button" class="link-button" id="dashToExplorer">Apri la mappa <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div><div id="dashTalkers" class="talkers-list"></div></section>
+            <section class="glass-pane insights-pane"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon amber"><svg aria-hidden="true" focusable="false"><use href="#i-home-lightbulb"/></svg></div><h2>Indicatori di contesto</h2></div><p>Informazioni descrittive della cattura, non verifiche di sicurezza</p></div></div><div id="dashInsights" class="insights-list"></div><div class="insights-footer"><span><i class="status-light"></i> Analisi locale</span><button data-page="loot" type="button">Apri Bottino <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div></section>
+          </div>
+        </div>
+      </div>
+      <div id="view-explorer" class="view">
+        <div class="explorer-layout">
+        <section class="glass-pane graph-pane"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon aqua ncA06-premium-icon"><svg class="ncA06-title-svg" aria-hidden="true" viewBox="0 0 24 24"><use href="#i-graph-star"/></svg></div><h2>Topologia delle comunicazioni</h2><span id="liveGraphCount" class="pane-count" aria-hidden="true">0 host / 0 link</span></div><p>Ogni nodo e legame compare solo quando osservato nella cattura.</p></div><div class="pane-actions ncux-head-actions">
+            <div class="ncux-search" id="ncuxSearchWrap" role="search">
+              <button type="button" class="ncux-tool-icon ncux-search-toggle" id="ncuxSearchToggle" aria-label="Apri ricerca host, IP o subnet" aria-expanded="false" aria-controls="graphSearch" title="Cerca host, IP o subnet"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+              <input id="graphSearch" type="search" placeholder="Host, IP o rete CIDR (es. 192.168.1.0/23)" autocomplete="off" spellcheck="false" aria-label="Cerca host, indirizzi IP o reti CIDR" aria-describedby="ncuxSearchHint">
+              <button type="button" class="ncux-search-clear" id="ncuxClearSearch" aria-label="Pulisci ricerca" title="Pulisci ricerca"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+              <div id="ncuxSearchHint" class="ncux-search-hint" role="status" aria-live="polite"></div>
+            </div>
+            <div id="ncuxActiveSubnet" class="ncux-active-subnet hidden" role="status" aria-live="polite"><span class="ncux-scope-dot"></span><span class="ncux-active-subnet-label">RETE</span><strong id="ncuxSubnetText"></strong><button type="button" id="ncuxClearSubnet" aria-label="Mostra tutte le reti" title="Rimuovi filtro subnet"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+            <select id="nc32Subnet" class="ncux-legacy-hidden" aria-hidden="true" tabindex="-1"><option value="ALL">Tutte le reti</option></select>
+            <div class="ncux-vertical-divider" aria-hidden="true"></div>
+            <button id="manageHosts" class="graph-manage-button ncux-host-tool" type="button" title="Gestisci le etichette degli host"><svg aria-hidden="true"><use href="#i-tag"/></svg><span>Etichette host</span></button>
+            <div class="ncux-map-tools" role="group" aria-label="Navigazione della mappa">
+              <button class="ncux-tool-icon" id="resetLayout" type="button" title="Ripristina disposizione nodi" aria-label="Ripristina disposizione nodi"><svg aria-hidden="true"><use href="#i-rotate"/></svg></button>
+              <button class="ncux-tool-icon" id="resetGraph" type="button" title="Centra mappa e zoom" aria-label="Centra mappa"><svg aria-hidden="true"><use href="#i-target"/></svg></button>
+              <button class="ncux-tool-icon" id="zoomOut" type="button" title="Riduci zoom" aria-label="Riduci zoom"><svg aria-hidden="true"><use href="#i-minus"/></svg></button>
+              <button class="ncux-tool-icon" id="zoomIn" type="button" title="Aumenta zoom" aria-label="Aumenta zoom"><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
+            </div>
+            <button class="ncux-inspector-reopen" type="button" id="ncuxReopenInspector" aria-label="Apri Inspector rapido" aria-controls="ncuxFocusPane" aria-expanded="false"><svg aria-hidden="true"><use href="#i-panel-right"/></svg><span>Apri Inspector</span></button>
+          </div></div>
+          <div class="graph-toolbar ncux-toolbar">
+            <div class="ncux-temporal-group"><span class="ncux-toolbar-caption">TEMPO</span><div class="mode-toggle" aria-label="Modalita temporale"><button type="button" class="is-selected" data-mode="window">Finestra attiva</button><button type="button" data-mode="cumulative">Fino a ora</button></div></div>
+            <div class="window-selector ncux-window-selector ncA06-window-field" aria-label="Durata della finestra temporale"><span>ULTIMI</span><select id="windowSeconds" class="ncA05-native-select" tabindex="-1" aria-hidden="true"><option value="4">4 s</option><option value="8">8 s</option><option selected value="12">12 s</option><option value="30">30 s</option><option value="60">60 s</option></select><div class="ncA05-picker"><button type="button" id="ncA06WindowToggle" class="ncA05-select-toggle" aria-haspopup="listbox" aria-expanded="false" aria-controls="ncA06WindowMenu" aria-label="Ultimi: 12 s"><span id="ncA06WindowValue">12 s</span><svg aria-hidden="true"><use href="#i-chevrondown"/></svg></button><div id="ncA06WindowMenu" class="ncA05-select-menu hidden" role="listbox" aria-label="Durata finestra temporale"></div></div></div>
+            <div class="ncux-toolbar-flex"></div>
+            <div class="ncux-protocol-selector" id="ncuxProtocolSelector">
+              <button type="button" id="ncuxProtoToggle" class="ncux-protocol-toggle" aria-label="Filtra per protocollo, tutti" aria-controls="ncuxProtoMenu" aria-expanded="false" aria-haspopup="listbox"><svg aria-hidden="true" class="ncux-filter-icon"><use href="#i-layers"/></svg><span class="ncux-protocol-heading">Protocollo</span><span class="ncux-protocol-value" id="ncuxProtoValue">Tutti</span><span id="ncuxProtoActiveDot" class="ncux-proto-active-dot" aria-hidden="true"></span><svg aria-hidden="true" class="ncux-select-chevron"><use href="#i-chevrondown"/></svg></button>
+              <div class="ncux-protocol-options hidden" id="ncuxProtoMenu" role="listbox" aria-label="Scegli protocollo"></div>
+            </div>
+            <div id="filterChips" class="ncux-legacy-hidden" aria-hidden="true"></div>
+          </div>
+          <div id="graphStage" class="graph-stage"><canvas id="graphCanvas"></canvas><div class="graph-overlays"><div class="graph-time-pill"><span class="pulse-led"></span> NETWORK MAP <b id="graphTimeLabel">T + 00:00.000</b></div></div><div id="graphTooltip" class="graph-tooltip hidden"></div><div id="graphEmpty" class="graph-empty hidden"><div class="empty-symbol" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-graph-star"/></svg></div><strong>Nessuna comunicazione osservata</strong><p>Avanza nella timeline oppure cambia il filtro.</p><button type="button" id="emptyPlay" class="button primary compact">Avvia replay <svg aria-hidden="true" focusable="false"><use href="#i-play"/></svg></button></div><div id="ncuxNoNetworkMatch" class="ncux-no-network-match hidden" role="status"><svg aria-hidden="true"><use href="#i-graph-star"/></svg><strong>Nessun host nella rete selezionata</strong><p>Verifica il CIDR o torna a tutte le reti.</p><button type="button" id="ncuxNoMatchReset">Mostra tutte le reti</button></div><div class="graph-legend"><span><i class="node-mark local"></i> Host locale</span><span><i class="node-mark remote"></i> Host remoto</span><span><span class="legend-arrow">━</span> Comunicazione</span><span class="legend-right"><svg aria-hidden="true" focusable="false"><use href="#i-pointer"/></svg> TRASCINA PER RIORDINARE · TASTO DESTRO PER RINOMINARE</span></div></div>
+          <div class="graph-footer"><div><span class="footer-hint" aria-hidden="true"><svg aria-hidden="true" focusable="false"><use href="#i-activity"/></svg></span> <strong id="snapshotInfo">La mappa mostra esclusivamente comunicazioni avvenute.</strong></div><button id="inspectAll" class="link-button">Apri tutti i pacchetti <svg aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div>
+        </section>
+        <aside class="glass-pane focus-pane" id="ncuxFocusPane"><div class="pane-header focus-heading"><div class="pane-title"><div class="pane-icon purple ncA06-premium-icon"><svg class="ncA06-title-svg" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3.7H5a1.3 1.3 0 0 0-1.3 1.3v2M17 3.7h2A1.3 1.3 0 0 1 20.3 5v2M3.7 17v2A1.3 1.3 0 0 0 5 20.3h2M20.3 17v2a1.3 1.3 0 0 1-1.3 1.3h-2"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1"/></svg></div><h2>Inspector rapido</h2></div><div class="nc312-focus-header"><button type="button" id="ncuxCloseInspector" class="ncux-close-inspector ncA05-inspector-close" aria-controls="ncuxFocusPane" aria-expanded="true" aria-label="Chiudi Inspector rapido"><svg aria-hidden="true"><use href="#i-close"/></svg></button><div class="nc312-graphhelp ncA06-info-wrap" id="graphHelpWrap"><button type="button" id="graphInfoButton" class="ncA05-inspector-info" aria-label="Come leggere il grafo" aria-describedby="graphInfoPopover" aria-expanded="false" aria-controls="graphInfoPopover"><svg aria-hidden="true" focusable="false"><use href="#i-info"/></svg></button><div id="graphInfoPopover" class="nc312-graphhelp-popover ncA05-inspector-popover ncA06-info-popover" role="tooltip" hidden><p>I <b>cerchi turchesi</b> rappresentano host locali, quelli <b>viola</b> host remoti. Gli archi mostrano le comunicazioni realmente osservate.</p><small>Durante il replay, le particelle animate indicano il verso dei pacchetti.</small></div></div></div></div><div id="focusContent" class="focus-content"></div><div class="activity-separator"><span>EVENTI · CLIC = ANTEPRIMA</span><span id="activityCount">00</span></div><div id="activityList" class="activity-list"></div><div class="focus-bottom"><span>SELEZIONA UN NODO O UNA CONNESSIONE</span><svg aria-hidden="true" focusable="false"><use href="#i-target"/></svg></div></aside>
+        </div>
+      </div>
+      <div id="view-packets" class="view"><div class="packets-layout" id="ncpsLayout"><section class="glass-pane packet-pane"><div class="pane-header ncps-heading"><div><div class="pane-title"><div class="pane-icon aqua ncps-premium-icon ncps-icon-packets"><svg aria-hidden="true" focusable="false"><use href="#i-packets-section"/></svg></div><h2>Pacchetti</h2><span id="packetBrowserCount" class="pane-count" aria-hidden="true">—</span></div><p>Ogni frame, dal timestamp fino ai byte originali.</p></div><button id="ncpsReopen" type="button" class="ncps-action ncps-inspector-reopen hidden" aria-controls="ncpsInspector" aria-expanded="true"><svg aria-hidden="true"><use href="#i-panel-right"/></svg><span>Apri Inspector</span></button></div><div class="packet-filters ncps-filters" role="group" aria-label="Filtri pacchetti">
+  <div class="ncps-search" id="ncpsSearchWrap">
+    <button type="button" id="ncpsSearchToggle" class="ncps-icon-button" aria-label="Cerca pacchetti" aria-expanded="false" aria-controls="packetSearch" title="Cerca per IP, porta o descrizione"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+    <input id="packetSearch" type="text" aria-label="Cerca IP, porta o descrizione" placeholder="IP, porta o descrizione..." autocomplete="off">
+    <button type="button" id="ncpsSearchClear" class="ncps-search-clear" aria-label="Cancella ricerca" title="Cancella ricerca"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="ncps-select-wrap" id="ncpsProtoWrap">
+    <select id="packetProto" class="ncps-native-select" tabindex="-1" aria-hidden="true"><option value="ALL">Tutti i protocolli</option></select>
+    <button type="button" id="ncpsProtoToggle" class="ncps-picker-button" aria-controls="ncpsProtoMenu" aria-haspopup="listbox" aria-expanded="false" aria-label="Protocollo: Tutti"><svg aria-hidden="true" class="ncps-picker-leading"><use href="#i-layers"/></svg><span>Protocollo</span><strong id="ncpsProtoValue">Tutti</strong><svg aria-hidden="true" class="ncps-chevron"><use href="#i-chevrondown"/></svg></button>
+    <div id="ncpsProtoMenu" class="ncps-menu hidden" role="listbox" aria-label="Filtra i pacchetti per protocollo"></div>
+  </div>
+  <div class="ncps-filter-wrap" id="ncpsFilterWrap">
+    <button type="button" id="ncpsFilterToggle" class="ncps-action" aria-expanded="false" aria-haspopup="true" aria-controls="ncpsFilterMenu"><svg aria-hidden="true"><use href="#i-filter"/></svg> Filtri <span id="ncpsFilterCount" class="ncps-count hidden">0</span></button>
+    <div id="ncpsFilterMenu" class="ncps-filter-menu hidden" role="group" aria-label="Filtri di visualizzazione">
+      <div class="ncps-menu-kicker">VISUALIZZA</div>
+      <label class="ncps-switch-row"><span><strong>Solo fino alla testina</strong><small>Limita ai pacchetti osservati nel replay</small></span><input id="pastOnly" type="checkbox" aria-label="Solo fino alla testina"><i aria-hidden="true"></i></label>
+      <label class="ncps-switch-row"><span><strong>Solo credenziali/token</strong><small>Evidenzia il traffico sensibile rilevato</small></span><input id="sensitiveOnly" type="checkbox" aria-label="Solo credenziali o token"><i aria-hidden="true"></i></label>
+    </div>
+  </div>
+  <button id="toggleAdvanced" type="button" class="ncps-action ncps-advanced" aria-expanded="false" aria-controls="advancedFilters"><svg aria-hidden="true"><use href="#i-sliders-horizontal"/></svg><span>Avanzati</span></button>
+  <div class="ncps-a09-control" id="ncpsSortWrap">
+    <button id="ncpsSortToggle" class="ncps-picker-button ncps-a09-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="ncpsSortMenu" aria-label="Ordina pacchetti per timestamp crescente"><svg aria-hidden="true"><use href="#i-a09-sort"/></svg><span>Ordina</span><strong id="ncpsSortValue">Timestamp</strong><svg aria-hidden="true" class="ncps-chevron"><use href="#i-chevrondown"/></svg></button>
+    <div id="ncpsSortMenu" class="ncps-a09-menu hidden" role="group" aria-label="Ordina la tabella">
+      <div class="ncps-menu-kicker">ORDINA PER</div>
+      <div id="ncpsSortFields" role="radiogroup" aria-label="Colonna"></div>
+      <div class="ncps-a09-separator"></div>
+      <div class="ncps-menu-kicker">DIREZIONE</div>
+      <div id="ncpsSortDirections" class="ncps-a09-directions" role="radiogroup" aria-label="Direzione dell'ordinamento"></div>
+    </div>
+  </div>
+  <div class="ncps-a09-control" id="ncpsSizeWrap">
+    <button id="ncpsSizeToggle" class="ncps-picker-button ncps-a09-toggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="ncpsSizeMenu" aria-label="Righe per pagina: 50"><svg aria-hidden="true"><use href="#i-a09-rows"/></svg><span>Righe</span><strong id="ncpsSizeValue">50</strong><svg aria-hidden="true" class="ncps-chevron"><use href="#i-chevrondown"/></svg></button>
+    <div id="ncpsSizeMenu" class="ncps-a09-menu hidden" role="listbox" aria-label="Righe per pagina"></div>
+  </div>
+  <button id="clearPacketScope" type="button" class="scope-pill hidden" aria-label="Rimuovi ambito corrente" title="Rimuovi filtro corrente"><span id="scopeText"></span><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+</div>
+<div id="advancedFilters" class="nc31-advanced hidden">
+  <div class="nc31-filter-head"><strong>FILTRO ESPRESSIVO</strong><span>AND / OR / NOT, parentesi e confronti numerici</span></div>
+  <textarea id="advancedExpression" rows="2" spellcheck="false" placeholder='ip:192.168.1.12 AND (proto:DNS OR port:443)' aria-label="Espressione filtro avanzato"></textarea>
+  <div class="nc31-filter-foot"><span id="advancedFeedback" role="status">Campi: src, dst, ip, port, srcport, dstport, proto, flags, len, time, info, tag, timestamp</span><div><button id="clearAdvanced" type="button" class="soft-button">Pulisci</button><button id="applyAdvanced" type="button" class="soft-button accent-button">Applica</button></div></div>
+</div><div class="packet-table-scroll"><table class="data-table" id="packetTable"><thead><tr><th>NO.</th><th>TIMESTAMP</th><th>SORGENTE</th><th>DESTINAZIONE</th><th>PROTO</th><th>DIM.</th><th>INFORMAZIONI</th></tr></thead><tbody id="packetRows"></tbody></table></div><div class="packet-table-foot"><span id="packetPageLabel">—</span><div id="ncpsPagination"><button id="prevPackets" class="mini-button" aria-label="Pagina precedente"><svg aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></button><button id="nextPackets" class="mini-button" aria-label="Pagina successiva"><svg aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg></button></div></div></section><aside class="glass-pane packet-inspector" id="ncpsInspector"><div class="pane-header ncps-inspector-heading"><div class="pane-title"><div class="pane-icon purple ncps-premium-icon ncps-icon-inspector"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 4H5.5A1.5 1.5 0 0 0 4 5.5V8m13-4h1.5A1.5 1.5 0 0 1 20 5.5V8M4 16v2.5A1.5 1.5 0 0 0 5.5 20H8m12-4v2.5a1.5 1.5 0 0 1-1.5 1.5H16"/><path d="M7 12s1.9-3.4 5-3.4 5 3.4 5 3.4-1.9 3.4-5 3.4S7 12 7 12Z"/><circle cx="12" cy="12" r="1.4"/></svg></div><h2>Inspector pacchetti</h2></div><div class="inspector-title-actions ncps-inspector-actions"><button id="toggleInspectorSize" type="button" class="ncps-icon-button" title="Espandi Inspector" aria-label="Espandi Inspector"><svg aria-hidden="true"><use href="#i-expand"/></svg></button><button id="ncpsCloseInspector" type="button" class="ncps-icon-button" title="Chiudi Inspector" aria-label="Chiudi Inspector" aria-controls="ncpsInspector"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div></div><div id="packetInspectorContent" class="packet-inspector-scroll"></div></aside></div></div>
+      <div id="view-flows" class="view"><div id="nc13Layout" class="flows-layout nc13-layout"><section class="glass-pane flows-pane nc13-pane"><div class="pane-header nc13-heading"><div class="nc13-heading-copy"><div class="pane-title"><div class="pane-icon aqua nc13-premium-icon nc14-icon-conversations"><svg aria-hidden="true" focusable="false"><use href="#i-flows"/></svg></div><h2>Conversazioni</h2></div><p>Endpoint, porte e traffico bidirezionale osservato nella cattura.</p></div><button id="nc13ReopenInspector" class="nc13-reopen-inspector" type="button" aria-label="Apri Conversation Inspector" aria-controls="nc13Inspector" aria-expanded="false" hidden><svg aria-hidden="true"><use href="#i-panel-right"/></svg><span>Apri Inspector</span></button></div>
+      <div class="nc13-toolbar" role="group" aria-label="Ricerca, filtri e ordinamento delle conversazioni"><div id="nc13SearchWrap" class="nc13-search"><button id="nc13SearchToggle" class="nc13-icon-btn nc13-search-icon" type="button" aria-label="Cerca conversazioni" aria-expanded="false" aria-controls="flowSearch"><svg aria-hidden="true"><use href="#i-search"/></svg></button><input id="flowSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Host, IP, porta, protocollo..." aria-label="Cerca host, IP, porta o protocollo nella conversazione" tabindex="-1"><button id="nc13SearchClear" type="button" class="nc13-search-clear" aria-label="Cancella ricerca" hidden><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><button id="nc13ProtoToggle" class="nc13-picker" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="nc13ProtoMenu"><svg aria-hidden="true"><use href="#i-layers"/></svg><span>Protocollo</span><strong id="nc13ProtoValue">Tutti</strong><svg class="nc13-chevron" aria-hidden="true"><use href="#i-chevrondown"/></svg></button><button id="nc13SortToggle" class="nc13-picker" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="nc13SortMenu"><svg aria-hidden="true"><use href="#i-a09-sort"/></svg><span>Ordina</span><strong id="nc13SortValue">Volume</strong><svg class="nc13-chevron" aria-hidden="true"><use href="#i-chevrondown"/></svg></button><span id="flowCount" class="nc13-count" aria-live="polite">—</span></div>
+      <div class="nc13-columns" aria-hidden="true"><span>ENDPOINT E SERVIZIO</span><span>TRAFFICO A ↔ B</span><span>ATTIVITÀ</span></div><div id="flowsList" class="flow-list nc13-list" role="group" aria-label="Elenco conversazioni"></div><div class="nc13-list-note"><span id="nc13FooterCount"></span>I volumi includono le dimensioni dei pacchetti osservati (byte su wire).</div></section><aside id="nc13Inspector" class="glass-pane flow-inspector nc13-inspector"><div class="pane-header nc13-inspector-head"><div class="pane-title"><div class="pane-icon purple nc13-premium-icon"><svg aria-hidden="true" focusable="false"><use href="#i-target"/></svg></div><h2>Conversation Inspector</h2></div><button type="button" id="nc13CloseInspector" class="nc13-icon-btn" aria-label="Chiudi Conversation Inspector" title="Chiudi Inspector"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><div id="flowInspectorContent" class="flow-inspector-scroll nc13-inspector-scroll"></div></aside></div></div>
+
+      <div id="view-loot" class="view nc16-view">
+        <div class="loot-intro nc16-legacy" aria-hidden="true"><span id="lootTotal">0</span><span id="lootImageCount">0</span><span id="lootFileCount">0</span><span id="lootAPIcount">0</span><span id="lootAudioCount">0</span><span id="lootEmailCount">0</span></div>
+        <div class="loot-workspace nc16-workspace">
+          <section class="glass-pane loot-gallery-pane nc16-gallery">
+            <div class="pane-header nc16-pane-head"><div class="nc16-heading-copy"><div class="pane-title"><div class="pane-icon amber nc16-premium-icon"><svg aria-hidden="true" focusable="false"><use href="#i-folder-search"/></svg></div><h2>Bottino</h2></div><p>Artefatti osservati, anteprime e riferimenti ai frame originali.</p></div>
+              <span class="nc17-scan-announcer" id="lootScanStatus" role="status" aria-live="polite"><i class="status-light"></i> In attesa</span>
+              <button id="nc16ReopenInspector" class="nc16-action nc16-reopen" type="button" aria-controls="nc16Inspector" aria-expanded="false" hidden><svg aria-hidden="true"><use href="#i-panel-right"/></svg><span>Apri Inspector</span></button>
+            </div>
+            <div class="loot-filters nc16-toolbar" role="group" aria-label="Ricerca e filtri degli artefatti">
+              <div class="nc16-search" id="nc16SearchWrap">
+                <button type="button" id="nc16SearchToggle" class="nc16-search-trigger" aria-label="Cerca artefatti" aria-expanded="false" aria-controls="lootSearch"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+                <input type="search" id="lootSearch" placeholder="Nome, IP, tipo, file..." autocomplete="off" spellcheck="false" tabindex="-1" aria-label="Cerca nome, indirizzo IP o tipo di artefatto">
+                <button id="nc16SearchClear" type="button" aria-label="Cancella ricerca" class="nc16-search-clear" hidden><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+              </div>
+              <div class="nc16-control"><button id="nc16KindToggle" type="button" class="nc16-picker" aria-haspopup="true" aria-expanded="false" aria-controls="nc16KindMenu"><svg aria-hidden="true"><use href="#i-layers"/></svg><span>Categoria</span><strong id="nc16KindValue">Tutte</strong><svg class="nc16-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></button></div>
+              <div class="nc16-control"><button id="nc16SortToggle" type="button" class="nc16-picker" aria-haspopup="true" aria-expanded="false" aria-controls="nc16SortMenu"><svg aria-hidden="true"><use href="#i-a09-sort"/></svg><span>Ordina</span><strong id="nc16SortValue">Primo evento</strong><svg class="nc16-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></button></div>
+              <div class="nc16-control"><button id="nc16FilterToggle" type="button" class="nc16-picker" aria-haspopup="true" aria-expanded="false" aria-controls="nc16FilterMenu"><svg aria-hidden="true"><use href="#i-filter"/></svg><span>Filtri</span><span id="nc16FilterCount" class="nc16-active-count" hidden>0</span><svg class="nc16-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></button></div>
+              <div id="lootTabs" class="nc16-legacy" aria-hidden="true"><button data-loot-kind="ALL" id="lootAllTabCount">0</button><button data-loot-kind="image">Immagini</button><button data-loot-kind="file">File</button><button data-loot-kind="email">Email</button><button data-loot-kind="api">API</button><button data-loot-kind="audio">Audio</button></div>
+            </div>
+            <div class="loot-caption nc16-caption"><span id="lootListCount">0 elementi</span><label class="nc313-secondary-toggle nc16-legacy"><input type="checkbox" id="lootShowSecondary"> Mostra elementi secondari <span id="lootSecondaryCount">0</span></label><button type="button" id="nc16InformationToggle" class="nc16-infobutton" aria-label="Informazioni sui limiti dell'estrazione" aria-expanded="false" aria-controls="nc16InfoPopover"><svg aria-hidden="true"><use href="#i-info"/></svg></button></div>
+            <div id="lootGallery" class="loot-grid nc16-grid" role="group" aria-label="Elenco artefatti"></div>
+          </section>
+          <aside class="glass-pane loot-detail-pane nc16-inspector" id="nc16Inspector"><div class="pane-header nc16-inspector-header"><div class="pane-title"><div class="pane-icon purple nc16-premium-icon"><svg aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></div><h2>Artifact Inspector</h2></div><button id="nc16CloseInspector" type="button" class="nc16-icon-button" aria-label="Chiudi Artifact Inspector"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div><div id="lootDetail" class="loot-detail nc16-detail"><div class="loot-blank"><svg aria-hidden="true" focusable="false"><use href="#i-vault"/></svg><b>Seleziona un artefatto</b><span>Qui troverai l'anteprima, i metadati e i pacchetti sorgente.</span></div></div></aside>
+        </div>
+        <div class="nc16-legacy loot-caveat" aria-hidden="true"><svg aria-hidden="true"><use href="#i-info"/></svg><span>Estrazione passiva locale.</span></div>
+        <div id="nc16InfoPopover" class="nc16-popover" role="dialog" aria-label="Limiti di estrazione" hidden><strong>Estrazione passiva e limiti</strong><p>Contenuti HTTP/1.x e messaggi email in chiaro, insieme ad audio RTP G.711, vengono analizzati localmente. Il TCP reassembler A12 separa intervalli mancanti e identifica sovrapposizioni ambigue. I payload TLS/HTTPS e QUIC non vengono decifrati; un risultato completo nel parser non garantisce l'intera cattura.</p></div>
+        <div id="nc16KindMenu" class="nc16-menu" role="group" aria-label="Categorie artefatti" hidden></div>
+        <div id="nc16SortMenu" class="nc16-menu" role="group" aria-label="Ordina artefatti" hidden></div>
+        <div id="nc16FilterMenu" class="nc16-menu" role="group" aria-label="Filtri artefatti" hidden></div>
+      </div>
+      <div id="view-forensic" class="view">
+        <section class="glass-pane nc40-case-head nc22-case-head" aria-labelledby="nc22SectionTitle">
+          <div class="nc22-case-top">
+            <div class="nc22-case-identity">
+              <div class="pane-icon purple nc22-case-icon nc23-forensic-icon"><svg aria-hidden="true" focusable="false"><use href="#i-forensic-hat"/></svg></div>
+              <div class="nc22-case-heading-text">
+                <div class="nc22-eyebrow"><span id="nc22SectionTitle">FORENSIC WORKSPACE</span><span class="nc22-version">4.0.1</span></div>
+                <div class="nc23-case-titleline">
+                  <h2 id="nc22CaseName">Indagine senza titolo</h2>
+                  <button type="button" class="nc23-details-toggle" id="nc23CaseDetailsToggle" aria-controls="nc23CaseDetails" aria-expanded="false" title="Modifica nome e analista dell’indagine"><svg aria-hidden="true"><use href="#i-pencil"/></svg><span>Dettagli del caso</span></button>
+                </div>
+                <p>Indagine multi-cattura · analisi locale e passiva <span id="nc23CaseAnalyst" hidden></span></p>
+              </div>
+            </div>
+            <div class="nc40-case-tools nc22-case-actions" aria-label="Azioni principali del caso">
+              <button type="button" class="button secondary" id="nc40AddCapture" title="Aggiungi uno o più file PCAP/PCAPNG al caso"><svg aria-hidden="true" focusable="false"><use href="#i-plus"/></svg><span>Aggiungi cattura</span></button>
+              <input hidden type="file" id="nc40AddFiles" accept=".pcap,.cap,.pcapng,application/vnd.tcpdump.pcap" multiple>
+              <button type="button" class="button primary" id="nc401SaveWorkspace" title="Salva un archivio ZIP con indagine e PCAP originali, potenzialmente contenenti dati sensibili"><svg aria-hidden="true" focusable="false"><use href="#i-save"/></svg><span>Salva indagine</span></button>
+              <button type="button" class="button secondary" id="nc401OpenWorkspace" title="Apri un archivio ZIP con indagine completa"><svg aria-hidden="true" focusable="false"><use href="#i-investigation-open"/></svg><span>Apri indagine</span></button>
+              <input hidden type="file" id="nc401OpenWorkspaceFile" accept=".zip,.nullcap,application/zip">
+              <details id="nc22MoreActions" class="nc22-more-actions">
+                <summary aria-label="Altre operazioni del caso"><svg aria-hidden="true" focusable="false"><use href="#i-more"/></svg><span>Altro</span><svg class="nc22-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary>
+                <div class="nc22-more-menu" role="group" aria-label="Gestione dei metadati del caso">
+                  <button type="button" id="nc40ExportCase"><svg aria-hidden="true"><use href="#i-file-down"/></svg><span><strong>Esporta JSON</strong><small>Solo metadati, senza PCAP</small></span></button>
+                  <button type="button" id="nc40ImportCase"><svg aria-hidden="true"><use href="#i-fileup"/></svg><span><strong>Importa JSON</strong><small>Non include i byte originali</small></span></button>
+                </div>
+              </details>
+              <input hidden type="file" id="nc40ImportCaseFile" accept=".json,application/json">
+            </div>
+          </div>
+          <div class="nc22-case-meta" aria-label="Stato delle acquisizioni del caso">
+            <span class="nc22-meta-item"><svg aria-hidden="true"><use href="#i-layers"/></svg><strong id="nc40CaptureTotal">0 / 6 catture</strong></span>
+            <span class="nc22-meta-item"><svg aria-hidden="true"><use href="#i-check-circle"/></svg><strong id="nc22AnalyzedCount">0 analizzate</strong></span>
+            <span class="nc22-meta-item nc22-active-meta"><svg aria-hidden="true"><use href="#i-packets-section"/></svg><span>Attiva: <strong id="nc22ActiveCapture">Nessuna</strong></span></span>
+            <span class="nc22-meta-private"><i class="status-light"></i> Elaborazione offline</span>
+          </div>
+          <div class="nc22-case-messages" aria-live="polite"><span id="nc401PortableProgress" class="nc40-subtle" role="status"></span><span id="nc40CaseStatus" class="nc40-subtle" role="status">Indagine locale · Salva indagine include i PCAP.</span></div>
+          <section id="nc23CaseDetails" class="nc23-case-details" aria-label="Dettagli del caso" hidden>
+            <div class="nc23-case-details-header">
+              <span class="nc23-case-details-name"><svg aria-hidden="true"><use href="#i-pencil"/></svg> Dettagli del caso</span>
+              <button type="button" id="nc23CaseDetailsClose" aria-label="Chiudi dettagli del caso" title="Chiudi dettagli del caso"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+            </div>
+            <div class="nc22-case-edit-body">
+              <div class="nc40-case-fields"><label>Nome del caso<input id="nc40CaseTitle" maxlength="100" placeholder="Es. Analisi accessi applicazione" value="Indagine senza titolo" autocomplete="off"></label><label>Analista (facoltativo)<input id="nc40Analyst" maxlength="100" placeholder="Nominativo o team" autocomplete="off"></label></div>
+              <p>Le modifiche aggiornano il caso corrente. Usa <strong>Salva indagine</strong> per conservarle nello ZIP; i PCAP originali non vengono modificati.</p>
+            </div>
+          </section>
+          <details id="nc22CapturesPanel" class="nc40-case-captures nc22-captures-panel">
+            <summary class="nc22-captures-summary"><span class="nc22-captures-summary-title"><svg aria-hidden="true"><use href="#i-layers"/></svg><strong>Acquisizioni</strong><span id="nc22CaptureHint">Apri l'elenco per attivare una cattura</span></span><svg class="nc22-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary>
+            <div id="nc40CaptureList" class="nc40-capture-list"></div>
+            <p class="nc22-captures-help">Selezionare una cattura la rende attiva anche nelle altre viste. Il confronto tra catture si gestisce nella scheda Confronto.</p>
+          </details>
+        </section>
+        <section id="nc24Dossier" class="nc24-dossier" aria-label="Dossier investigativo">
+          <div class="nc24-dossier-head"><div><span class="nc24-kicker">DOCUMENTO DELL'INDAGINE</span><h2>Dossier investigativo</h2><p>Costruisci il resoconto con osservazioni scelte, note e riferimenti verificabili.</p></div><div class="nc24-dossier-head-actions"><button id="nc24OpenNotebook" type="button" class="button secondary"><svg aria-hidden="true"><use href="#i-investigative-notebook"/></svg> Taccuino investigativo <span id="nc24NotebookBadge" class="nc24-count">0</span></button><button type="button" id="nc26OpenReport" class="button secondary"><svg aria-hidden="true"><use href="#i-file-text"/></svg> Report automatico</button><button id="nc24ExportDossier" type="button" class="button primary"><svg aria-hidden="true"><use href="#i-file-down"/></svg> Esporta dossier</button></div></div>
+          <div class="nc24-dossier-meta"><span><svg aria-hidden="true"><use href="#i-layers"/></svg> <strong id="nc24DossierCaptureCount">0</strong> acquisizioni</span><span><svg aria-hidden="true"><use href="#i-bookmark"/></svg> <strong id="nc24DossierBookmarkCount">0</strong> pacchetti segnati</span><span><svg aria-hidden="true"><use href="#i-investigative-notebook"/></svg> <strong id="nc24DossierFreeCount">0</strong> appunti liberi</span><span>Documento in lavorazione · dati locali</span></div>
+          <div class="nc24-dossier-layout"><main class="glass-pane nc24-document" aria-label="Composizione del documento"><details class="nc24-doc-section nc26-doc-accordion" data-nc26-accordion="1"><summary class="nc24-doc-section-title"><span>01</span><div><h3>Obiettivo e contesto</h3><p>Perimetro dell'indagine e domande a cui rispondere.</p></div><svg class="nc26-accordion-chevron" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary><div class="nc26-doc-body"><label for="nc24Objective" class="nc24-small-label">Obiettivo investigativo</label><textarea id="nc24Objective" maxlength="5000" rows="3" placeholder="Qual è lo scopo dell'analisi? Quali acquisizioni sono in esame?"></textarea></div></details>
+          <details class="nc24-doc-section nc26-doc-accordion" data-nc26-accordion="2"><summary class="nc24-doc-section-title"><span>02</span><div><h3>Evidenze selezionate</h3><p>Pacchetti, artefatti e conversazioni segnati entrano nel dossier con note e riferimenti verificabili.</p></div><svg class="nc26-accordion-chevron" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary><div class="nc26-doc-body"><div id="nc24DossierEvidence" class="nc24-evidence-list"></div></div></details>
+          <details class="nc24-doc-section nc26-doc-accordion" data-nc26-accordion="3"><summary class="nc24-doc-section-title"><span>03</span><div><h3>Valutazione e conclusioni</h3><p>Distingui le osservazioni dai significati attribuiti dall'analista.</p></div><svg class="nc26-accordion-chevron" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary><div class="nc26-doc-body"><label for="nc24Conclusions" class="nc24-small-label">Interpretazioni e conclusioni</label><textarea id="nc24Conclusions" maxlength="5000" rows="4" placeholder="Quali conclusioni sono supportate dalle evidenze selezionate?"></textarea><label for="nc24Limitations" class="nc24-small-label">Limiti e verifiche ancora aperte</label><textarea id="nc24Limitations" maxlength="3500" rows="3" placeholder="Dati mancanti, sincronizzazione delle catture, ipotesi non confermate..."></textarea></div></details>
+          <div class="nc24-document-footer"><span><svg aria-hidden="true"><use href="#i-shield"/></svg> I frame originali rimangono nelle acquisizioni.</span><button type="button" class="soft-button" id="nc24PreviewReport"><svg aria-hidden="true"><use href="#i-eye"/></svg> Anteprima dossier</button></div></main>
+          <aside class="glass-pane nc24-library" aria-label="Raccolta e strumenti dell'analista"><div class="nc24-library-heading"><span class="nc24-kicker">PUNTO DI RACCOLTA</span><h3><svg aria-hidden="true"><use href="#i-bookmark"/></svg> Raccolta evidenze</h3><p>Usa Segna pacchetto, Segna artefatto o Segna conversazione dagli Inspector. Ogni nota resta associata ai frame originali.</p></div><div class="nc24-library-categories"><button type="button" data-nc24-go="packets"><svg aria-hidden="true"><use href="#i-packets-section"/></svg><span><strong>Pacchetti</strong><small>Frame e origine dei dati</small></span><svg class="nc24-library-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" data-nc24-go="flows"><svg aria-hidden="true"><use href="#i-flows"/></svg><span><strong>Conversazioni</strong><small>Comunicazioni e flussi</small></span><svg class="nc24-library-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" data-nc24-go="loot"><svg aria-hidden="true"><use href="#i-folder-search"/></svg><span><strong>Bottino</strong><small>Artefatti e provenienza</small></span><svg class="nc24-library-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></div><div class="nc24-library-bottom"><strong>Organizza le annotazioni</strong><p>Modifica le note, crea appunti liberi e riordina gli eventi dal Taccuino Investigativo.</p><button type="button" class="button secondary" id="nc24OpenNotebookAside"><svg aria-hidden="true"><use href="#i-investigative-notebook"/></svg> Apri taccuino</button></div></aside></div>
+          
+        </section>
+        <div id="nc24AnalysisTools" class="nc26-internal-analysis" hidden aria-hidden="true"><div class="nc24-tools-body">
+        <div class="nc40-tabs" id="nc40Tabs" role="tablist" aria-label="Strumenti forensi"><button class="is-active" type="button" data-nc40-tab="events" role="tab" aria-selected="true"><svg aria-hidden="true" focusable="false"><use href="#i-activity"/></svg> Cronologia eventi</button><button type="button" data-nc40-tab="signals" role="tab" aria-selected="false"><svg aria-hidden="true" focusable="false"><use href="#i-target"/></svg> Indicatori <span id="nc40SignalCount">0</span></button><button type="button" data-nc40-tab="compare" role="tab" aria-selected="false"><svg aria-hidden="true" focusable="false"><use href="#i-compare"/></svg> Confronto catture</button><button type="button" data-nc40-tab="report" role="tab" aria-selected="false"><svg aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg> Report</button></div>
+        <div class="nc40-workspace">
+          <section class="glass-pane nc40-primary-pane"><div id="nc40TabEvents" class="nc40-tab-panel"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon aqua"><svg aria-hidden="true" focusable="false"><use href="#i-activity"/></svg></div><h2>Eventi correlati</h2><span class="pane-count" id="nc40EventsCount">0</span></div><p>Login, artefatti, segnalazioni e comunicazioni rilevanti con riferimenti ai frame originali.</p></div></div><div class="nc40-toolbar"><label>Ambito<select id="nc40EventScope"><option value="all">Tutte le catture</option></select></label><label>Tipo<select id="nc40EventType"><option value="all">Tutti i tipi</option><option value="auth">Autenticazioni</option><option value="indicator">Indicatori</option><option value="artifact">Artefatti</option><option value="network">Rete</option></select></label><input id="nc40EventSearch" type="search" placeholder="Cerca host, evento, evidenza…" autocomplete="off"></div><div id="nc40EventList" class="nc40-result-list"></div></div>
+          <div id="nc40TabSignals" class="nc40-tab-panel hidden"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon amber"><svg aria-hidden="true" focusable="false"><use href="#i-target"/></svg></div><h2>Indicatori spiegabili</h2><span class="pane-count" id="nc40SignalsHead">0</span></div><p>Regole locali, soglie osservate e limiti. Un indicatore non è una prova di compromissione.</p></div></div><div class="nc40-toolbar"><label>Ambito<select id="nc40SignalScope"><option value="all">Tutte le catture</option></select></label><label>Priorità<select id="nc40SignalSeverity"><option value="all">Tutte</option><option value="high">Da verificare prima</option><option value="medium">Da approfondire</option><option value="info">Informativo</option></select></label></div><div id="nc40SignalList" class="nc40-result-list"></div></div>
+          <div id="nc40TabCompare" class="nc40-tab-panel hidden"><div class="pane-header"><div><div class="pane-title"><div class="pane-icon blue"><svg aria-hidden="true" focusable="false"><use href="#i-flows"/></svg></div><h2>Confronto tra acquisizioni</h2></div><p>Nuovi host, protocolli, servizi e variazioni quantitative, senza inferire automaticamente una minaccia.</p></div></div><div class="nc40-compare-toolbar"><label>Riferimento A<select id="nc40Baseline"></select></label><label>Confronto B<select id="nc40Candidate"></select></label><button type="button" id="nc40CompareRun" class="soft-button accent-button"> <svg aria-hidden="true" focusable="false"><use href="#i-compare"/></svg> Confronta</button></div><div id="nc40CompareOutput"></div></div>
+          <div id="nc40TabReport" class="nc40-tab-panel hidden">
+            <div class="nc40-report-form nc27-report-steps">
+              <section class="nc27-report-step" aria-labelledby="nc27ReportStep1">
+                <div class="nc27-step-header"><span class="nc27-step-number" aria-hidden="true">01</span><div><h3 id="nc27ReportStep1">Scopo e osservazioni</h3><p>Contestualizza i risultati prodotti automaticamente dalle acquisizioni.</p></div></div>
+                <label class="nc27-report-field" for="nc40Summary">Descrizione dell'analisi
+                  <textarea id="nc40Summary" rows="4" maxlength="5000" placeholder="Obiettivo dell'analisi, contesto e conclusioni da verificare…"></textarea>
+                </label>
+              </section>
+              <section class="nc27-report-step" aria-labelledby="nc27ReportStep2">
+                <div class="nc27-step-header"><span class="nc27-step-number" aria-hidden="true">02</span><div><h3 id="nc27ReportStep2">Opzioni del report</h3><p>Scegli quali informazioni di contesto includere nel documento.</p></div></div>
+                <div class="nc27-report-options">
+                  <label class="nc40-checkbox"><input type="checkbox" id="nc40ReportHosts" checked><span>Includi IP nelle evidenze e liste dei servizi nel confronto</span></label>
+                  <label class="nc40-checkbox"><input type="checkbox" id="nc40ReportNotes" checked><span>Includi le annotazioni dell'analista</span></label>
+                </div>
+                <p class="nc27-report-caution"><svg aria-hidden="true"><use href="#i-shield"/></svg> Il report non include automaticamente payload originali, password, cookie o token.</p>
+              </section>
+              <section class="nc27-report-step" aria-labelledby="nc27ReportStep3">
+                <div class="nc27-step-header"><span class="nc27-step-number" aria-hidden="true">03</span><div><h3 id="nc27ReportStep3">Riepilogo prima dell'esportazione</h3><p>Controlla quantità, acquisizioni e limitazioni del documento generato.</p></div></div>
+                <div id="nc40ReportPreview" class="nc40-report-preview" aria-live="polite"></div>
+              </section>
+            </div>
+          </div>
+          </section>
+          <aside class="glass-pane nc40-detail-pane"><div class="pane-header"><div class="pane-title"><div class="pane-icon purple"><svg aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></div><h2>Dettaglio e provenienza</h2></div></div><div id="nc40Detail" class="nc40-detail-scroll"><div class="nc40-empty">Seleziona un evento o indicatore per vedere motivi, limiti e frame sorgente.</div></div></aside>
+        </div>
+        </div></div>
+        <details class="nc22-caveat"><summary><svg aria-hidden="true" focusable="false"><use href="#i-info"/></svg><span><strong>Analisi passiva.</strong> Il file ZIP contiene i PCAP originali e può includere credenziali in chiaro.</span><svg class="nc22-caret" aria-hidden="true"><use href="#i-chevrondown"/></svg></summary><p>Le associazioni tra comunicazioni sono probabilistiche: catture incomplete, timestamp mancanti, NAT, riutilizzo degli IP e traffico cifrato possono introdurre errori. I report e i vecchi JSON non includono i byte grezzi. Il file ZIP creato da Salva indagine include invece tutti i PCAP originali, compresi eventuali password e token in chiaro: condividilo solo in modo protetto e autorizzato.</p></details>
+      </div>
+    </section>
+    <section id="timelinePanel" class="glass-pane timeline-pane"><div class="timeline-header"><div class="pane-title"><div class="pane-icon amber ncA06-premium-icon"><svg class="ncA06-title-svg" aria-hidden="true" viewBox="0 0 24 24"><path d="M3.2 12h3.4l2.3-5.7 3.2 11.4 2.8-8.9 2.3 3.2h3.6"/><path d="M3.2 19.4h17.6" class="ncA06-title-baseline"/></svg></div><h2>Timeline delle comunicazioni</h2><span id="timelineCount" class="pane-count">—</span></div><div class="timeline-controls"><div class="nc32-metric-label ncA05-field" aria-label="Metrica della timeline"><span>METRICA</span><select id="nc32TimelineMetric" class="ncA05-native-select" tabindex="-1" aria-hidden="true"><option value="packets">Pacchetti</option><option value="bytes">Byte</option></select><div id="ncA05MetricPicker" class="ncA05-picker"><button type="button" id="ncA05MetricToggle" class="ncA05-select-toggle" aria-label="Metrica: Pacchetti" aria-haspopup="listbox" aria-expanded="false" aria-controls="ncA05MetricMenu"><span id="ncA05MetricValue">Pacchetti</span><svg aria-hidden="true"><use href="#i-chevrondown"/></svg></button><div id="ncA05MetricMenu" class="ncA05-select-menu hidden" role="listbox" aria-label="Metrica della timeline"></div></div></div><button id="nc32MarkAdd" class="soft-button ncA05-mark-add" type="button" aria-label="Aggiungi segnalibro" title="Aggiungi segnalibro alla posizione corrente"><svg aria-hidden="true"><use href="#i-bookmark"/></svg><svg class="ncA05-mark-plus" aria-hidden="true"><use href="#i-plus"/></svg></button><div class="ncA04-mark-picker" id="ncA04MarkPicker"><button id="ncA04MarkToggle" type="button" class="ncA04-mark-toggle" aria-label="Segnalibri della timeline" aria-haspopup="dialog" aria-expanded="false" aria-controls="ncA04MarkMenu"><svg aria-hidden="true"><use href="#i-bookmark"/></svg><span id="ncA04MarkValue">Segnalibri (0)</span><svg aria-hidden="true" class="ncA04-mark-chevron"><use href="#i-chevrondown"/></svg></button><div class="ncux-protocol-options ncA04-mark-menu hidden" id="ncA04MarkMenu" role="dialog" aria-label="Segnalibri della timeline"></div></div><select id="nc32MarkSelect" class="ncA04-native-select" tabindex="-1" aria-hidden="true"><option value="">Segnalibri (0)</option></select><button id="nc32MarkRemove" type="button" class="soft-button ncA05-native-remove" tabindex="-1" aria-hidden="true" title="Rimuovi il segnalibro selezionato" aria-label="Rimuovi il segnalibro selezionato" disabled> <svg aria-hidden="true" focusable="false"><use href="#i-close"/></svg></button><span class="timeline-zoom-text">ZOOM</span><input id="timelineZoom" type="range" min="1" max="12" step="0.25" value="1" aria-label="Zoom timeline"><button id="fitTimeline" class="soft-button"> <svg aria-hidden="true" focusable="false"><use href="#i-expand"/></svg> Adatta</button><button id="clearTimelineSelection" class="soft-button hidden">Deseleziona</button><button id="analyzeTimelineSelection" class="soft-button accent-button hidden"> Analizza intervallo <svg aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></button><button id="collapseTimeline" class="soft-button" title="Comprimi o espandi timeline" aria-label="Comprimi timeline"><svg aria-hidden="true" focusable="false"><use href="#i-chevrondown"/></svg></button></div></div><div class="timeline-protocol-legend" id="timelineLegend" aria-label="Legenda tecnica nascosta dei protocolli" aria-hidden="true"></div><div class="timeline-body"><div id="trackLabels" class="track-labels"></div><div id="timelineViewport" class="timeline-viewport"><div id="timelineWidth" class="timeline-width"><canvas id="timelineCanvas" aria-label="Timeline interattiva dei pacchetti"></canvas></div></div></div><div class="transport-bar"><div class="transport-left"><button id="firstBtn" class="transport-icon" title="Inizio cattura"><svg aria-hidden="true" focusable="false"><use href="#i-first"/></svg></button><button id="playBtn" class="play-control" title="Avvia replay"><svg id="playIcon"><use href="#i-play"/></svg></button><button id="stepBtn" class="transport-icon" title="Pacchetto successivo"><svg aria-hidden="true" focusable="false"><use href="#i-step"/></svg></button><span class="timecode"><b id="currentTime">00:00.000</b><span>/</span><span id="durationTime">00:00.000</span></span></div><div class="transport-right"><span id="replayCount" class="replay-count">0 pacchetti osservati</span><span class="transport-divider"></span><div class="ncA05-speed-field" aria-label="Velocit&#224; di riproduzione"><span class="ncA05-speed-caption">VELOCIT&#192;</span><select id="speedSelect" class="ncA05-native-select" tabindex="-1" aria-hidden="true"><option value="auto">Auto</option><option value="0.25">0,25×</option><option value="0.5">0,50×</option><option value="1">1×</option><option value="2">2×</option><option value="5">5×</option><option value="10">10×</option></select><div id="ncA05SpeedPicker" class="ncA05-picker"><button type="button" id="ncA05SpeedToggle" class="ncA05-select-toggle" aria-haspopup="listbox" aria-expanded="false" aria-controls="ncA05SpeedMenu" aria-label="Velocit&#224;: Auto"><span id="ncA05SpeedValue">Auto</span><svg aria-hidden="true"><use href="#i-chevrondown"/></svg></button><div id="ncA05SpeedMenu" class="ncA05-select-menu hidden" role="listbox" aria-label="Velocit&#224; di riproduzione"></div></div></div><span class="keyboard-help">DOPPIO CLIC SU UN EVENTO · SHIFT + TRASCINA PER SELEZIONARE</span></div></div></section>
+    </div>
+    <footer class="statusbar"><span><i class="status-light"></i> <span id="statusText">Sistema pronto</span></span><span>PCAP / PCAPNG <i class="status-sep"></i> CLIENT SIDE <i class="status-sep"></i> ZERO BACKEND</span></footer>
+  <div id="nc32ImportBar" class="nc32-import-bar hidden" role="status" aria-live="polite"><span id="nc32ImportText">Analisi in corso...</span><button id="nc32CancelImport" type="button" class="soft-button">Annulla</button></div></main>
+</div>
+<div class="ncA04-bookmark-modal" id="ncA04BookmarkDialog" role="dialog" aria-modal="true" aria-labelledby="ncA04BookmarkTitle" aria-describedby="ncA04BookmarkDesc" hidden>
+  <div class="ncA04-bookmark-shade" data-ncA04-cancel="true"></div>
+  <form class="ncA04-bookmark-card" id="ncA04BookmarkForm" autocomplete="off">
+    <div class="ncA04-bookmark-heading">
+      <span class="ncA04-bookmark-symbol"><svg aria-hidden="true"><use href="#i-bookmark"/></svg></span>
+      <div><span class="ncA04-bookmark-eyebrow">TIMELINE · SEGNALIBRI</span><h2 id="ncA04BookmarkTitle">Nuovo segnalibro</h2><p id="ncA04BookmarkDesc">Assegna un nome alla posizione corrente del replay.</p></div>
+      <button class="ncA04-bookmark-close" id="ncA04BookmarkClose" type="button" aria-label="Chiudi finestra"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="ncA04-bookmark-body"><div class="ncA04-bookmark-time"><svg aria-hidden="true"><use href="#i-clock"/></svg><span>POSIZIONE DEL REPLAY</span><strong id="ncA04BookmarkTime">00:00.000</strong></div>
+    <label for="ncA04BookmarkName">Nome del segnalibro</label><input id="ncA04BookmarkName" type="text" maxlength="70" spellcheck="false" aria-label="Nome del segnalibro"><small>Fino a 70 caratteri. Il segnalibro rimane associato alla cattura.</small></div>
+    <div class="ncA04-bookmark-footer"><button type="button" id="ncA04BookmarkCancel" class="ncA04-bookmark-secondary">Annulla</button><button type="submit" id="ncA04BookmarkSave" class="ncA04-bookmark-primary"><svg aria-hidden="true"><use href="#i-check"/></svg> Salva segnalibro</button></div>
+  </form>
+</div>
+<div id="nc24MarkModal" class="nc24-mark-modal" role="dialog" aria-modal="true" aria-labelledby="nc24MarkTitle" hidden>
+  <div class="nc24-mark-shade" data-nc24-mark-close="1"></div><form id="nc24MarkForm" class="nc24-mark-card glass-pane"><header class="nc24-mark-heading"><div class="nc24-mark-symbol"><svg aria-hidden="true"><use href="#i-bookmark"/></svg></div><div><span class="nc24-kicker">TACCUINO INVESTIGATIVO</span><h2 id="nc24MarkTitle">Segna pacchetto</h2><p>Annota subito il ritrovamento, senza lasciare la sezione corrente.</p></div><button type="button" id="nc24MarkClose" class="nc24-mark-cross" aria-label="Chiudi"><svg aria-hidden="true"><use href="#i-close"/></svg></button></header><div class="nc24-mark-source"><strong id="nc24MarkFrame">Frame</strong><span id="nc24MarkCapture">Acquisizione</span><p id="nc24MarkRoute">Sorgente → Destinazione</p><small id="nc24MarkTime">Timestamp osservato</small></div><label class="nc24-small-label" for="nc24MarkNote">Nota investigativa <span>· obbligatoria</span></label><textarea id="nc24MarkNote" rows="5" maxlength="1200" placeholder="Cosa hai osservato? Perché questo pacchetto è rilevante per l'indagine?" required></textarea><p class="nc24-mark-hint">La nota è una valutazione dell'analista, non altera né verifica i dati originali.</p><footer><button id="nc24MarkCancel" class="soft-button" type="button">Annulla</button><button id="nc24MarkSubmit" class="button primary" type="submit"><svg aria-hidden="true"><use href="#i-bookmark"/></svg> Aggiungi al dossier</button></footer></form></div>
+<div id="nc25MarkModal" class="nc24-mark-modal nc25-mark-modal" role="dialog" aria-modal="true" aria-labelledby="nc25MarkHeading" hidden>
+  <div class="nc24-mark-shade" data-nc25-close="1"></div>
+  <form id="nc25MarkForm" class="nc24-mark-card glass-pane" autocomplete="off">
+    <header class="nc24-mark-heading">
+      <div class="nc24-mark-symbol"><svg aria-hidden="true"><use href="#i-bookmark"/></svg></div>
+      <div><span class="nc24-kicker">TACCUINO INVESTIGATIVO</span><h2 id="nc25MarkHeading">Segna evidenza</h2>
+        <p>Annota il ritrovamento senza uscire dalla vista corrente.</p></div>
+      <button id="nc25MarkClose" class="nc24-mark-cross" type="button" aria-label="Chiudi"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="nc24-mark-source"><strong id="nc25MarkSubject"></strong><span id="nc25MarkCapture"></span>
+      <p id="nc25MarkOrigin"></p><small id="nc25MarkFrames"></small></div>
+    <label class="nc24-small-label" for="nc25MarkNote">Nota investigativa <span>· obbligatoria</span></label>
+    <textarea id="nc25MarkNote" rows="5" maxlength="1200" required placeholder="Cosa hai osservato? Perché questa evidenza è rilevante?"></textarea>
+    <p class="nc24-mark-hint">Si conserva soltanto la nota e il riferimento ai frame. Il contenuto originale non viene duplicato nel dossier.</p>
+    <footer><button type="button" id="nc25MarkCancel" class="soft-button">Annulla</button>
+      <button type="submit" id="nc25MarkSubmit" class="button primary">Aggiungi al dossier</button></footer>
+  </form>
+</div>
+
+<!-- A26: body-level modal layer. Nothing below changes the app scroll position. -->
+<div id="nc24DossierPreview" class="nc26-modal-overlay" hidden>
+  <div class="nc26-modal-shade" data-nc26-dismiss="preview"></div>
+  <section class="nc26-modal-card nc26-preview-card" role="dialog" aria-modal="true" aria-labelledby="nc26PreviewTitle" tabindex="-1">
+    <header class="nc26-modal-header"><div class="nc26-modal-icon"><svg aria-hidden="true"><use href="#i-eye"/></svg></div>
+      <div class="nc26-modal-header-text"><span class="nc24-kicker">DOSSIER INVESTIGATIVO</span><h2 id="nc26PreviewTitle">Anteprima del documento condivisibile</h2><p>Riepilogo delle evidenze e delle note selezionate per la condivisione.</p></div>
+      <button id="nc24ClosePreview" class="nc26-modal-x" type="button" aria-label="Chiudi anteprima" title="Chiudi anteprima"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <main class="nc26-modal-content"><div id="nc24PreviewContent"></div>
+      <p class="nc26-sensitive-note"><svg aria-hidden="true"><use href="#i-info"/></svg> Il documento contiene note dell'analista e potrebbe includere informazioni riservate. Controlla il contenuto prima di condividerlo.</p>
+    </main>
+    <footer class="nc26-modal-footer"><button id="nc26PreviewDismiss" type="button" class="soft-button">Chiudi</button>
+      <button type="button" class="soft-button" id="nc24PreviewPrint"><svg aria-hidden="true"><use href="#i-printer"/></svg> Stampa / PDF</button>
+      <button type="button" class="button primary" id="nc24PreviewDownload"><svg aria-hidden="true"><use href="#i-file-down"/></svg> Scarica HTML</button></footer>
+  </section>
+</div>
+<div id="nc26ReportModal" class="nc26-modal-overlay" hidden>
+  <div class="nc26-modal-shade" data-nc26-dismiss="report"></div>
+  <section class="nc26-modal-card nc26-report-card" role="dialog" aria-modal="true" aria-labelledby="nc26ReportTitle" tabindex="-1">
+    <header class="nc26-modal-header"><div class="nc26-modal-icon"><svg aria-hidden="true"><use href="#i-file-text"/></svg></div>
+      <div class="nc26-modal-header-text"><span class="nc24-kicker">STRUMENTO DI REPORTISTICA</span><h2 id="nc26ReportTitle">Report automatico</h2><p>Riepilogo generato dai dati delle catture; distinto dal Dossier redatto dall'analista.</p></div>
+      <button id="nc26CloseReport" class="nc26-modal-x" type="button" aria-label="Chiudi report" title="Chiudi report"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <main class="nc26-modal-content nc26-report-content"><div id="nc26ReportMount" class="nc40-primary-pane"></div></main>
+    <footer class="nc26-modal-footer nc27-report-footer">
+      <button id="nc26ReportDismiss" type="button" class="soft-button">Chiudi</button>
+      <div class="nc27-report-actions" aria-label="Esportazione del report">
+        <button type="button" id="nc40ReportJson" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-file-json"/></svg> Evidenze JSON</button>
+        <button type="button" id="nc40ReportPrint" class="soft-button"><svg aria-hidden="true" focusable="false"><use href="#i-printer"/></svg> Stampa / PDF</button>
+        <button type="button" id="nc40ReportHtml" class="button primary"><svg aria-hidden="true" focusable="false"><use href="#i-file-down"/></svg> Esporta report HTML</button>
+      </div>
+    </footer>
+  </section>
+</div>
+<div id="nc26SystemModal" class="nc26-modal-overlay nc26-system-modal" hidden>
+  <div class="nc26-modal-shade"></div>
+  <form id="nc26SystemForm" class="nc26-modal-card nc26-system-card" role="dialog" aria-modal="true" aria-labelledby="nc26SystemTitle" aria-describedby="nc26SystemText">
+    <header class="nc26-modal-header"><div class="nc26-modal-icon" id="nc26SystemIcon"><svg aria-hidden="true"><use href="#i-info"/></svg></div>
+      <div class="nc26-modal-header-text"><span class="nc24-kicker">NULLCAP STUDIO</span><h2 id="nc26SystemTitle">Conferma operazione</h2></div>
+      <button type="button" id="nc26SystemX" class="nc26-modal-x" aria-label="Annulla"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="nc26-system-body"><p id="nc26SystemText"></p><label id="nc26SystemInputWrap" for="nc26SystemInput" hidden>Valore richiesto<input id="nc26SystemInput" type="text" maxlength="100" autocomplete="off" spellcheck="false"></label></div>
+    <footer class="nc26-modal-footer"><button id="nc26SystemCancel" type="button" class="soft-button">Annulla</button><button id="nc26SystemSubmit" type="submit" class="button primary">Conferma</button></footer>
+  </form>
+</div>
+<script src="js/core/dialogs.js"></script>
+<script src="js/core/icons.js"></script>
+<script src="js/core/app.js"></script>
+<script src="js/core/extensions.js"></script>
+<script src="js/artifacts/loot.js"></script>
+<script src="js/core/http-authentication.js"></script>
+<script src="js/core/http-correlation.js"></script>
+<script src="js/core/investigation-layout.js"></script>
+<script src="js/packets/packet-filter.js"></script>
+<script src="js/packets/tcp-reassembly.js"></script>
+<script src="js/packets/stream-controller.js"></script>
+<script src="js/core/case-controls.js"></script>
+<script src="js/core/authentication-ui.js"></script>
+<script src="js/packets/protocol-decoders.js"></script>
+<script src="js/core/deep-analysis.js"></script>
+<script src="js/workspace/workspace.js"></script>
+<script src="js/workspace/portable-workspace.js"></script>
+<script src="js/explorer/explorer-ux.js"></script>
+<script src="js/explorer/explorer-polish.js"></script>
+<script src="js/explorer/explorer-controls.js"></script>
+<script src="js/explorer/explorer-controls-refinement.js"></script>
+<script src="js/packets/packet-browser.js"></script>
+<script src="js/packets/packet-presentation.js"></script>
+<script src="js/packets/stream-presentation.js"></script>
+<script src="js/conversations/conversations.js"></script>
+<script src="js/conversations/conversation-actions.js"></script>
+<script src="js/artifacts/artifact-browser.js"></script>
+<script src="js/artifacts/artifact-popover.js"></script>
+<script src="js/artifacts/artifact-inspector.js"></script>
+<script src="js/artifacts/artifact-content.js"></script>
+<script src="js/artifacts/artifact-quality.js"></script>
+<script src="js/workspace/workspace-layout.js"></script>
+<script src="js/workspace/case-details.js"></script>
+<script src="js/workspace/dossier.js"></script>
+<script src="js/workspace/evidence-marks.js"></script>
+<script src="js/workspace/report-dialog.js"></script>
+<script src="js/core/clean-start.js"></script>
+<script src="js/home/dashboard-protocols.js"></script>
+<script src="js/home/dashboard-context.js"></script>
+<script src="js/home/dashboard-hosts.js"></script>
+<script src="js/core/navigation.js"></script>
+</body></html>

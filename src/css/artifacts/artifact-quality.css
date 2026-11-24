@@ -1,0 +1,113 @@
+/* A21 — visual refinement of A20's Artifact Inspector. Scope: Bottino only. */
+#view-loot .nc16-inspector-header .nc16-premium-icon.purple{
+  position:relative;isolation:isolate;overflow:hidden;
+  width:32px;height:32px;flex:0 0 32px;border-radius:10px;
+  color:#e1d7ff;border:1px solid #8574ba;
+  background:linear-gradient(150deg,#50436f 0%,#302f53 58%,#242744 100%);
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 6px 20px rgba(129,93,219,.20),0 0 20px rgba(160,119,251,.10);
+}
+#view-loot .nc16-inspector-header .nc16-premium-icon.purple::before{
+  content:"";position:absolute;inset:1px;border-radius:8px;pointer-events:none;
+  background:linear-gradient(130deg,rgba(242,233,255,.10),transparent 62%);
+}
+#view-loot .nc16-inspector-header .nc16-premium-icon.purple::after{
+  content:"";position:absolute;right:4px;top:4px;width:3px;height:3px;border-radius:50%;
+  background:#d5c3ff;box-shadow:0 0 8px rgba(216,195,255,.9);opacity:.7;pointer-events:none;
+}
+#view-loot .nc16-inspector-header .nc16-premium-icon.purple svg{
+  position:relative;z-index:1;width:19px;height:19px;stroke-width:1.65;
+  filter:drop-shadow(0 0 4px rgba(179,151,255,.35));
+}
+/* Real observed fields get priority over verbose reconstructions. */
+#view-loot .nc21-inspector .nc21-observed{
+  display:flex;flex-direction:column;gap:8px;margin:0 0 13px;
+  border:1px solid rgba(207,164,91,.43);border-radius:11px;
+  background:linear-gradient(140deg,rgba(99,72,46,.3),rgba(29,49,59,.45) 75%);
+  padding:12px;min-width:0;
+}
+#view-loot .nc21-observed-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+#view-loot .nc21-observed-head h4{margin:0;font:780 11px/1.4 var(--font);color:#ffdfab;}
+#view-loot .nc21-observed-tag{
+  color:#ffdb9e;border:1px solid rgba(227,178,106,.28);background:rgba(206,146,66,.14);
+  border-radius:5px;padding:3px 6px;font:790 8px/1.25 var(--font);letter-spacing:.4px;
+}
+#view-loot .nc21-observed-subtitle{margin:0!important;font:520 9px/1.5 var(--font)!important;color:#d1bda6!important;}
+#view-loot .nc21-observed-list{display:grid;gap:7px;min-width:0;}
+#view-loot .nc21-observed-field{
+  min-width:0;border:1px solid rgba(141,171,185,.18);border-radius:8px;
+  background:rgba(10,28,39,.59);padding:10px 11px;
+}
+#view-loot .nc21-observed-label{font:750 9px/1.4 var(--font);color:#a5beca;margin-bottom:4px;}
+#view-loot .nc21-observed-value{
+  color:#f9fcff;font:730 13px/1.42 var(--mono);letter-spacing:-.18px;
+  overflow-wrap:anywhere;white-space:pre-wrap;max-height:145px;overflow:auto;
+  scrollbar-width:thin;scrollbar-color:#637482 transparent;
+}
+#view-loot .nc21-observed-context{margin-top:5px;color:#849eb0;font:540 9px/1.35 var(--font);overflow-wrap:anywhere;}
+/* Raw forensic preview stays accessible, but does not duplicate the value grid. */
+#view-loot .nc21-inspector .nc20-preview:has(.nc21-observation-trace){gap:0;}
+#view-loot .nc21-observation-trace{margin:0;border:1px solid #3c596d;border-radius:9px;overflow:hidden;min-width:0;background:#192e3d;}
+#view-loot .nc21-observation-trace>summary{
+  display:flex;align-items:center;gap:8px;min-height:36px;list-style:none;cursor:pointer;
+  padding:9px 11px;color:#b8d5e3;font:700 10px/1.35 var(--font);
+}
+#view-loot .nc21-observation-trace>summary:hover{background:#274051;color:#f1faff;}
+#view-loot .nc21-observation-trace>summary:focus-visible{outline:2px solid #a1e6d9;outline-offset:-2px;}
+#view-loot .nc21-observation-trace>summary::-webkit-details-marker{display:none;}
+#view-loot .nc21-observation-trace>summary svg{width:15px;height:15px;color:#8fc7d6;}
+#view-loot .nc21-trace-caret{display:grid;place-items:center;margin-left:auto;}
+#view-loot .nc21-observation-trace[open] .nc21-trace-caret svg{transform:rotate(180deg);}
+#view-loot .nc21-observation-trace #lootPreview{max-height:270px;border:0;border-top:1px solid #3b5664;border-radius:0;min-height:0;}
+/* Title / status / information is now a strict 2-level hierarchy. */
+#view-loot .nc20-content-first .nc20-quality.nc21-quality,
+#view-loot .nc20-content-first .nc20-quality.nc21-quality.nc20-quality-important{
+  margin:14px 0 0;padding:12px 0 0;gap:5px;
+  border:0;border-top:1px solid #3b5361;border-radius:0;background:transparent;
+}
+#view-loot .nc20-content-first .nc20-quality.nc21-quality.nc20-quality-important{
+  margin:0 0 12px;padding:8px 0 0;border-top:1px solid #745b4c;
+}
+#view-loot .nc21-quality-head{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;}
+#view-loot .nc21-quality-title{color:#d5e8ef;margin:0;font:760 11px/1.4 var(--font);}
+#view-loot .nc21-quality-info{
+  display:grid;place-items:center;flex:none;width:26px;height:26px;padding:0;border-radius:8px;
+  border:1px solid #496777;background:#223848;color:#a6c7d9;cursor:pointer;
+}
+#view-loot .nc21-quality-info svg{width:15px;height:15px;stroke-width:1.7;}
+#view-loot .nc21-quality-info:hover,#view-loot .nc21-quality-info[aria-expanded="true"]{
+  background:#2e5063;border-color:#7ac5c5;color:#d3fff7;
+}
+#view-loot .nc21-quality-info:focus-visible{outline:2px solid #b4f4e7;outline-offset:2px;}
+#view-loot .nc21-quality-status{display:flex;align-items:flex-start;gap:7px;color:#a0e2cf;min-width:0;}
+#view-loot .nc21-quality-status strong{font:660 10px/1.5 var(--font);overflow-wrap:anywhere;}
+#view-loot .nc21-quality-status svg{display:block;width:14px;height:14px;}
+#view-loot .nc21-quality-mark{display:grid;place-items:center;flex:0 0 14px;margin-top:1px;}
+#view-loot .nc21-quality-status.nc21-quality-partial{color:#f2c793;}
+#view-loot .nc21-quality-status.nc21-quality-ambiguous{color:#ffa9b9;}
+/* One self-contained popover for the selected observation; hover and click work. */
+.nc21-quality-popover{
+  position:fixed;z-index:160;overflow:auto;scrollbar-width:thin;scrollbar-color:#527389 transparent;
+  border-radius:10px;border:1px solid #648495;
+  background:linear-gradient(145deg,#213b4b,#142738);
+  box-shadow:0 16px 54px rgba(0,0,0,.60);padding:12px 13px;
+  color:#c9dee8;font:530 10px/1.6 var(--font,Inter,system-ui,sans-serif);
+}
+.nc21-quality-popover[hidden]{display:none!important;}
+.nc21-quality-popover .nc21-popover-title{display:block;margin-bottom:8px;color:#e5f4fa;font:780 10px/1.4 var(--font,Inter,system-ui,sans-serif);}
+.nc21-quality-popover .nc16-proof{display:flex;gap:7px;margin:0 0 8px;padding:0;background:none;border:0;color:#c3d6e2;}
+.nc21-quality-popover .nc16-proof svg{width:14px;height:14px;flex:none;margin-top:2px;}
+.nc21-quality-popover .nc312-secret-warning{
+  display:flex;align-items:flex-start;gap:8px;margin:8px 0 0;padding:9px 10px;
+  color:#f8d5a2;border:1px solid #926a3e;background:rgba(149,100,38,.19);
+  border-radius:7px;font:560 10px/1.5 var(--font,Inter,system-ui,sans-serif);
+}
+.nc21-quality-popover .nc312-secret-warning svg{width:15px;height:15px;flex:none;margin-top:1px;}
+.nc21-quality-popover .nc313-secondary-note{margin:8px 0 0;font-size:10px;line-height:1.55;}
+@media(max-width:710px){
+  #view-loot .nc21-inspector .nc21-observed{padding:10px;}
+  #view-loot .nc21-observed-value{font-size:12px;}
+  #view-loot .nc21-quality-title{font-size:11px;}
+}
+@media(prefers-reduced-motion:reduce){
+  #view-loot .nc21-observation-trace .nc21-trace-caret svg{transition:none!important;}
+}

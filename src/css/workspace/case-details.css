@@ -1,0 +1,42 @@
+/* A23 — Forensic Workspace: icons and single entry point for case details. */
+#view-forensic .nc23-forensic-icon{
+  position:relative;isolation:isolate;overflow:hidden;
+  color:#e1d7ff;border-color:#8574ba;
+  background:linear-gradient(150deg,#50436f 0%,#302f53 58%,#242744 100%);
+  box-shadow:inset 0 1px rgba(255,255,255,.16),0 6px 20px rgba(129,93,219,.20),0 0 20px rgba(160,119,251,.12);
+}
+#view-forensic .nc23-forensic-icon::before{content:"";position:absolute;inset:1px;border-radius:9px;pointer-events:none;background:linear-gradient(130deg,rgba(242,233,255,.10),transparent 62%)}
+#view-forensic .nc23-forensic-icon::after{content:"";position:absolute;right:5px;top:5px;width:3px;height:3px;border-radius:50%;background:#d5c3ff;box-shadow:0 0 8px rgba(216,195,255,.9);opacity:.7;pointer-events:none}
+#view-forensic .nc23-forensic-icon svg{position:relative;z-index:1;width:23px;height:23px;stroke-width:1.85;filter:drop-shadow(0 0 4px rgba(179,151,255,.35))}
+#view-forensic .nc23-case-titleline{display:flex;align-items:center;min-width:0;max-width:100%;gap:9px;margin:4px 0 3px}
+#view-forensic .nc23-case-titleline #nc22CaseName{min-width:0;flex:0 1 auto;max-width:calc(100% - 116px);margin:0}
+#view-forensic .nc23-details-toggle{display:inline-flex;align-items:center;justify-content:center;gap:5px;flex:0 0 auto;white-space:nowrap;min-height:26px;padding:4px 8px;border-radius:7px;border:1px solid rgba(151,190,215,.22);background:rgba(39,62,82,.35);color:#aac7d4;font:700 9px/1.1 var(--font);transition:background .16s,border-color .16s,color .16s}
+#view-forensic .nc23-details-toggle svg{width:12px;height:12px;stroke-width:1.8}
+#view-forensic .nc23-details-toggle:hover,#view-forensic .nc23-details-toggle[aria-expanded="true"]{color:#c2f8ec;border-color:rgba(117,224,208,.47);background:rgba(69,156,148,.14)}
+#view-forensic .nc23-details-toggle:focus-visible,#view-forensic .nc23-case-details-header button:focus-visible{outline:2px solid #a5f9e9;outline-offset:2px}
+#view-forensic #nc23CaseAnalyst{color:#abcbd2;font-weight:680}
+#view-forensic .nc23-case-details{border-top:1px solid rgba(136,180,204,.18);background:linear-gradient(145deg,rgba(16,33,49,.92),rgba(9,25,39,.86))}
+#view-forensic .nc23-case-details[hidden]{display:none!important}
+#view-forensic .nc23-case-details-header{display:flex;align-items:center;justify-content:space-between;padding:9px 19px 2px;color:#cee3eb}
+#view-forensic .nc23-case-details-name{display:inline-flex;align-items:center;gap:7px;font:760 11px var(--font)}
+#view-forensic .nc23-case-details-name svg{width:15px;height:15px;color:#8bd6d0}
+#view-forensic .nc23-case-details-header button{display:inline-grid;place-items:center;width:26px;height:26px;background:rgba(36,57,74,.7);border:1px solid rgba(137,180,203,.22);border-radius:7px;color:#b2cbd6}
+#view-forensic .nc23-case-details-header button:hover{color:#fff;border-color:rgba(124,232,215,.48)}
+#view-forensic .nc23-case-details-header button svg{width:14px;height:14px}
+#view-forensic .nc23-case-details .nc22-case-edit-body{padding-top:8px}
+#view-forensic .nc23-case-details .nc22-case-edit-body p strong{color:#c0e9e2;font-weight:720}
+@media(max-width:900px){#view-forensic .nc23-case-details-header{padding:10px 13px 2px}}
+@media(max-width:620px){#view-forensic .nc23-case-titleline{gap:7px}#view-forensic .nc23-case-titleline #nc22CaseName{max-width:calc(100% - 126px)}#view-forensic .nc23-details-toggle{font-size:9px;padding:5px 6px;min-height:27px}}
+@media(max-width:420px){#view-forensic .nc23-case-titleline #nc22CaseName{max-width:calc(100% - 116px)}#view-forensic .nc23-details-toggle{font-size:8.5px}}
+/* The sidebar occupies part of the viewport on narrow screens: prevent the
+   two elements in the case title line from forcing the identity column wider. */
+@media(max-width:620px){
+ #view-forensic .nc22-case-identity{min-width:0;width:100%;max-width:100%;}
+ #view-forensic .nc22-case-heading-text{min-width:0;flex:1 1 0;max-width:calc(100% - 45px);}
+ #view-forensic .nc23-case-titleline{min-width:0;width:100%;flex-wrap:wrap;}
+ #view-forensic .nc23-case-titleline #nc22CaseName{min-width:0;flex:1 1 105px;max-width:100%;}
+ #view-forensic .nc23-details-toggle{flex:0 0 auto;}
+}
+/* Let the heading fill the space left by the action toolbar on desktop, so
+   ordinary case names remain readable instead of truncating prematurely. */
+@media(min-width:621px){#view-forensic .nc22-case-heading-text{flex:1 1 0}}
